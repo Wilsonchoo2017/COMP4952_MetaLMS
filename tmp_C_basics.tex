@@ -1,0 +1,449 @@
+\input{include.tex}
+\begin{document}
+
+\section{Variables and Types}
+\subsection{}
+
+\begin{frame}
+\frametitle{Variables}
+
+\begin{itemize}
+\item Variables are used to store a value.
+\item The value a variable holds may change over its lifetime.
+\item At any point in time a variable stores one value {\small (except quantum computers!)}
+\item C variables have a type
+\end{itemize}
+
+We'll only use 2 types of variable for the next few weeks:
+
+\begin{itemize}
+\item {\bf int} for integer values, e.g.: 42, -1
+\item  {\bf double} for decimal numbers  3.14159, 2.71828
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Integer Representation}
+\begin{itemize}
+\item typically 4 bytes used to store an {\bf int}  variable
+\item 4 bytes $\rightarrow$ 32 bits $\rightarrow$ $2^{32}$ possible values (bit patterns)
+\item only $2^{32}$ integers can be represented - which ones?
+\item $-2^{31}$ to $2^{31}-1$\\i.e. -2,147,483,648 to +2,147,483,647
+\item Why are limits assymetric? \\
+\item zero needs a pattern (all zeros)
+\item can print bit values see: \\
+{\small \url{https://cgi.cse.unsw.edu.au/~cs1511/19T2/code/C_basics/print_bits_of_int.c}}
+\item More later and in COMP1521
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Integer Overflow/Underflow}
+\begin{itemize}
+\item storing a value in an {\b int} outside the range that can be represented is illegal
+\item unexpected behaviour from most C implementations \\
+e.g the sum of  2 large positive integers is negative
+\item may cause programs to halt, or not to terminate
+\item can creates security holes
+\item bits used for {\bf int} can be different on other platforms \\
+\item C on tiny embedded CPU in washing machine may use 16 bits \\
+ $-2^{15}$ to $2^{15}-1$ i.e. -32,768 to +32767 \\
+\item we'll show later how to handle this, for now assume 32 bit {\bf int}s
+\item also arbitrary precision libraries available for C \\
+manipulate integers of any size (memory permitting)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Real Representation}
+\begin{itemize}
+\item commonly 8 bytes used to store a {\bf double}  variable
+\item 8 bytes $\rightarrow$ 64 bits $\rightarrow$ $2^{64}$ possible values (bit patterns)
+\item 64-bits gives huge number of patterns but infinite number of reals
+\item use of bit patterns more complex, if you want to know now \\
+{\small \url{https://en.wikipedia.org/wiki/Double-precision_floating-point_format}}
+\item reals in (absolute) range $10^{-308}$ to $10^{308}$ can be approximated
+\item approximation errors can accumulate
+\item More later and in COMP1521
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+\frametitle{Variables}
+
+\begin{itemize}
+\item {\bf Declare}
+The first time a variable is mentioned, we need to specify its type.
+\item {\bf Initialise}
+Before using a variable we need to assign it a value.
+\end{itemize}
+
+\begin{C}
+// Declare
+int answer;
+// Initialise 
+answer = 42;
+// Use 
+printf("%d", num);
+\end{C}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Variable Names (and other Identifiers)}
+
+\begin{itemize}
+\item Variable names can made up of letters, digits and underscores
+\item Use a lower case letter to start your variable names
+\item Beware variable names are case sensitive, \\
+e.g. {\bf hello} and {\bf hEllo} are different names)
+\item Beware certain words can't be used as variable names: \\
+e.g.: {\bf if}, {\bf while}, {\bf return}, {\bf int}, {\bf double}
+\item These {\bf keywords} have special meanings in C programs.
+\item You'll learn what many of them  are as we go on.
+\end{itemize}
+\end{frame}
+
+\section{I/O with printf and scanf}
+\subsection{}
+\begin{frame}[fragile=singleslide]
+\frametitle{Output using printf()}
+
+\begin{itemize}
+
+\item No variables:
+\begin{C}
+printf("Hello World\n");
+\end{C}
+
+\item A single variable:
+\begin{C}
+int num = 5;
+printf("num is %d\n", num);
+\end{C}
+
+\item More than one variable:
+\begin{C}
+int j = 5;
+int k = 17;
+printf("j is %d and k is %d\n", j, k);
+\end{C}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+\frametitle{Using  values in printf()}
+\begin{itemize}
+\item Use {\bf \%d} to print an {\bf int} (integer) value
+\begin{C}
+int answer;
+answer = 42;
+printf("The answer is %d\n", answer);
+\end{C}
+\item Use {\bf \%lf} or {\bf \%g} to print a {\bf double} (floating point) value
+\begin{C}
+double pi;
+pi = 3.14159265359;
+printf("pi is %lf\n", pi);
+\end{C}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+\frametitle{Input using scanf()}
+
+scanf uses a format string like printf.
+
+\begin{itemize}
+\item Use {\bf \%d} to read an {\bf int} (integer) value
+\begin{C}
+int answer;
+printf("Enter the answer: ");
+scanf("%d", &answer);
+\end{C}
+\item Use {\bf \%lf} to read a {\bf double} (floating point) value
+\begin{C}
+double e;
+printf("Enter e: ");
+scanf("%lf", &e);
+\end{C}
+\item use only {\bf "\%d"} and  {\bf "\%lf"} format strings with scanf
+\item read only 1 value at a time with scanf
+\item scanf can be used in other ways - don't do it 
+\item we'll show you better ways to do other input 
+\end{itemize}
+\end{frame}
+
+
+
+
+\section{Arithmetic in C}
+\subsection{}
+
+\begin{frame}
+\frametitle{Numbers and Types}
+
+\begin{itemize}
+\item
+
+Numbers in programs have types.
+
+\item
+
+Numbers with a decimal point are type {\bf double}, e.g.
+
+3.14159 -34.56 42.0
+
+\item
+
+C also lets write numbers in scientific notation:
+
+$2.4e5 \implies 2.4\times10^5 \implies  240000.0$
+
+Numbers in scientific notation are also type {\bf double}
+
+\item
+
+Numbers without decimal point or exponent  are type {\bf int}, e.g.
+42 0 -24 
+
+\item
+
+Numbers in programs are often called constants \\
+(unlike variables they don't change)
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Giving Constants Names}
+
+\begin{itemize}
+\item
+
+It can be useful to give constants (numbers) a name.
+
+\item
+
+It often makes your program more readable.
+
+\item
+
+It can make your program easier to update \\
+particularly if the constant appears in many places
+
+\item
+
+One method is {\bf \#define} statement e.g.\\
+\#define SPEED\_OF\_LIGHT 299792458.0
+
+\item
+{\bf \#define} statements go at the top of your program \\
+after {\bf \#include} statements
+
+\item
+\#define names should be all capital letters $+$ underscore
+
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Arithmetic Operators}
+
+\begin{itemize}
+\item
+
+C supports the usual maths operations: \scalebox{1.2}{$ + - *$ $/$} 
+
+\item
+
+Precedence is as you would expect from high school, e.g.: 
+
+$ a + b * c + d / e \implies a + (b * c) + (d / e)$
+
+\item
+
+Associativity (grouping) is as you would expect from high school, e.g.:
+
+$ a - b - c - d \implies ((a - b) - c) - d $
+
+\item
+
+Use brackets if in doubt about order arithemtic will  be evaluated.
+
+\item
+
+Beware division may not do what you expect.
+
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Division in C}
+
+\begin{itemize}
+\item
+
+C division does what you expect if either operand is a {\bf double}
+
+If either operand is a {\bf double} the result is a {\bf double} . 
+
+$ 2.6 / 2 \implies 1.3 $  (not 2!)
+
+\item
+
+C division may not do what you expect if both arguments are integers.
+
+\item
+
+The result of dividing 2 integers in C is an integer.
+
+\item
+
+The fractional part is discarded (not rounded!).
+
+$ 5 / 3 \implies 1 $  (not 2!)
+
+\item
+
+C also has the {\bf \%} operator (integers only).
+
+computes the modulo (remainder after division)
+
+14 \% 3 $\implies$ 2
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Mathematical functions}
+
+\begin{itemize}
+\item
+
+Mathematical functions not part of standard library
+
+Essentially because tiny CPUs may not support them
+
+\item
+
+A library of mathematical functions is available including: 
+
+sqrt(), sin(), cos(), log(), exp()
+
+Above functions take a {\bf double} as argument and return a {\bf double}
+
+\item
+
+Functions covered fully later in course  
+
+\item
+
+Extra include line needed at top of program:
+
+\#include $<$math.h$>$
+
+
+(explained later in course)
+
+\item
+
+dcc includes maths library by default 
+
+most compilers need extra option:
+
+gcc needs {\bf -lm} e.g.:\\[2ex]
+{\tt gcc -o heron heron.c -lm}
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Other functions - printf \& scanf}
+
+\begin{itemize}
+\item
+
+printf \& scanf are functions
+
+\item
+
+scanf returns a value  returns number of items read
+
+\item
+
+Use this value to determine if scanf successfully read number.
+
+\item
+
+scanf could fail e.g. if the user enters letters
+
+\item
+
+OK for now to assume scanf succeeds
+
+\item
+
+Good programmers always check
+\end{itemize}
+
+
+\end{frame}
+
+\section{More Linux}
+\subsection{}
+
+\begin{frame}[fragile=singleslide]
+\frametitle{Linux Command: cp}
+
+
+\begin{itemize}
+\item  Linux Command {\bf cp}: copies files and directories.
+\item \texttt{cp} \textit{sourceFile} \textit{destination}
+\item
+If the destination is an existing file, the file is overwritten 
+\item
+if
+the destination is an existing directory \\ 
+the file is copied into the directory
+\item To copy a directory use \texttt{cp -r} \textit{sourceDir} \textit{destination}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Linux Command: mv}
+
+\begin{itemize}
+\item Linux Command {\bf mv} moves or renames a file.
+\item \texttt{mv} \textit{source} \textit{destination}
+\item
+If the destination is an existing file, the file is overwritten
+\item
+if the destination is an existing directory \\
+the file is moved into the directory.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+\frametitle{Linux Command: rm}
+
+\begin{itemize}
+\item Linux Command {\bf rm} removes a file.
+\item Usually no undo or recycle bin - be careful \& have backups
+\item \texttt{rm} \textit{filename}
+\item \texttt{rm -r} \textit{directoryName}
+\begin{itemize}
+\item This will delete a whole directory.
+\item \red {Be extra careful with this command}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\end{document}
