@@ -1,0 +1,140 @@
+% https://groups.google.com/forum/#!topic/comp.text.tex/s6z9Ult_zds
+\makeatletter\let\ifGm@compatii\relax\makeatother
+
+\ifx\notes\undefined
+    \documentclass{beamer}
+ \else
+   \documentclass[handout]{beamer}
+    \mode<handout>{
+        \usepackage{pgfpages}
+    \pgfpagesuselayout{4 on 1}[a4paper ,border shrink=2mm, landscape]
+	\pgfpageslogicalpageoptions{1}{border code=\pgfsetlinewidth{1mm}\pgfusepath{stroke}}
+	\pgfpageslogicalpageoptions{2}{border code=\pgfsetlinewidth{1mm}\pgfusepath{stroke}}
+	\pgfpageslogicalpageoptions{3}{border code=\pgfsetlinewidth{1mm}\pgfusepath{stroke}}
+	\pgfpageslogicalpageoptions{4}{border code=\pgfsetlinewidth{1mm}\pgfusepath{stroke}}
+%    \setbeamercolor{background canvas}{bg=black!3}
+    }
+\fi
+%http://www.cpt.univ-mrs.fr/~masson/latex/Beamer-appearance-cheat-sheet.pdf
+\definecolor{Dandelion}         {RGB}{253, 200, 47}
+\setbeamertemplate{frametitle}
+{\vspace{1mm}
+\begin{centering}
+\insertframetitle
+\end{centering}
+{\color{Dandelion} \rule{\textwidth}{1mm}}
+}
+\setbeamertemplate{itemize item}{$\bullet$}
+\setbeamertemplate{navigation symbols}{}
+%\setbeamercolor{title}{fg=Fern}
+%\setbeamercolor{frametitle}{fg=Fern}
+%\setbeamercolor{normal text}{fg=Charcoal}
+%\setbeamercolor{block title}{fg=black,bg=Fern!25!white}
+%\setbeamercolor{block body}{fg=black,bg=Fern!25!white}
+%\setbeamercolor{alerted text}{fg=AlertColor}
+\setbeamercolor{itemize item}{fg=black}
+
+\usepackage[latin1]{inputenc}
+\usepackage{epic,eepic,epsf}
+%\usepackage{latexsym}
+\usepackage{verbatim}
+\usepackage{listings}
+\usepackage{alltt}
+\usepackage{minted}
+% without these packages some $ characters in minted become pound symbols
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+
+%% all code examples use "code" environment
+\newenvironment{code}{\begin{minted}{c}}{\end{minted}}
+
+%\newcommand{\UnderscoreCommands}{\do\verbatiminput%
+%\do\citeNP \do\citeA \do\citeANP \do\citeN \do\shortcite%
+%\do\shortciteNP \do\shortciteA \do\shortciteANP \do\shortciteN%
+%\do\citeyear \do\citeyearNP%
+%}
+%\usepackage[strings]{underscore}
+%\usetheme{Pittsburgh}
+
+%\makeatletter
+%\setbeamercolor{background canvas}{bg=white}
+%\setbeamercolor{background}{bg=white}
+%\makeatother
+
+\title[COMP1511 Programming Fundamentals]{COMP1511}
+\author{Andrew Taylor}
+\institute{CSE, UNSW}
+\date{\today}
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand<>{\RedNote}[2]{%
+  \begin{alertblock}#3{#1}
+    #2
+  \end{alertblock}}
+\newcommand<>{\Note}[2]{%
+  \begin{exampleblock}#3{#1}
+    #2
+  \end{exampleblock}}
+\newcommand{\NotesFrame}{\frame<handout>[plain]{\frametitle{My Notes}}}
+\newcommand{\ttblue}[1]{\texttt{\blue{#1}}}
+
+\usepackage{epstopdf}
+
+
+% prefer pdf over png if both versions exist
+\DeclareGraphicsExtensions{%
+    .pdf,.PDF,%
+    .png,.PNG,%
+    .jpg,.mps,.jpeg,.jbig2,.jb2,.JPG,.JPEG,.JBIG2,.JB2}
+
+\usepackage[framemethod=TikZ]{mdframed}
+
+\definecolor{mintedColour}{rgb}{1,0.99,0.96}
+\newenvironment{C}
+ {\VerbatimEnvironment
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+  \begin{mdframed}[backgroundcolor=mintedColour,roundcorner=5pt]
+  \begin{minted}{c}}
+ {\end{minted}
+ \end{mdframed}
+}
+  
+
+\newenvironment{sh}
+ {\VerbatimEnvironment
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+  \begin{block}{}
+  \begin{minted}{sh}}
+ {\end{minted}
+  \end{block}}
+  
+  
+\newenvironment{perl}
+ {\VerbatimEnvironment
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+  \begin{mdframed}[backgroundcolor=mintedColour,roundcorner=3pt]
+  \begin{minted}{perl}}
+ {\end{minted}
+ \end{mdframed}
+}  
+  
+\newenvironment{python}
+ {\VerbatimEnvironment
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+  \begin{mdframed}[backgroundcolor=mintedColour,roundcorner=3pt]
+  \begin{minted}{python}}
+ {\end{minted}
+ \end{mdframed}
+}  
+  
+\newenvironment{txt}
+ {\VerbatimEnvironment
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+  \begin{mdframed}[backgroundcolor=mintedColour,roundcorner=3pt]
+  \begin{minted}{text}}
+ {\end{minted}
+ \end{mdframed}
+}
+
