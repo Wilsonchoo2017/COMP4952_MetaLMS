@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.w3.org/2004/02/skos/core#"
-     xml:base="http://www.w3.org/2004/02/skos/core"
+<rdf:RDF xmlns="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#"
+     xml:base="http://www.skosknowledge.com/ontologies/skos_knowledge.owl"
      xmlns:dct="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -8,7 +8,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#">
-    <owl:Ontology rdf:about="http://www.w3.org/2004/02/skos/core">
+    <owl:Ontology rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl">
         <dct:description xml:lang="en">An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, &apos;folksonomies&apos;, other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies.</dct:description>
         <dct:title xml:lang="en">SKOS Vocabulary</dct:title>
         <rdfs:seeAlso rdf:resource="http://www.w3.org/TR/skos-reference/"/>
@@ -39,121 +39,121 @@
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#altLabel -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#altLabel -->
 
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#altLabel">
+    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#altLabel">
+        <definition xml:lang="en">An alternative lexical label for a resource.</definition>
+        <example xml:lang="en">Acronyms, abbreviations, spelling variants, and irregular plural/singular forms may be included among the alternative labels for a concept. Mis-spelled terms are normally included as hidden labels (see skos:hiddenLabel).</example>
         <rdfs:comment xml:lang="en">The range of skos:altLabel is the class of RDF plain literals.</rdfs:comment>
         <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">alternative label</rdfs:label>
-        <definition xml:lang="en">An alternative lexical label for a resource.</definition>
-        <example xml:lang="en">Acronyms, abbreviations, spelling variants, and irregular plural/singular forms may be included among the alternative labels for a concept. Mis-spelled terms are normally included as hidden labels (see skos:hiddenLabel).</example>
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
     </owl:AnnotationProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#changeNote -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#changeNote -->
 
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#changeNote">
+    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#changeNote">
+        <definition xml:lang="en">A note about a modification to a concept.</definition>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">change note</rdfs:label>
-        <definition xml:lang="en">A note about a modification to a concept.</definition>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#note"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#note"/>
     </owl:AnnotationProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#definition -->
 
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition">
+    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#definition">
+        <definition xml:lang="en">A statement or formal explanation of the meaning of a concept.</definition>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">definition</rdfs:label>
-        <definition xml:lang="en">A statement or formal explanation of the meaning of a concept.</definition>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#note"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#note"/>
     </owl:AnnotationProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#editorialNote -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#editorialNote -->
 
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#editorialNote">
+    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#editorialNote">
+        <definition xml:lang="en">A note for an editor, translator or maintainer of the vocabulary.</definition>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">editorial note</rdfs:label>
-        <definition xml:lang="en">A note for an editor, translator or maintainer of the vocabulary.</definition>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#note"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#note"/>
     </owl:AnnotationProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#example -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#example -->
 
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#example">
+    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#example">
+        <definition xml:lang="en">An example of the use of a concept.</definition>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">example</rdfs:label>
-        <definition xml:lang="en">An example of the use of a concept.</definition>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#note"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#note"/>
     </owl:AnnotationProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#hiddenLabel -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#hiddenLabel -->
 
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#hiddenLabel">
+    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#hiddenLabel">
+        <definition xml:lang="en">A lexical label for a resource that should be hidden when generating visual displays of the resource, but should still be accessible to free text search operations.</definition>
         <rdfs:comment xml:lang="en">The range of skos:hiddenLabel is the class of RDF plain literals.</rdfs:comment>
         <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">hidden label</rdfs:label>
-        <definition xml:lang="en">A lexical label for a resource that should be hidden when generating visual displays of the resource, but should still be accessible to free text search operations.</definition>
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
     </owl:AnnotationProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#historyNote -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#historyNote -->
 
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#historyNote">
+    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#historyNote">
+        <definition xml:lang="en">A note about the past state/use/meaning of a concept.</definition>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">history note</rdfs:label>
-        <definition xml:lang="en">A note about the past state/use/meaning of a concept.</definition>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#note"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#note"/>
     </owl:AnnotationProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#note -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#note -->
 
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#note">
-        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
-        <rdfs:label xml:lang="en">note</rdfs:label>
+    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#note">
         <definition xml:lang="en">A general note, for any purpose.</definition>
         <scopeNote xml:lang="en">This property may be used directly, or as a super-property for more specific note types.</scopeNote>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">note</rdfs:label>
     </owl:AnnotationProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#prefLabel -->
 
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel">
+    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#prefLabel">
+        <definition xml:lang="en">The preferred lexical label for a resource, in a given language.</definition>
         <rdfs:comment xml:lang="en">A resource has no more than one value of skos:prefLabel per language tag, and no more than one value of skos:prefLabel without language tag.</rdfs:comment>
         <rdfs:comment xml:lang="en">The range of skos:prefLabel is the class of RDF plain literals.</rdfs:comment>
         <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise
       disjoint properties.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">preferred label</rdfs:label>
-        <definition xml:lang="en">The preferred lexical label for a resource, in a given language.</definition>
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
     </owl:AnnotationProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#scopeNote -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#scopeNote -->
 
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#scopeNote">
+    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#scopeNote">
+        <definition xml:lang="en">A note that helps to clarify the meaning and/or the use of a concept.</definition>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">scope note</rdfs:label>
-        <definition xml:lang="en">A note that helps to clarify the meaning and/or the use of a concept.</definition>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#note"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#note"/>
     </owl:AnnotationProperty>
     
 
@@ -169,230 +169,230 @@
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#broadMatch -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broadMatch -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#broadMatch">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#mappingRelation"/>
-        <owl:inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#narrowMatch"/>
+    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broadMatch">
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#mappingRelation"/>
+        <owl:inverseOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrowMatch"/>
+        <definition xml:lang="en">skos:broadMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.</definition>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">has broader match</rdfs:label>
-        <definition xml:lang="en">skos:broadMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.</definition>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#broader -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#broader">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#broaderTransitive"/>
-        <owl:inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#narrower"/>
+    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader">
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broaderTransitive"/>
+        <owl:inverseOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrower"/>
+        <definition xml:lang="en">Relates a concept to a concept that is more general in meaning.</definition>
+        <scopeNote xml:lang="en">By convention, skos:broader is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources.</scopeNote>
         <rdfs:comment xml:lang="en">Broader concepts are typically rendered as parents in a concept hierarchy (tree).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">has broader</rdfs:label>
-        <definition xml:lang="en">Relates a concept to a concept that is more general in meaning.</definition>
-        <scopeNote xml:lang="en">By convention, skos:broader is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources.</scopeNote>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#broaderTransitive -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broaderTransitive -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#broaderTransitive">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#semanticRelation"/>
-        <owl:inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#narrowerTransitive"/>
+    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broaderTransitive">
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#semanticRelation"/>
+        <owl:inverseOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrowerTransitive"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
-        <rdfs:label xml:lang="en">has broader transitive</rdfs:label>
         <definition>skos:broaderTransitive is a transitive superproperty of skos:broader.</definition>
         <scopeNote xml:lang="en">By convention, skos:broaderTransitive is not used to make assertions. Rather, the properties can be used to draw inferences about the transitive closure of the hierarchical relation, which is useful e.g. when implementing a simple query expansion algorithm in a search application.</scopeNote>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">has broader transitive</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#closeMatch -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#closeMatch -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#closeMatch">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#mappingRelation"/>
+    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#closeMatch">
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#mappingRelation"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <definition xml:lang="en">skos:closeMatch is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of &quot;compound errors&quot; when combining mappings across more than two concept schemes, skos:closeMatch is not declared to be a transitive property.</definition>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">has close match</rdfs:label>
-        <definition xml:lang="en">skos:closeMatch is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of &quot;compound errors&quot; when combining mappings across more than two concept schemes, skos:closeMatch is not declared to be a transitive property.</definition>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#exactMatch -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#exactMatch -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#exactMatch">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#exactMatch">
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#closeMatch"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <definition xml:lang="en">skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications. skos:exactMatch is a transitive property, and is a sub-property of skos:closeMatch.</definition>
         <rdfs:comment xml:lang="en">skos:exactMatch is disjoint with each of the properties skos:broadMatch and skos:relatedMatch.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">has exact match</rdfs:label>
-        <definition xml:lang="en">skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications. skos:exactMatch is a transitive property, and is a sub-property of skos:closeMatch.</definition>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#hasTopConcept -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#hasTopConcept -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#hasTopConcept">
-        <owl:inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#topConceptOf"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#hasTopConcept">
+        <owl:inverseOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#topConceptOf"/>
+        <rdfs:domain rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptScheme"/>
+        <rdfs:range rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
+        <definition xml:lang="en">Relates, by convention, a concept scheme to a concept which is topmost in the broader/narrower concept hierarchies for that scheme, providing an entry point to these hierarchies.</definition>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">has top concept</rdfs:label>
-        <definition xml:lang="en">Relates, by convention, a concept scheme to a concept which is topmost in the broader/narrower concept hierarchies for that scheme, providing an entry point to these hierarchies.</definition>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#inScheme -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#inScheme -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#inScheme">
-        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
-        <rdfs:label xml:lang="en">is in scheme</rdfs:label>
+    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#inScheme">
+        <rdfs:range rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptScheme"/>
         <definition xml:lang="en">Relates a resource (for example a concept) to a concept scheme in which it is included.</definition>
         <scopeNote xml:lang="en">A concept may be a member of more than one concept scheme.</scopeNote>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">is in scheme</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#mappingRelation -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#mappingRelation -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#mappingRelation">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#semanticRelation"/>
+    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#mappingRelation">
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#semanticRelation"/>
+        <definition xml:lang="en">Relates two concepts coming, by convention, from different schemes, and that have comparable meanings</definition>
         <rdfs:comment xml:lang="en">These concept mapping relations mirror semantic relations, and the data model defined below is similar (with the exception of skos:exactMatch) to the data model defined for semantic relations. A distinct vocabulary is provided for concept mapping relations, to provide a convenient way to differentiate links within a concept scheme from links between concept schemes. However, this pattern of usage is not a formal requirement of the SKOS data model, and relies on informal definitions of best practice.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">is in mapping relation with</rdfs:label>
-        <definition xml:lang="en">Relates two concepts coming, by convention, from different schemes, and that have comparable meanings</definition>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#member -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#member">
-        <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#Collection"/>
+    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member">
+        <rdfs:domain rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Collection"/>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Collection"/>
-                    <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
+                    <rdf:Description rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Collection"/>
+                    <rdf:Description rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <definition xml:lang="en">Relates a collection to one of its members.</definition>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">has member</rdfs:label>
-        <definition xml:lang="en">Relates a collection to one of its members.</definition>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#memberList -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#memberList -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#memberList">
+    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#memberList">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#OrderedCollection"/>
+        <rdfs:domain rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#OrderedCollection"/>
         <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+        <definition xml:lang="en">Relates an ordered collection to the RDF list containing its members.</definition>
         <rdfs:comment xml:lang="en">For any resource, every item in the list given as the value of the
       skos:memberList property is also a value of the skos:member property.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">has member list</rdfs:label>
-        <definition xml:lang="en">Relates an ordered collection to the RDF list containing its members.</definition>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#narrowMatch -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrowMatch -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#narrowMatch">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#mappingRelation"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#narrower"/>
+    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrowMatch">
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#mappingRelation"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrower"/>
+        <definition xml:lang="en">skos:narrowMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.</definition>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">has narrower match</rdfs:label>
-        <definition xml:lang="en">skos:narrowMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.</definition>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#narrower -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrower -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#narrower">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#narrowerTransitive"/>
+    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrower">
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrowerTransitive"/>
+        <definition xml:lang="en">Relates a concept to a concept that is more specific in meaning.</definition>
+        <scopeNote xml:lang="en">By convention, skos:broader is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources.</scopeNote>
         <rdfs:comment xml:lang="en">Narrower concepts are typically rendered as children in a concept hierarchy (tree).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">has narrower</rdfs:label>
-        <definition xml:lang="en">Relates a concept to a concept that is more specific in meaning.</definition>
-        <scopeNote xml:lang="en">By convention, skos:broader is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources.</scopeNote>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#narrowerTransitive -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrowerTransitive -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#narrowerTransitive">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#semanticRelation"/>
+    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrowerTransitive">
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#semanticRelation"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
-        <rdfs:label xml:lang="en">has narrower transitive</rdfs:label>
         <definition>skos:narrowerTransitive is a transitive superproperty of skos:narrower.</definition>
         <scopeNote xml:lang="en">By convention, skos:narrowerTransitive is not used to make assertions. Rather, the properties can be used to draw inferences about the transitive closure of the hierarchical relation, which is useful e.g. when implementing a simple query expansion algorithm in a search application.</scopeNote>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">has narrower transitive</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#related -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#related -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#related">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#semanticRelation"/>
+    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#related">
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#semanticRelation"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <definition xml:lang="en">Relates a concept to a concept with which there is an associative semantic relationship.</definition>
         <rdfs:comment xml:lang="en">skos:related is disjoint with skos:broaderTransitive</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">has related</rdfs:label>
-        <definition xml:lang="en">Relates a concept to a concept with which there is an associative semantic relationship.</definition>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#relatedMatch -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#relatedMatch -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#relatedMatch">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#mappingRelation"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#related"/>
+    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#relatedMatch">
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#mappingRelation"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#related"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <definition xml:lang="en">skos:relatedMatch is used to state an associative mapping link between two conceptual resources in different concept schemes.</definition>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">has related match</rdfs:label>
-        <definition xml:lang="en">skos:relatedMatch is used to state an associative mapping link between two conceptual resources in different concept schemes.</definition>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#semanticRelation -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#semanticRelation -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#semanticRelation">
-        <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
-        <rdfs:label xml:lang="en">is in semantic relation with</rdfs:label>
+    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#semanticRelation">
+        <rdfs:domain rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
+        <rdfs:range rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <definition xml:lang="en">Links a concept to a concept related by meaning.</definition>
         <scopeNote xml:lang="en">This property should not be used directly, but as a super-property for all properties denoting a relationship of meaning between concepts.</scopeNote>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">is in semantic relation with</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#topConceptOf -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#topConceptOf -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#topConceptOf">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#topConceptOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#inScheme"/>
+        <rdfs:domain rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
+        <rdfs:range rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptScheme"/>
+        <definition xml:lang="en">Relates a concept to the concept scheme that it is a top level concept of.</definition>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">is top concept in scheme</rdfs:label>
-        <definition xml:lang="en">Relates a concept to the concept scheme that it is a top level concept of.</definition>
     </owl:ObjectProperty>
     
 
@@ -408,13 +408,13 @@
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#notation -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#notation -->
 
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/2004/02/skos/core#notation">
-        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
-        <rdfs:label xml:lang="en">notation</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#notation">
         <definition xml:lang="en">A notation, also known as classification code, is a string of characters such as &quot;T58.5&quot; or &quot;303.4833&quot; used to uniquely identify a concept within the scope of a given concept scheme.</definition>
         <scopeNote xml:lang="en">By convention, skos:notation is used with a typed literal in the object position of the triple.</scopeNote>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">notation</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -430,506 +430,500 @@
     
 
 
-    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#List -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ArithmeticOperator -->
 
-    <owl:Class rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-    
-
-
-    <!-- http://www.w3.org/2004/02/skos/core#ArithmeticOperator -->
-
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ArithmeticOperator">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Operator"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ArithmeticOperator">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Operator"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptArithmetic_Operator"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptArithmetic_Operator"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#CProgram -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#CProgram -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#CProgram">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#ProgrammingLanguage"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#CProgram">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ProgrammingLanguage"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptC_Program"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptC_Program"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#Collection -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Collection -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Collection">
-        <owl:disjointWith rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <owl:disjointWith rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
-        <rdfs:label xml:lang="en">Collection</rdfs:label>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Collection">
+        <owl:disjointWith rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
+        <owl:disjointWith rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptScheme"/>
         <definition xml:lang="en">A meaningful collection of concepts.</definition>
         <scopeNote xml:lang="en">Labelled collections can be used where you would like a set of concepts to be displayed under a &apos;node label&apos; in the hierarchy.</scopeNote>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">Collection</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#Comment -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Comment -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Comment">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Program"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Comment">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Program"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptComment"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptComment"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#Computer -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Computer -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Computer">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#1511"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Computer">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#1511"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptComputer"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptComputer"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept">
-        <owl:disjointWith rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept">
+        <owl:disjointWith rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptScheme"/>
+        <definition xml:lang="en">An idea or notion; a unit of thought.</definition>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <rdfs:label xml:lang="en">Concept</rdfs:label>
-        <definition xml:lang="en">An idea or notion; a unit of thought.</definition>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptAlgorithm -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptAlgorithm -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptAlgorithm">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptArithmetic_Operator -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptArithmetic_Operator -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptArithmetic_Operator">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptArithmetic_Operator">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptOperator"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptOperator"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptAssignment -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptAssignment -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptAssignment">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptAssignment">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptC_Program -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptC_Program -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptC_Program">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptC_Program">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#related"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#related"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptC_Programming_Language -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptC_Programming_Language -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptC_Programming_Language">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptC_Programming_Language">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptC_Program"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptC_Program"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptCode -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptCode -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptCode">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptCode">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptComment -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptComment -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptComment">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptComment">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptCompilation -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptCompilation -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptCompilation">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptCompilation">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#narrower"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptMachine_Code"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptComputer -->
-
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptComputer">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#narrower"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrower"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptMachine_Code"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptConstant -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptComputer -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptConstant">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptComputer">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrower"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptDeclaration -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptConstant -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptDeclaration">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptConstant">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptVariable"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptDirective -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptDeclaration -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptDirective">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptDeclaration">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptVariable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptDouble -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptDirective -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptDouble">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptDirective">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptType"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptExpression -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptDouble -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptExpression">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptDouble">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptFloat -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptExpression -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptFloat">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptExpression">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptType"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptFunction -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptFloat -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptFunction">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptFloat">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptFunction_Call -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptFunction -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptFunction_Call">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptFunction">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptFunction"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptFunction_Heading -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptFunction_Call -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptFunction_Heading">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptFunction_Call">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptFunction"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptFunction"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptIdentifier -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptFunction_Heading -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptIdentifier">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptFunction_Heading">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptVariable"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptFunction"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptInitialisation -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptIdentifier -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptInitialisation">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptIdentifier">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptVariable"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptVariable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptInput_Output -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptInitialisation -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptInput_Output">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptInitialisation">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptVariable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptInstruction -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptInput_Output -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptInstruction">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptInput_Output">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#related"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptMachine_Code"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptInteger -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptInstruction -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptInteger">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptInstruction">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptType"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#related"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptMachine_Code"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptInterface -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptInteger -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptInterface">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptInteger">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptFunction"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptKeyword -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptInterface -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptKeyword">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptInterface">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptFunction"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptLifetime -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptKeyword -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptLifetime">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptKeyword">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptFunction"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptMachine_Code -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptLifetime -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptMachine_Code">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptLifetime">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#related"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptInstruction"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptFunction"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptMacro -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptMachine_Code -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptMacro">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptMachine_Code">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#related"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptInstruction"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptMemory -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptMacro -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptMemory">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptMacro">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptOperator -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptMemory -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptOperator">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptMemory">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptOperator -->
+
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptOperator">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <altLabel>operations</altLabel>
@@ -937,220 +931,220 @@
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptParameter -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptParameter -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptParameter">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptParameter">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptFunction"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptFunction"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptProcedure -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProcedure -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptProcedure">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProcedure">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptProgram -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptProgram">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broaderTransitive"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptComputer"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broaderTransitive"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptComputer"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#narrower"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptAlgorithm"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrower"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptAlgorithm"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#narrower"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptInstruction"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptProgramming -->
-
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptProgramming">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrower"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptInstruction"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptProgramming_Language -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgramming -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptProgramming_Language">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgramming">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgramming"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptProgramming_Strategy -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgramming_Language -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptProgramming_Strategy">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgramming_Language">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgramming"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgramming"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptRelational_Operator -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgramming_Strategy -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptRelational_Operator">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgramming_Strategy">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptOperator"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgramming"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptReturn_value -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptRelational_Operator -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptReturn_value">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptRelational_Operator">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptFunction"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptOperator"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptScheme -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptReturn_value -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme">
-        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
-        <rdfs:label xml:lang="en">Concept Scheme</rdfs:label>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptReturn_value">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptFunction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptScheme -->
+
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptScheme">
         <definition xml:lang="en">A set of concepts, optionally including statements about semantic relationships between those concepts.</definition>
         <example xml:lang="en">Thesauri, classification schemes, subject heading lists, taxonomies, &apos;folksonomies&apos;, and other types of controlled vocabulary are all examples of concept schemes. Concept schemes are also embedded in glossaries and terminologies.</example>
         <scopeNote xml:lang="en">A concept scheme may be defined to include concepts from different sources.</scopeNote>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">Concept Scheme</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptSchemeDouble -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptSchemeDouble -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptSchemeDouble">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptSchemeType"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptSchemeDouble">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptSchemeType"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptDouble"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptDouble"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptSchemeFloat -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptSchemeFloat -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptSchemeFloat">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptSchemeType"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptSchemeFloat">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptSchemeType"/>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptSchemeInteger -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptSchemeInteger -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptSchemeInteger">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptSchemeType"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptSchemeInteger">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptSchemeType"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptInteger"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptInteger"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptSchemeType -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptSchemeType -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptSchemeType">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptSchemeType">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptScheme"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#hasTopConcept"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptType"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#hasTopConcept"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptFloat"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptScope -->
-
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScope">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptFunction"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptFloat"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptSelection_Statement -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptScope -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptSelection_Statement">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptScope">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptFunction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptSelection_Statement -->
+
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptSelection_Statement">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <altLabel>Conditioned Statements</altLabel>
@@ -1158,28 +1152,28 @@
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptStatement -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptStatement -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptStatement">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptStatement">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptType -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptType -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptType">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptType">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptVariable"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptVariable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <altLabel>Datatype</altLabel>
@@ -1187,347 +1181,353 @@
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptVariable -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptVariable -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptVariable">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptVariable">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#Constant -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Constant -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Constant">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Program"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Constant">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Program"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptConstant"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptConstant"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#Directive -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Directive -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Directive">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Program"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Directive">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Program"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptDirective"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptDirective"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#Function -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Function -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Function">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Program"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Function">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Program"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptFunction"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptFunction"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#FunctionLifetime -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#FunctionLifetime -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#FunctionLifetime">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Function"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#FunctionLifetime">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Function"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptLifetime"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptLifetime"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#FunctionParameter -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#FunctionParameter -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#FunctionParameter">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Function"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#FunctionParameter">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Function"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptParameter"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptParameter"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#FunctionScope -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#FunctionScope -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#FunctionScope">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Function"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#FunctionScope">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Function"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScope"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptScope"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#FunctionType -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#FunctionType -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#FunctionType">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Function"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#FunctionType">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Function"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptType"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#IO -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#IO -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#IO">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Program"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#IO">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Program"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptInput_Output"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptInput_Output"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#Operator -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Operator -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Operator">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Program"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Operator">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Program"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptOperator"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptOperator"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#OrderedCollection -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#OrderedCollection -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#OrderedCollection">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Collection"/>
-        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
-        <rdfs:label xml:lang="en">Ordered Collection</rdfs:label>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#OrderedCollection">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Collection"/>
         <definition xml:lang="en">An ordered collection of concepts, where both the grouping and the ordering are meaningful.</definition>
         <scopeNote xml:lang="en">Ordered collections can be used where you would like a set of concepts to be displayed in a specific order, and optionally under a &apos;node label&apos;.</scopeNote>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">Ordered Collection</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#Program -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Program -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Program">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Computer"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Program">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Computer"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgram"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgram"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#Programming -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Programming -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Programming">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Program"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Programming">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Program"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgramming"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgramming"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ProgrammingLanguage -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ProgrammingLanguage -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ProgrammingLanguage">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Programming"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ProgrammingLanguage">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Programming"/>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#ProgrammingStrategy -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ProgrammingStrategy -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ProgrammingStrategy">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Programming"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ProgrammingStrategy">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Programming"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptProgramming_Strategy"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptProgramming_Strategy"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#RelationalOperator -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#RelationalOperator -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#RelationalOperator">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Operator"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#RelationalOperator">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Operator"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptRelational_Operator"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptRelational_Operator"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#SelectionStatement -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#SelectionStatement -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#SelectionStatement">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Statement"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#SelectionStatement">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Statement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptSelection_Statement"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptSelection_Statement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#Statement -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Statement -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Statement">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Program"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Statement">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Program"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptStatement"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptStatement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#Variable -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Variable -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Variable">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Program"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Variable">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Program"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptVariable"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptVariable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#VariableAssignment -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#VariableAssignment -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#VariableAssignment">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Variable"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#VariableAssignment">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Variable"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptAssignment"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptAssignment"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#VariableDeclaration -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#VariableDeclaration -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#VariableDeclaration">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Variable"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#VariableDeclaration">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Variable"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptDeclaration"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptDeclaration"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#VariableInitialisation -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#VariableInitialisation -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#VariableInitialisation">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Variable"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#VariableInitialisation">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Variable"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptInitialisation"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptInitialisation"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#VariableMemory -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#VariableMemory -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#VariableMemory">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Variable"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#VariableMemory">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Variable"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptMemory"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptMemory"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#VariableType -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#VariableType -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#VariableType">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Variable"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#VariableType">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Variable"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptType"/>
+                <owl:onProperty rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member"/>
+                <owl:someValuesFrom rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#VariableValue -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#VariableValue -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#VariableValue">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Variable"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#VariableValue">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Variable"/>
     </owl:Class>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#1511 -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#1511 -->
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#1511">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Collection"/>
+    <owl:Class rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#1511">
+        <rdfs:subClassOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Collection"/>
     </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#List -->
+
+    <owl:Class rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
     
 
 
@@ -1542,9 +1542,9 @@
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#C_Programming_Language -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#C_Programming_Language -->
 
-    <owl:NamedIndividual rdf:about="http://www.w3.org/2004/02/skos/core#C_Programming_Language">
+    <owl:NamedIndividual rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#C_Programming_Language">
         <definition>C is an important programming language
 • relatively simple
 • widely used
@@ -1554,9 +1554,9 @@
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#Programs -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Programs -->
 
-    <owl:NamedIndividual rdf:about="http://www.w3.org/2004/02/skos/core#Programs">
+    <owl:NamedIndividual rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Programs">
         <definition>A program is
 • a set of instructions
 • that gives a procedure 
@@ -1565,9 +1565,9 @@
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#Programs1 -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Programs1 -->
 
-    <owl:NamedIndividual rdf:about="http://www.w3.org/2004/02/skos/core#Programs1">
+    <owl:NamedIndividual rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Programs1">
         <definition>A program needs to be
 • sufficiently detailed
 • unambiguous
@@ -1577,9 +1577,9 @@ So we don’t use English for programming</definition>
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#Programs2 -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Programs2 -->
 
-    <owl:NamedIndividual rdf:about="http://www.w3.org/2004/02/skos/core#Programs2">
+    <owl:NamedIndividual rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Programs2">
         <definition>A program is a text document, containing
 • a description of an algorithm
 • expressed in a programming language
@@ -1589,9 +1589,9 @@ It cannot be directly executed on a computer
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#Programs3 -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Programs3 -->
 
-    <owl:NamedIndividual rdf:about="http://www.w3.org/2004/02/skos/core#Programs3">
+    <owl:NamedIndividual rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Programs3">
         <definition>Typical program structure
 • get input values
 • process input to compute result 
@@ -1600,80 +1600,9 @@ It cannot be directly executed on a computer
     
 
 
-    <!-- http://www.w3.org/2004/02/skos/core#bad_pun.c -->
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#C_(the_language) -->
 
-    <owl:NamedIndividual rdf:about="http://www.w3.org/2004/02/skos/core#bad_pun.c">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptC_Program"/>
-        <example>// A simple C program that attempts to be punny
-// Written 23/2/2017
-// by Angela Finlayson (angf@cse.unsw.edu.au)
-// for COMP1511 Lab 01 Exercise 1
-
-#include &lt;stdio.h&gt;
-
-int main (void) {
-
-   printf (&quot;Hello, it is good to C you!\n&quot;);
-
-   return 0;
-}</example>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.w3.org/2004/02/skos/core#bird.c -->
-
-    <owl:NamedIndividual rdf:about="http://www.w3.org/2004/02/skos/core#bird.c">
-        <example>// A simple C program that prints an ASCII bird
-// Written 1/3/2017
-// by Angela Finlayson (angf@cse.unsw.edu.au)
-
-#include &lt;stdio.h&gt;
-
-int main(void) {
-    printf(&quot;  ___\n&quot;);
-    printf(&quot; (&apos;v&apos;)\n&quot;);
-    printf(&quot;((___))\n&quot;);
-    printf(&quot; ^   ^\n&quot;);
-    return 0;
-}</example>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.w3.org/2004/02/skos/core#fibonacci.c -->
-
-    <owl:NamedIndividual rdf:about="http://www.w3.org/2004/02/skos/core#fibonacci.c">
-        <example>// Print first 20 fibonacci numbers
-//
-// Andrew Taylor - andrewt@unsw.edu.au
-// 25/3/2018
-//
-
-#include &lt;stdio.h&gt;
-
-int main(void) {
-    int howManyNumbers, n, previousN, w;
-    n = 1;
-    previousN = 0;
-    howManyNumbers = 0;
-    while (howManyNumbers &lt; 20) {
-        w = previousN + n;
-        previousN = n;
-        n = w;
-        howManyNumbers = howManyNumbers + 1;
-        printf(&quot;%d\n&quot;, n);
-    }
-
-    return 0;
-}</example>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.w3.org/2004/02/skos/core#C_(the_language) -->
-
-    <owl:NamedIndividual rdf:about="http://www.w3.org/2004/02/skos/core#C_(the_language)">
+    <owl:NamedIndividual rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#C_(the_language)">
         <definition>A C program
 • consists of a collection of functions
 • one of which must be called main()
@@ -1695,9 +1624,9 @@ By convention, C programs are
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#ConceptSchemeDouble"/>
-            <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#ConceptSchemeFloat"/>
-            <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#ConceptSchemeInteger"/>
+            <rdf:Description rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptSchemeDouble"/>
+            <rdf:Description rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptSchemeFloat"/>
+            <rdf:Description rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptSchemeInteger"/>
         </owl:members>
     </rdf:Description>
 </rdf:RDF>

@@ -1,0 +1,13 @@
+max_cpu=10
+ignore_case=1
+ignore_blank_lines=1
+compare_only_characters=0123456789+-=
+
+command=./addition
+files=addition.c
+1 stdin='5 3\n' expected_stdout="Please enter two integers: 5 + 3 = 8\n"
+2 stdin='5 2\n' expected_stdout="Please enter two integers: 5 + 2 = 7\n"
+3 stdin='6 -5\n' expected_stdout="Please enter two integers: 6 + -5 = 1\n"
+4 stdin='-3 22\n' expected_stdout="Please enter two integers: -3 + 22 = 19\n"
+5 stdin='7 7\n' expected_stdout="Please enter two integers: 7 + 7 = 14\n"
+6 stdin='20 22\n' expected_stdout="Please enter two integers: 20 + 22 = 42\n"
