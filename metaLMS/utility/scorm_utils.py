@@ -37,8 +37,6 @@ course_api = scorm_cloud.CourseApi()
 # TODO Error Handling
 def upload_course(filepath):
     job_status = course_api.create_upload_and_import_course_job("1", file=filepath)
-
-
     return job_status
 
 def check_job_status(job_id):

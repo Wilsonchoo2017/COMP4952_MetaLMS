@@ -104,6 +104,11 @@ def get_instances(ontology_file, concept_class):
 
 
 def get_all_concepts(ontology_file):
+    """
+    :param ontology_file:
+    :return:
+        return a list of all concept names exist in ontology_file
+    """
     onto = get_ontology(ontology_file).load()
     result = []
     for i in onto.search(iri="*#Concept*"):
@@ -189,8 +194,23 @@ def get_relationships(ontology_file, concept_class):
         temp = {}
         temp[relation] = concept.replace(")", "")
         result.append(temp)
-
     return result
+
+def get_all_relationships(ontology_file):
+    concept_list = get_all_concepts(ontology_file)
+    relationship_list = []
+    for i in concept_list:
+        concept = "Concept" + i
+        relationships = get_relationships(ontology_file, concept)
+        for relationship in relationships:
+            for semantic_relation in relationship:
+                print(semantic_relation)
+                relationship_list.append({"from": i,
+                                          "to": relationship[semantic_relation],
+                                          "text": semantic_relation})
+
+    print(relationship_list)
+    return relationship_list
 
 
 def get_all_scheme(ontology_file):

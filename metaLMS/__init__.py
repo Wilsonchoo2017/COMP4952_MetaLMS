@@ -67,6 +67,12 @@ def create_app(test_config=None):
         concept = "Concept" + concept
         return jsonify(get_relationships(filepath, concept))
 
+
+    @app.route('/concept-all-relationship')
+    def concept_all_relationship():
+        return jsonify(get_all_relationships(filepath))
+
+
     @app.route('/concept-scheme/<concept>')
     def concept_scheme(concept):
         concept = "Concept" + concept

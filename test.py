@@ -39,25 +39,27 @@ filepath = "file://./owl/1511_skos_knowledge.owl"
 # print(datetime.datetime.now().timestamp())
 
 
-courseData = {'courseCode': 'TestCourseCode',
-              'courseName': 'TestCourseName',
-              'courseTerm': '1',
-              'courseYear': '2020',
-              'courseType': 'DLV',
-              'courseComponent': [{'name': 'Lecture',
-                                   'subComponent': ['Slides', 'Code', 'Mics']},
-                                  {'name': 'Test',
-                                   'subComponent': ['Coding', 'Written', 'Mics']}],
-              'courseDuration': '2',
-              'courseLOs': {'1': {'Lecture': {'Slides': [1], 'Code': [1], 'Mics': [1]},
-                                  'Test': {'Coding': [1], 'Written': [1,2], 'Mics': []}},
-                            '2': {'Lecture': {'Slides': [], 'Code': [], 'Mics': []},
-                                  'Test': {'Coding': [], 'Written': [], 'Mics': []}}}}
-
-
-
-handle_post_course(filepath, courseData)
+# courseData = {'courseCode': 'TestCourseCode',
+#               'courseName': 'TestCourseName',
+#               'courseTerm': '1',
+#               'courseYear': '2020',
+#               'courseType': 'DLV',
+#               'courseComponent': [{'name': 'Lecture',
+#                                    'subComponent': ['Slides', 'Code', 'Mics']},
+#                                   {'name': 'Test',
+#                                    'subComponent': ['Coding', 'Written', 'Mics']}],
+#               'courseDuration': '2',
+#               'courseLOs': {'1': {'Lecture': {'Slides': [1], 'Code': [1], 'Mics': [1]},
+#                                   'Test': {'Coding': [1], 'Written': [1,2], 'Mics': []}},
+#                             '2': {'Lecture': {'Slides': [], 'Code': [], 'Mics': []},
+#                                   'Test': {'Coding': [], 'Written': [], 'Mics': []}}}}
+#
+#
+#
+# handle_post_course(filepath, courseData)
 
 # print(get_sub_id("Lecture", 4))
 
 # print(get_dependency(filepath, "ConceptSomething_Test"))
+
+print(get_all_relationships(filepath))
