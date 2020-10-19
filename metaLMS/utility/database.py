@@ -31,14 +31,20 @@ def get_db_LO_from_id(id):
 
 def get_db_concept_and_course(id):
     """
-    Given conceptid Id
+    Given concept id(Learning Object id)
 
     :return:
         a list of dictionary
         which contains learning object details and course associated with it
     """
     conn, c = db_init()
-    result = c.execute("select distinct * from LearningObject as lo join course as c WHERE LOId=? and Course=c.CourseId", (str(id)))
+    # result = c.execute("select distinct * from LearningObject as lo join course as c WHERE LOId=? and Course=c.CourseId", (str(id)))
+    result = c.execute("select * from LearningObject "
+                       "join HasLO on LearningObject.LOId=HasLO.LOId "
+                       "join SubComponent on SubComponent.SubComponentId=HasLO.SubComponentId  "
+                       "join Component on Component.ComponentId=SubComponent.SubComponentId "
+                       "join Course on Course.CourseId=Component.CourseId "
+                       "where LearningObject.LOId=?", (str(id)))
 
     result = result.fetchone()
     row_headers = [x[0] for x in c.description]
@@ -46,6 +52,7 @@ def get_db_concept_and_course(id):
     json_data.append(dict(zip(row_headers, result)))
 
     c.close()
+    print(json_data)
     return json_data
 
 

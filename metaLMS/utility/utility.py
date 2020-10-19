@@ -236,12 +236,13 @@ def check_ontology(ontology_file):
 
 def get_concept_detail_for_frontend(filepath, concept):
     """
-    Get all details needed for frontend
+    Get all details needed for frontend concept details
 
     TODO for now it only pulls from database. use get_annotation to pull details from ontoloy
     TODO in the future this could be optimised
-    :param filepath:
+    :param filepath: ontology file path
     :return:
+        non-duplicated list of
     """
     instances = get_instances(filepath, concept)
 
