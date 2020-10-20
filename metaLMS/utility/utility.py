@@ -1,8 +1,10 @@
+"""
+This file contains utility function for the project
+It mostly provides ways to intereact with owl/rdf file
+"""
 from owlready2 import *
+
 from .database import *
-from base64 import b64decode
-from datetime import datetime
-from .scorm_utils import *
 
 database = "LOdatabase.db"
 possible_annotations = [
@@ -13,39 +15,55 @@ possible_annotations = [
 ]
 
 
-# onto = get_ontology("file://./skos_knowledge.owl").load()
-
 # TODO ALL functions Need to handle error properly Like empty cases!
 
+# def insert_ontology(individual, document_id, ontology_file, concept_class='Concept'):
+#     """
+#     :param individual:
+#     :param document_id:
+#     :param ontology_file:
+#     :param concept_class:
+#     :return:
+#     """
+#     """Insert new ontology into owl file
+#
+#     Replaces old document id if exist.
+#
+#     Parameter:
+#         individual -- instances name
+#         document_id -- Document primary key from database
+#         ontology_file -- filepath to owl file
+#         concept_class -- type of class it insert (Default = Concept)
+#
+#     """
+#
+#     onto = get_ontology(ontology_file).load()
+#
+#     with onto:
+#         class documentId(comment):
+#             pass
+#
+#     new_instance = onto[concept_class](individual)
+#     new_instance.documentId = document_id
+#
+#     # For now save into a new file called "testskos.owl" in the directory
+#     # TODO Remove This when in production
+#     onto.save(file="testskos.owl", format="rdfxml")
 
-def insert_ontology(individual, document_id, ontology_file, concept_class='Concept'):
-    """Insert new ontology into owl file
 
-    Replaces old document id if exist.
-
-    Parameter:
-        individual -- instances name
-        document_id -- Document primary key from database
-        ontology_file -- filepath to owl file
-        concept_class -- type of class it insert (Default = Concept)
-
+def insert_new_concept(ontology_file, name, altLabel, hiddenLabel, prefLabel, comment, dependency):
     """
+    insert concept into owl file
 
-    onto = get_ontology(ontology_file).load()
-
-    with onto:
-        class documentId(comment):
-            pass
-
-    new_instance = onto[concept_class](individual)
-    new_instance.documentId = document_id
-
-    # For now save into a new file called "testskos.owl" in the directory
-    # TODO Remove This when in production
-    onto.save(file="testskos.owl", format="rdfxml")
-
-
-def insert_new_ontology(ontology_file, name, altLabel, hiddenLabel, prefLabel, comment, dependency):
+    :param ontology_file: string - ontology_savefile
+    :param name: string - name of concept
+    :param altLabel: string - alt annotation
+    :param hiddenLabel: string - hidden annotation
+    :param prefLabel: string - pref annotation
+    :param comment: string - user defined annotation
+    :param dependency: string - concepts required
+    :return:
+    """
 
     dependency_string = ""
     for i in dependency:
@@ -75,10 +93,16 @@ def insert_new_ontology(ontology_file, name, altLabel, hiddenLabel, prefLabel, c
         if len(dependency) > 0:
             my_new_class.requires = dependency_string
 
-
     onto.save(file="testskos.owl", format="rdfxml")
 
+
 def get_dependency(ontology_file, concept_name):
+    """
+    gets all required dependency for the concept_name
+    :param ontology_file:
+    :param concept_name: string - concept name
+    :return:
+    """
     try:
         print(concept_name)
         onto = get_ontology(ontology_file).load()
@@ -92,22 +116,24 @@ def get_dependency(ontology_file, concept_name):
         return []
 
 
-def get_instances(ontology_file, concept_class):
+def get_instances(ontology_file, concept):
     """
-    Get all individual/instances from this concept
+    Get all individual/instances from this concept_class
     :param ontology_file:
-    :param concept_class:
+    :param concept_class: string - name of concept, must have Concept prefix
     :return:
     """
+    concept = "Concept" + concept
     onto = get_ontology(ontology_file).load()
-    return onto[concept_class].instances()
+    return onto[concept].instances()
 
 
 def get_all_concepts(ontology_file):
     """
+    Get all concepts exists in ontology file
     :param ontology_file:
     :return:
-        return a list of all concept names exist in ontology_file
+        list of string - return a list of all concept names exist in ontology_file
     """
     onto = get_ontology(ontology_file).load()
     result = []
@@ -123,20 +149,23 @@ def get_all_concepts(ontology_file):
 # http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptAssignment
 
 
-def get_annotation(ontology_file, concept_class):
-    """Get all the details regarding an ontology into owl file
-
-        returns a dict of list of annotations
-
+def get_concept_annotation(ontology_file, concept):
     """
+    Get all the details regarding an ontology into owl file
+    :param ontology_file:
+    :param concept: string - concept name
+    :return:
+        dict of list - returns a dict of list of annotations
+    """
+
     result = {}
     onto = get_ontology(ontology_file).load()
 
     # Harded Coded as Libary still have no support for dot notation alternatives
-    comment = onto[concept_class].comment
-    altLabel = onto[concept_class].altLabel
-    prefLabel = onto[concept_class].prefLabel
-    hiddenLabel = onto[concept_class].hiddenLabel
+    comment = onto[concept].comment
+    altLabel = onto[concept].altLabel
+    prefLabel = onto[concept].prefLabel
+    hiddenLabel = onto[concept].hiddenLabel
 
     result['comment'] = comment
     result['altLabel'] = altLabel
@@ -146,14 +175,19 @@ def get_annotation(ontology_file, concept_class):
     return result
 
 
-def get_scheme(ontology_file, concept_class):
-    """Get all the details regarding an ontology into owl file
-
-        Assume that there are only unique scheme for a concept
+def get_scheme(ontology_file, concept):
     """
+    Get all the details regarding an ontology into owl file
+        Assume that there are only unique scheme for a concept
+
+    :param ontology_file:
+    :param concept: string - concept name
+    :return:
+    """
+
     try:
         onto = get_ontology(ontology_file).load()
-        concept_base = concept_class.replace("Concept", "")
+        concept_base = concept.replace("Concept", "")
         query_concept_string = "Scheme" + concept_base
         # can use the following to check whether something exists prone to a string attacks!
         # print(list(onto[query_concept_string].is_a))
@@ -176,27 +210,47 @@ def get_scheme(ontology_file, concept_class):
 
 
 def get_individual_doc_id(ontology_file, individual):
+    """
+    Get document id of the instance/individual
+
+    :param ontology_file:
+    :param individual: instance/individual name
+    :return:
+    """
     onto = get_ontology(ontology_file).load()
     test = onto[individual].documentId
     return test[0]
 
 
-def get_relationships(ontology_file, concept_class):
+def get_relationships(ontology_file, concept):
+    """
+    Get all the relationship that is associated with this concept
+    :param ontology_file:
+    :param concept_class:
+    :return:
+    """
+
     onto = get_ontology(ontology_file).load()
-    relationships = onto[concept_class].is_a
+    relationships = onto[concept].is_a
     result = []
     for i in relationships:
         i = str(i).split('.')
         if i[1] == 'Concept':
             continue
         relation = i[1]
-        concept = i[3]
+        conc = i[3]
         temp = {}
-        temp[relation] = concept.replace(")", "")
+        temp[relation] = conc.replace(")", "")
         result.append(temp)
     return result
 
+
 def get_all_relationships(ontology_file):
+    """
+    Get all relationship exist in ontology file
+    :param ontology_file:
+    :return:
+    """
     concept_list = get_all_concepts(ontology_file)
     relationship_list = []
     for i in concept_list:
@@ -204,16 +258,19 @@ def get_all_relationships(ontology_file):
         relationships = get_relationships(ontology_file, concept)
         for relationship in relationships:
             for semantic_relation in relationship:
-                print(semantic_relation)
                 relationship_list.append({"from": i,
                                           "to": relationship[semantic_relation],
                                           "text": semantic_relation})
 
-    print(relationship_list)
     return relationship_list
 
 
 def get_all_scheme(ontology_file):
+    """
+    Get all scheme exist in the ontology
+    :param ontology_file:
+    :return:
+    """
     onto = get_ontology(ontology_file).load()
     response = onto.search(iri="*Schemes*")
 
@@ -231,53 +288,30 @@ def get_all_scheme(ontology_file):
     return result
 
 
-def check_ontology(ontology_file):
-    """Get all the details regarding an ontology into owl file
+# def check_ontology(ontology_file):
+#     """
+#     Get all the details regarding an ontology into owl file
+#
+#     """
+#
+#     onto = get_ontology(ontology_file).load()
+#     test = onto['ConceptC_Program'].instances()
+#     print(test)
+#     # for i in onto['ConceptC_Program'].direct_instances(): print(i)
+#     # print(onto['ConceptC_Program'].subclasses())
+#     # indi = onto['C_Programming_Language']
+#     # print(onto.search(Types = "Concept"))
+#
+#     # ontoObject = onto.individuals()
+#     # print(list(ontoObject))
+#     # objs = list(ontoObject)
+#     # print(objs)
+#     # for obj in onto.individuals():
+#     #     print(obj)
+#     #     if instance(obj, some_class):
+#     # 	    do_something(obj)
 
-    """
 
-    onto = get_ontology(ontology_file).load()
-    test = onto['ConceptC_Program'].instances()
-    print(test)
-    # for i in onto['ConceptC_Program'].direct_instances(): print(i)
-    # print(onto['ConceptC_Program'].subclasses())
-    # indi = onto['C_Programming_Language']
-    # print(onto.search(Types = "Concept"))
-
-    # ontoObject = onto.individuals()
-    # print(list(ontoObject))
-    # objs = list(ontoObject)
-    # print(objs)
-    # for obj in onto.individuals():
-    #     print(obj)
-    #     if instance(obj, some_class):
-    # 	    do_something(obj)
-
-
-def get_concept_detail_for_frontend(filepath, concept):
-    """
-    Get all details needed for frontend concept details
-
-    TODO for now it only pulls from database. use get_annotation to pull details from ontoloy
-    TODO in the future this could be optimised
-    :param filepath: ontology file path
-    :return:
-        non-duplicated list of
-    """
-    instances = get_instances(filepath, concept)
-
-    result = []
-    check_dup = set()
-    for instance in instances:
-        instance = str(instance).split('.')[1]
-        print(instance)
-        id = get_individual_doc_id(filepath, instance)
-        print(id)
-        if id not in check_dup:
-            result = result + get_db_concept_and_course(id)
-        else:
-            check_dup.add(id)
-    return result
 
 
 def insert_new_scheme(ontology_file, schemeName, schemeConcept):
@@ -379,97 +413,3 @@ def append_concept_into_scheme(ontology_file, schemeName, schemeConcept):
     subclass = types.new_class(schemeConcept, (scheme,))
 
     onto.save(file="testskos.owl", format="rdfxml")
-
-
-
-
-def handle_post_concept(ontology_file, conceptJson):
-    conceptJson['conceptName'] = conceptJson['conceptName'].replace(" ", "_")
-
-    insert_new_ontology(ontology_file, conceptJson['conceptName'], conceptJson['altLabel'],
-                        conceptJson['hiddenLabel'], conceptJson['prefLabel'], conceptJson['comment'],
-                        conceptJson['dependency'])
-    insert_concept_relationship(ontology_file, conceptJson['conceptName'], conceptJson['relationship'])
-
-
-
-    mode = conceptJson['schemeMode']
-    if mode == '2':
-        # Create New Scheme
-        insert_new_scheme(ontology_file, conceptJson['schemeName'], conceptJson['schemeConcepts'])
-    elif mode == '3':
-        # Add to Existing Scheme
-        append_concept_into_scheme(ontology_file, conceptJson['schemeName'], conceptJson['conceptName'])
-
-
-def handle_post_course(ontology_file, course_json):
-    print(course_json)
-    insert_course_into_database(course_json['courseCode'], course_json['courseName'], course_json['courseTerm'],
-    course_json['courseYear'], course_json['courseType'],course_json['courseDuration'],course_json['courseLOs'],
-    course_json['courseComponent'])
-
-def handle_import_course(ontology_file, course_json):
-    print(course_json)
-
-    # Insert file path
-    file = course_json['file']
-    file = file.split(",")[1]
-    bytes = b64decode(file, validate=True)
-
-    curr_id = max_course_id() + 1
-    save_filepath = '/Users/wilson/PycharmProjects/COMP4952/LearningObject/' + "Course" + str(curr_id)
-    print(save_filepath)
-    f = open(save_filepath, 'wb')
-    f.write(bytes)
-    f.close()
-
-    job_id = upload_course(save_filepath)
-    return job_id
-
-def check_import_job_status(job_id):
-    response_json = check_job_status(job_id)
-    status = response_json.status
-    if status == "COMPLETE":
-        return 0
-
-    if status == "RUNNING":
-        return 1
-
-    # Error
-    return 2
-
-def get_scorm_course_detail(course_id):
-    response_json = get_course_detail(course_id)
-    # Unpack response body
-    title = response_json.title
-    created = response_json.created
-    tags = response_json.tags
-    tags = response_json.metadata
-
-
-
-def handle_post_lo(data):
-    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    lo_name = data['loName']
-    related_concepts = data['concepts']
-    uploaded_file_name = data['fileName']
-    file_type = data['type']
-    if file_type == '':
-        file_type = "UNK"
-
-    # Get current maximum LO Id
-    curr_id = max_lo_id() + 1
-    save_filepath = '/Users/wilson/PycharmProjects/COMP4952/LearningObject/' + str(curr_id)
-
-    # Insert data base of LO
-    insert_lo_into_database(lo_name, file_type, save_filepath, now)
-
-    # Insert file path
-    file = data['file']
-    file = file.split(",")[1]
-    bytes = b64decode(file, validate=True)
-
-    f = open(save_filepath, 'wb')
-    f.write(bytes)
-    f.close()
-    return 0

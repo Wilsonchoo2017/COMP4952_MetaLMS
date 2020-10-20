@@ -2,8 +2,10 @@ import os
 import json
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from .utility import *
 from metaLMS.utility.utility import *
+from metaLMS.Concept import *
+from metaLMS.Course import *
+from metaLMS.LearningObject import *
 
 
 def create_app(test_config=None):
@@ -49,8 +51,12 @@ def create_app(test_config=None):
 
     @app.route('/concept-detail/<concept>')
     def concept_detail(concept):
-        concept = "Concept" + concept
         return jsonify(get_concept_detail_for_frontend(filepath, concept))
+
+    @app.route('/concept-detail/<concept>')
+    def course_detail(course):
+        pass
+        return jsonify()
 
     @app.route('/dependency/<concept>')
     def concept_dependency(concept):
@@ -60,7 +66,7 @@ def create_app(test_config=None):
     @app.route('/concept-annotation/<concept>')
     def concept_annotation(concept):
         concept = "Concept" + concept
-        return jsonify(get_annotation(filepath, concept))
+        return jsonify(get_concept_annotation(filepath, concept))
 
     @app.route('/concept-relationship/<concept>')
     def concept_relation(concept):
