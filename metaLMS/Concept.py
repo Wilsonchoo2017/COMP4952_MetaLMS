@@ -28,7 +28,7 @@ def get_concept_detail_for_frontend(filepath, concept):
     TODO in the future this could be optimised
     :param filepath: ontology file path
     :return:
-        non-duplicated list of
+        non-duplicated list
     """
     instances = get_instances(filepath, concept)
 
@@ -40,7 +40,7 @@ def get_concept_detail_for_frontend(filepath, concept):
         id = get_individual_doc_id(filepath, instance)
         print(id)
         if id not in check_dup:
-            result = result + get_db_concept_and_course(id)
+            result = result + get_learning_object_and_associated_details_from_db(id)
         else:
             check_dup.add(id)
     return result

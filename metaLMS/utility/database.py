@@ -29,7 +29,7 @@ def get_db_LO_from_id(id):
     return json_data
 
 
-def get_db_concept_and_course(id):
+def get_learning_object_and_associated_details_from_db(lo_id):
     """
     Given concept id(Learning Object id)
 
@@ -44,16 +44,124 @@ def get_db_concept_and_course(id):
                        "join SubComponent on SubComponent.SubComponentId=HasLO.SubComponentId  "
                        "join Component on Component.ComponentId=SubComponent.SubComponentId "
                        "join Course on Course.CourseId=Component.CourseId "
-                       "where LearningObject.LOId=?", (str(id)))
+                       "where LearningObject.LOId=?", (str(lo_id)))
 
-    result = result.fetchone()
+    result = result.fetchall()
     row_headers = [x[0] for x in c.description]
+
     json_data = []
-    json_data.append(dict(zip(row_headers, result)))
+    # json_data.append(dict(zip(row_headers, result)))
+    for row in result:
+        print(row)
+        json_data.append(dict(zip(row_headers, row)))
 
     c.close()
     print(json_data)
     return json_data
+
+def extend(a,b):
+    """Create a new dictionary with a's properties extended by b,
+    without overwriting.
+    https://stackoverflow.com/questions/577234/python-extend-for-a-dictionary
+    # >>> extend({'a':1,'b':2},{'b':3,'c':4})
+    {'a': 1, 'c': 4, 'b': 2}
+    """
+    return dict(b,**a)
+
+def get_course_and_associated_details_from_db(course_id):
+    """
+    Given course id
+
+    :return:
+        a list of dictionary
+        which contains learning object details and course associated with it
+    """
+    course_id = str(course_id)
+    conn, c = db_init()
+
+    # Get Course
+    result = c.execute("select * from Course "
+                       "where Course.CourseId=?", (course_id))
+
+    result = result.fetchone()
+    row_headers = [x[0] for x in c.description]
+    response = dict(zip(row_headers, result))
+
+    # Get Component
+    result = c.execute("select ComponentId, ComponentName from Course "
+                       "join Component on Course.CourseId = Component.CourseId "
+                       "where Course.CourseId=?"
+                       , (course_id))
+    result = result.fetchall()
+    row_headers = [x[0] for x in c.description]
+    response['Component'] = []
+    for x in result:
+        response['Component'].append(dict(zip(row_headers, x)))
+
+
+    # Get SubComponent
+    result = c.execute("select SubComponentId, SubComponentName, Component.ComponentId from Course "
+                       "join Component on Course.CourseId = Component.CourseId "
+                       "join SubComponent on SubComponent.ComponentId = Component.ComponentId "
+                       "where Course.CourseId=?"
+                       , (course_id))
+    result = result.fetchall()
+    row_headers = [x[0] for x in c.description]
+
+    response['SubComponent'] = []
+    for x in result:
+        response['SubComponent'].append(dict(zip(row_headers, x)))
+
+    # Get SubComponentName
+    result = c.execute("select Distinct(SubComponentName) from Course "
+                       "join Component on Course.CourseId = Component.CourseId "
+                       "join SubComponent on SubComponent.ComponentId = Component.ComponentId "
+                       "where Course.CourseId=?"
+                       , (course_id))
+    result = result.fetchall()
+    row_headers = [x[0] for x in c.description]
+
+    response['SubComponentName'] = []
+    for x in result:
+        response['SubComponentName'].append(dict(zip(row_headers, x)))
+
+
+    # Get Learning Objects
+    result = c.execute("select DISTINCT(LearningObject.LOId),  title, Week, HasLO.SubComponentId from Course "
+                       "join Component on Course.CourseId = Component.CourseId "
+                       "join SubComponent on SubComponent.ComponentId = Component.ComponentId "
+                       "join HasLO on SubComponent.SubComponentId=HasLO.SubComponentId "
+                       "join LearningObject on LearningObject.LOId = HasLO.LOId "
+                       "where Course.CourseId=?"
+                       , (course_id))
+    result = result.fetchall()
+    row_headers = [x[0] for x in c.description]
+
+    response['LearningObject'] = []
+    for x in result:
+        response['LearningObject'].append(dict(zip(row_headers, x)))
+
+
+    # Get All
+    result = c.execute("select * from Course "
+                       "join Component on Course.CourseId = Component.CourseId "
+                       "join SubComponent on SubComponent.ComponentId = Component.ComponentId "
+                       "join HasLO on SubComponent.SubComponentId=HasLO.SubComponentId "
+                       "join LearningObject on LearningObject.LOId = HasLO.LOId "
+                       "where Course.CourseId=?"
+                       , (course_id))
+
+    result = result.fetchall()
+    row_headers = [x[0] for x in c.description]
+    response['AllData'] = []
+    for row in result:
+        response['AllData'].append(dict(zip(row_headers, row)))
+
+
+    c.close()
+    return response
+
+
 
 
 def get_all_course():
@@ -130,14 +238,14 @@ def insert_lo_into_database(lo_name, file_type, save_filepath, upload_time):
         print("Failed to insert Python variable into sqlite table", error)
 
 def insert_course_into_database(course_code, course_name, course_term, course_year,
-                                course_type, course_duration, course_los, course_component):
+                                course_type, course_duration, course_los, course_component, is_imported):
     course_id = max_course_id() + 1
     print(course_id)
     try:
         conn, c = db_init()
 
-        c.execute("insert into Course (CourseId, CourseCode, CourseName, Term, Year, Duration, Type) VALUES (?, ?,?,?,?,?,?)",
-                  (course_id, course_code, course_name, course_term, course_year, course_duration, course_type))
+        c.execute("insert into Course (CourseId, CourseCode, CourseName, Term, Year, Duration, Type, isImported) VALUES (?, ?,?,?,?,?,?,?)",
+                  (course_id, course_code, course_name, course_term, course_year, course_duration, course_type, is_imported))
         conn.commit()
 
         for component in course_component:
@@ -166,7 +274,23 @@ def insert_course_into_database(course_code, course_name, course_term, course_ye
     except sqlite3.Error as error:
         print("Failed to insert Python variable into sqlite table", error)
 
+
+def insert_imported_course_into_database(course_code, course_name, course_term, course_year, course_duration, course_type, is_imported):
+    course_id = max_course_id() + 1
+    print(course_id)
+    try:
+        conn, c = db_init()
+
+        c.execute(
+            "insert into Course (CourseId, CourseCode, CourseName, Term, Year, Duration, Type, isImported) VALUES (?, ?,?,?,?,?,?,?)",
+            (course_id, course_code, course_name, course_term, course_year, course_duration, course_type, is_imported))
+        conn.commit()
+    except sqlite3.Error as error:
+        print("Failed to insert Python variable into sqlite table", error)
+    pass
+
 def get_comp_id(component_name, course_id):
+    """ Gets Component id"""
     conn, c = db_init()
     c.execute("select ComponentId from Component where ComponentName=? and CourseId=?", (component_name, course_id))
     result = c.fetchone()
@@ -174,8 +298,16 @@ def get_comp_id(component_name, course_id):
     return result[0]
 
 def get_sub_id(component_id, sub_component_name):
+    """ Gets sub_component id"""
     conn, c = db_init()
     c.execute("select SubComponentId from SubComponent where SubComponentName=? and ComponentId=?", (sub_component_name, component_id))
+    result = c.fetchone()
+    c.close()
+    return result[0]
+
+def get_is_imported(course_id):
+    conn, c = db_init()
+    c.execute("select isImported from Course where CourseId=?", (course_id))
     result = c.fetchone()
     c.close()
     return result[0]

@@ -43,8 +43,8 @@ def check_job_status(job_id):
     response = course_api.get_import_job_status(job_id)
     return response
 
-def get_course_detail(course_id):
-    response = course_api.getcourse(course_id)
+def get_course_detail_from_scorm(course_id):
+    response = course_api.get_course(course_id)
     return response
 
 

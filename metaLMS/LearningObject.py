@@ -1,5 +1,6 @@
 from datetime import datetime
 from base64 import b64decode
+from .utility.database import *
 
 def handle_post_lo(data):
     now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -26,3 +27,20 @@ def handle_post_lo(data):
     f.write(bytes)
     f.close()
     return 0
+
+
+def get_lo_detail_for_frontend(lo_id):
+    """
+    Get all details needed for frontend lo details
+
+    TODO for now it only pulls from database. use get_annotation to pull details from ontoloy
+    TODO in the future this could be optimised
+    :param filepath: ontology file path
+    :return:
+        non-duplicated list
+    """
+    # Get Information from Database
+    result = get_learning_object_and_associated_details_from_db(lo_id)
+
+
+    return result

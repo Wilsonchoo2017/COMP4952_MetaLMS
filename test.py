@@ -1,7 +1,9 @@
 import PyPDF2
 from metaLMS.utility.utility import *
 from metaLMS.utility.database import *
-
+from metaLMS.utility.scorm_utils import *
+from metaLMS.Course import *
+import pprint
 filepath = "file://./owl/1511_skos_knowledge.owl"
 # filepath = "file://./testskos.owl"
 
@@ -62,4 +64,8 @@ filepath = "file://./owl/1511_skos_knowledge.owl"
 
 # print(get_dependency(filepath, "ConceptSomething_Test"))
 
-print(get_all_relationships(filepath))
+# print(get_all_relationships(filepath))
+# pprint.pprint(get_course_and_associated_details_from_db("2"))
+
+# print(check_job_status("QKZXU3B8GG1").status)
+pprint.pprint(get_scorm_course_detail("1"))
