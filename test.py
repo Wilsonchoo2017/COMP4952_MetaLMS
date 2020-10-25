@@ -1,10 +1,9 @@
-import PyPDF2
-from metaLMS.utility.utility import *
 from metaLMS.utility.database import *
 from metaLMS.utility.scorm_utils import *
-from metaLMS.Course import *
-import pprint
-filepath = "file://./owl/1511_skos_knowledge.owl"
+from metaLMS.Concept import *
+
+# filepath = "file://./owl/1511_skos_knowledge.owl"
+filepath = "owl/1511_skos_knowledge.owl"
 # filepath = "file://./testskos.owl"
 
 
@@ -18,7 +17,8 @@ filepath = "file://./owl/1511_skos_knowledge.owl"
 # print(get_individual_doc_id(filepath, "C_Programming_Language"))
 # print(get_instances(filepath, "ConceptC_Program"))
 # instances = get_instances(filepath, "ConceptC_Program")
-# print(get_concept_detail_for_frontend(filepath, "ConceptC_Program"))
+# print(get_concept_detail_for_frontend(filepath, "Arithmetic_Operator"))
+# print(get_learning_object_and_associated_details_from_db("3"))
 # print(get_annotation(filepath, "ConceptC_Program"))
 # print(get_db_concept_and_course(1))
 
@@ -68,4 +68,7 @@ filepath = "file://./owl/1511_skos_knowledge.owl"
 # pprint.pprint(get_course_and_associated_details_from_db("2"))
 
 # print(check_job_status("QKZXU3B8GG1").status)
-pprint.pprint(get_scorm_course_detail("1"))
+# pprint.pprint(get_scorm_course_detail("1"))
+# append_concept_lo(filepath, "ConceptC_Program", {"lo_id": 1, "lo_name": "Test_LO"})
+
+print(get_concept_with_this_lo(filepath, "1"))

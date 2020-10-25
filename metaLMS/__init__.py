@@ -4,7 +4,7 @@ from flask_cors import CORS
 from metaLMS.Concept import *
 from metaLMS.Course import *
 from metaLMS.LearningObject import *
-from metaLMS.utility.utility import *
+from metaLMS.onto_utils import *
 
 
 # TODO Edit function to have Proper Http Response
@@ -32,7 +32,7 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    filepath = "file://./owl/1511_skos_knowledge.owl"
+    filepath = "owl/1511_skos_knowledge.owl"
 
     #### Concept Methods ####
 
@@ -47,7 +47,6 @@ def create_app(test_config=None):
     @app.route('/concept-detail/<concept>')
     def concept_detail(concept):
         return jsonify(get_concept_detail_for_frontend(filepath, concept))
-
 
 
     @app.route('/dependency/<concept>')
@@ -112,6 +111,10 @@ def create_app(test_config=None):
     def lo():
         return jsonify(get_all_lo())
 
+    @app.route('/lo-concept-detail/<lo>')
+    def lo_concept_detail(lo):
+        pass
+        # return jsonify((lo))
 
     @app.route('/lo-detail/<lo>')
     def lo_detail(lo):
@@ -119,7 +122,7 @@ def create_app(test_config=None):
 
     @app.route('/new-lo', methods=['POST'])
     def new_lo():
-        handle_post_lo(request.json)
+        handle_post_lo(filepath, request.json)
         return "1"
 
     return app

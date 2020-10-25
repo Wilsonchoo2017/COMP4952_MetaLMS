@@ -11,7 +11,7 @@
     <owl:Ontology rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl">
         <dct:description xml:lang="en">An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, &apos;folksonomies&apos;, other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies.</dct:description>
         <dct:title xml:lang="en">SKOS Vocabulary</dct:title>
-        <rdfs:seeAlso rdf:resource="http://www.w3.org/TR/skos-reference/"/>
+        <rdfs:seeAlso rdf:resource="http://www.w3.org/TR/skos-reference"/>
     </owl:Ontology>
     
 
@@ -570,7 +570,6 @@
         </rdfs:subClassOf>
         <altLabel xml:lang="en">C</altLabel>
         <hiddenLabel xml:lang="en">test hidden</hiddenLabel>
-        <note xml:lang="en"></note>
         <rdfs:comment xml:lang="en">I LOVE COMMENTS IN MY PROGRAMS!</rdfs:comment>
         <rdfs:comment xml:lang="en">Test 2</rdfs:comment>
     </owl:Class>
@@ -1545,7 +1544,6 @@
 • widely used
 • venerable (developed in late 60’s by Thompson &amp; Ritchie) 
 • forms the basis for many other languages</definition>
-        <documentId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</documentId>
     </owl:NamedIndividual>
     
 
@@ -1596,6 +1594,33 @@ It cannot be directly executed on a computer
     
 
 
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#test1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#test1">
+        <rdf:type rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptArithmetic_Operator"/>
+        <documentId rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</documentId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#test2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#test2">
+        <rdf:type rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptArithmetic_Operator"/>
+        <documentId rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</documentId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#test3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#test3">
+        <rdf:type rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#ConceptArithmetic_Operator"/>
+        <documentId rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</documentId>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#C_(the_language) -->
 
     <owl:NamedIndividual rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#C_(the_language)">
@@ -1606,7 +1631,6 @@ It cannot be directly executed on a computer
 • may have functions in multiple files
 By convention, C programs are
 • text files with a .c suffix (e.g. myProgram.c)</definition>
-        <documentId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2</documentId>
     </owl:NamedIndividual>
     
 

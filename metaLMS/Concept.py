@@ -1,4 +1,5 @@
-from .utility.utility import *
+from metaLMS.utility.database import *
+from metaLMS.onto_utils import *
 
 def handle_post_concept(ontology_file, conceptJson):
     """
@@ -36,11 +37,11 @@ def get_concept_detail_for_frontend(filepath, concept):
     check_dup = set()
     for instance in instances:
         instance = str(instance).split('.')[1]
-        print(instance)
         id = get_individual_doc_id(filepath, instance)
-        print(id)
         if id not in check_dup:
-            result = result + get_learning_object_and_associated_details_from_db(id)
+            # Not Dupl
+            response = get_learning_object_and_associated_details_from_db(id)
+            result.append(response)
         else:
             check_dup.add(id)
     return result

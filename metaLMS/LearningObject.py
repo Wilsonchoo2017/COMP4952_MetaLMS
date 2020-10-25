@@ -1,8 +1,10 @@
 from datetime import datetime
 from base64 import b64decode
 from .utility.database import *
+from metaLMS.onto_utils import append_concept_lo
 
-def handle_post_lo(data):
+
+def handle_post_lo(filepath, data):
     now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     lo_name = data['loName']
     related_concepts = data['concepts']
@@ -26,6 +28,15 @@ def handle_post_lo(data):
     f = open(save_filepath, 'wb')
     f.write(bytes)
     f.close()
+
+    # Update Concepts in Ontology with this LO
+    lo_details = {"lo_id": curr_id, "lo_name": lo_name}
+    for concept in related_concepts:
+        print(concept)
+        print(lo_details)
+        print(filepath)
+        append_concept_lo(filepath, 'Concept' + concept, lo_details)
+
     return 0
 
 

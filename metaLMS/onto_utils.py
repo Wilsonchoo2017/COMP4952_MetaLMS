@@ -4,7 +4,7 @@ It mostly provides ways to intereact with owl/rdf file
 """
 from owlready2 import *
 
-from .database import *
+from metaLMS.onto_utils import *
 
 database = "LOdatabase.db"
 possible_annotations = [
@@ -16,39 +16,6 @@ possible_annotations = [
 
 
 # TODO ALL functions Need to handle error properly Like empty cases!
-
-# def insert_ontology(individual, document_id, ontology_file, concept_class='Concept'):
-#     """
-#     :param individual:
-#     :param document_id:
-#     :param ontology_file:
-#     :param concept_class:
-#     :return:
-#     """
-#     """Insert new ontology into owl file
-#
-#     Replaces old document id if exist.
-#
-#     Parameter:
-#         individual -- instances name
-#         document_id -- Document primary key from database
-#         ontology_file -- filepath to owl file
-#         concept_class -- type of class it insert (Default = Concept)
-#
-#     """
-#
-#     onto = get_ontology(ontology_file).load()
-#
-#     with onto:
-#         class documentId(comment):
-#             pass
-#
-#     new_instance = onto[concept_class](individual)
-#     new_instance.documentId = document_id
-#
-#     # For now save into a new file called "testskos.owl" in the directory
-#     # TODO Remove This when in production
-#     onto.save(file="testskos.owl", format="rdfxml")
 
 
 def insert_new_concept(ontology_file, name, altLabel, hiddenLabel, prefLabel, comment, dependency):
@@ -93,7 +60,7 @@ def insert_new_concept(ontology_file, name, altLabel, hiddenLabel, prefLabel, co
         if len(dependency) > 0:
             my_new_class.requires = dependency_string
 
-    onto.save(file="testskos.owl", format="rdfxml")
+    onto.save(file=ontology_file, format="rdfxml")
 
 
 def get_dependency(ontology_file, concept_name):
@@ -125,6 +92,7 @@ def get_instances(ontology_file, concept):
     """
     concept = "Concept" + concept
     onto = get_ontology(ontology_file).load()
+    print(concept)
     return onto[concept].instances()
 
 
@@ -288,31 +256,6 @@ def get_all_scheme(ontology_file):
     return result
 
 
-# def check_ontology(ontology_file):
-#     """
-#     Get all the details regarding an ontology into owl file
-#
-#     """
-#
-#     onto = get_ontology(ontology_file).load()
-#     test = onto['ConceptC_Program'].instances()
-#     print(test)
-#     # for i in onto['ConceptC_Program'].direct_instances(): print(i)
-#     # print(onto['ConceptC_Program'].subclasses())
-#     # indi = onto['C_Programming_Language']
-#     # print(onto.search(Types = "Concept"))
-#
-#     # ontoObject = onto.individuals()
-#     # print(list(ontoObject))
-#     # objs = list(ontoObject)
-#     # print(objs)
-#     # for obj in onto.individuals():
-#     #     print(obj)
-#     #     if instance(obj, some_class):
-#     # 	    do_something(obj)
-
-
-
 
 def insert_new_scheme(ontology_file, schemeName, schemeConcept):
     """
@@ -342,7 +285,7 @@ def insert_new_scheme(ontology_file, schemeName, schemeConcept):
         # Todo, there is a current issue that concept will be inside the scheme.
         # Ignoring for now as no solution is found at the moment
 
-    onto.save(file="testskos.owl", format="rdfxml")
+    onto.save(file=ontology_file, format="rdfxml")
 
 
 def insert_concept_relationship(ontology_file, concept_A, list_of_conceptB):
@@ -392,7 +335,7 @@ def insert_concept_relationship(ontology_file, concept_A, list_of_conceptB):
             concept_B_class = getattr(onto, "Concept" + concept_name)
             setattr(concept_B_class, concept_relation, concept_A_class)
 
-    onto.save(file="testskos.owl", format="rdfxml")
+    onto.save(file=ontology_file, format="rdfxml")
 
 
 def append_concept_into_scheme(ontology_file, schemeName, schemeConcept):
@@ -412,4 +355,38 @@ def append_concept_into_scheme(ontology_file, schemeName, schemeConcept):
     # scheme = getattr(onto, schemeName)
     subclass = types.new_class(schemeConcept, (scheme,))
 
-    onto.save(file="testskos.owl", format="rdfxml")
+    onto.save(file=ontology_file, format="rdfxml")
+
+
+def append_concept_lo(ontology_file, concept, LO):
+    """
+
+    :param ontology_file: string
+    :param LOs:{lo_id: string, lo_name: string} - a single dictionary of los with id and name
+    :return:
+    """
+    onto = get_ontology(ontology_file).load()
+    my_drug = onto[concept](LO['lo_name'], namespace=onto, documentId=LO['lo_id'] )
+    onto.save(file=ontology_file, format="rdfxml")
+
+def get_concept_with_this_lo(ontology_file, lo):
+    result = []
+    onto = get_ontology(ontology_file).load()
+    lo_class = None
+    for i in onto.individuals():
+        if i.documentId.first() == int(lo):
+            lo_class = i
+    print(lo_class)
+    for i in list(onto.classes()):
+        for j in i.instances():
+            if(j == lo_class):
+                print("yep")
+                # Add concept class into result list
+                i = str(i)
+                i = i.split('.')[1]
+                i = i.replace("Concept", "")  # Remove PreFix
+                if i != '':  # ignore top level Concept Class
+                    result.append(i)
+
+
+    return result

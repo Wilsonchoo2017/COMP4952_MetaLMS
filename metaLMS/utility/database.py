@@ -37,36 +37,63 @@ def get_learning_object_and_associated_details_from_db(lo_id):
         a list of dictionary
         which contains learning object details and course associated with it
     """
+    lo_id = str(lo_id)
     conn, c = db_init()
-    # result = c.execute("select distinct * from LearningObject as lo join course as c WHERE LOId=? and Course=c.CourseId", (str(id)))
-    result = c.execute("select * from LearningObject "
-                       "join HasLO on LearningObject.LOId=HasLO.LOId "
-                       "join SubComponent on SubComponent.SubComponentId=HasLO.SubComponentId  "
-                       "join Component on Component.ComponentId=SubComponent.SubComponentId "
-                       "join Course on Course.CourseId=Component.CourseId "
-                       "where LearningObject.LOId=?", (str(lo_id)))
+    response = {}
 
+    # Get LO
+    result = c.execute("SELECT * from LearningObject "
+                       "where LearningObject.LOId=?", (lo_id))
+
+    result = result.fetchone()
+    row_headers = [x[0] for x in c.description]
+    response['LearningObject'] = dict(zip(row_headers, result))
+
+    # Get SubComponent
+    result = c.execute("select DISTINCT SubComponent.SubComponentId, SubComponent.SubComponentName, SubComponent.ComponentId from LearningObject "
+                       "join HasLO on LearningObject.LOId=HasLO.LOId  "
+                       "join SubComponent on SubComponent.SubComponentId = HasLO.SubComponentId  "
+                       "where LearningObject.LOId=?"
+                       , (lo_id))
     result = result.fetchall()
     row_headers = [x[0] for x in c.description]
+    response['SubComponent'] = []
+    for x in result:
+        response['SubComponent'].append(dict(zip(row_headers, x)))
 
-    json_data = []
-    # json_data.append(dict(zip(row_headers, result)))
-    for row in result:
-        print(row)
-        json_data.append(dict(zip(row_headers, row)))
+    # Get Component
+    result = c.execute("select distinct Component.ComponentId, Component.ComponentName from LearningObject "
+                       "join HasLO on LearningObject.LOId=HasLO.LOId  "
+                       "join SubComponent on SubComponent.SubComponentId = HasLO.SubComponentId  "
+                       " join Component on Component.ComponentId=SubComponent.ComponentId  "
+                       "where LearningObject.LOId=?"
+                       , (lo_id))
+    result = result.fetchall()
+    row_headers = [x[0] for x in c.description]
+    response['Component'] = []
+    for x in result:
+        response['Component'].append(dict(zip(row_headers, x)))
+
+    # Get Courses
+    result = c.execute("select DISTINCT Course.CourseId, Course.Term, Course.CourseName, Course.CourseCode, "
+                       "Course.Year, Course.Duration, Course.Type from LearningObject "
+                       "join HasLO on LearningObject.LOId=HasLO.LOId  "
+                       "join SubComponent on SubComponent.SubComponentId = HasLO.SubComponentId  "
+                       "join Component on Component.ComponentId=SubComponent.ComponentId  "
+                       "join Course on Course.CourseId=Component.CourseId  "
+                       "where LearningObject.LOId=?"
+                       , (lo_id))
+    result = result.fetchall()
+    row_headers = [x[0] for x in c.description]
+    response['Course'] = []
+    for x in result:
+        response['Course'].append(dict(zip(row_headers, x)))
+
+    print("response: ",response)
 
     c.close()
-    print(json_data)
-    return json_data
+    return response
 
-def extend(a,b):
-    """Create a new dictionary with a's properties extended by b,
-    without overwriting.
-    https://stackoverflow.com/questions/577234/python-extend-for-a-dictionary
-    # >>> extend({'a':1,'b':2},{'b':3,'c':4})
-    {'a': 1, 'c': 4, 'b': 2}
-    """
-    return dict(b,**a)
 
 def get_course_and_associated_details_from_db(course_id):
     """
