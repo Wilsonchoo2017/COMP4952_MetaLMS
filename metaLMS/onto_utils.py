@@ -108,7 +108,9 @@ def get_all_concepts(ontology_file):
     for i in onto.search(iri="*#Concept*"):
         i = str(i)
         i = i.split('.')[1]
-        i = i.replace("Concept", "")  # Remove PreFix
+        if i.startswith("Concept"):
+            # Remove Prefix
+            i = i[len("Concept"):]
         if i != '':  # ignore top level Concept Class
             result.append(i)
     return result
@@ -155,7 +157,10 @@ def get_scheme(ontology_file, concept):
 
     try:
         onto = get_ontology(ontology_file).load()
-        concept_base = concept.replace("Concept", "")
+        concept_base = ""
+        if concept.startswith("Concept"):
+            # Remove Prefix
+            concept_base = concept[len("Concept"):]
         query_concept_string = "Scheme" + concept_base
         # can use the following to check whether something exists prone to a string attacks!
         # print(list(onto[query_concept_string].is_a))
@@ -167,7 +172,10 @@ def get_scheme(ontology_file, concept):
             if "Scheme" not in i:
                 continue
             i = i.split('.')[1]
-            i = i.replace("Schemes", "")
+
+            if i.startswith("Schemes"):
+                # Remove Prefix
+                i = i[len("Schemes"):]
             if i == "":
                 continue
             result.append(i)
@@ -186,7 +194,7 @@ def get_individual_doc_id(ontology_file, individual):
     :return:
     """
     onto = get_ontology(ontology_file).load()
-    test = onto[individual].documentId
+    test = onto[individual].LOId
     return test[0]
 
 
@@ -197,21 +205,24 @@ def get_relationships(ontology_file, concept):
     :param concept_class:
     :return:
     """
+    try:
 
-    onto = get_ontology(ontology_file).load()
-    relationships = onto[concept].is_a
-    result = []
-    for i in relationships:
-        i = str(i).split('.')
-        if i[1] == 'Concept':
-            continue
-        relation = i[1]
-        conc = i[3]
-        temp = {}
-        temp[relation] = conc.replace(")", "")
-        result.append(temp)
-    return result
+        onto = get_ontology(ontology_file).load()
+        relationships = onto[concept].is_a
+        result = []
+        for i in relationships:
+            i = str(i).split('.')
+            if i[1] == 'Concept':
+                continue
+            relation = i[1]
+            conc = i[3]
+            temp = {}
+            temp[relation] = conc.replace(")", "")
+            result.append(temp)
+        return result
 
+    except (AttributeError):
+        return []
 
 def get_all_relationships(ontology_file):
     """
@@ -358,35 +369,91 @@ def append_concept_into_scheme(ontology_file, schemeName, schemeConcept):
     onto.save(file=ontology_file, format="rdfxml")
 
 
-def append_concept_lo(ontology_file, concept, LO):
+def append_concept_lo(ontology_file, concept, LO, cso_concepts):
     """
 
     :param ontology_file: string
     :param LOs:{lo_id: string, lo_name: string} - a single dictionary of los with id and name
+    :param cso_concepts:
     :return:
     """
     onto = get_ontology(ontology_file).load()
-    my_drug = onto[concept](LO['lo_name'], namespace=onto, documentId=LO['lo_id'] )
+    he = onto[concept](str(LO['lo_id']), namespace=onto, LOId=str(LO['lo_id']))
+    print("append_concept LO", LO)
+    print(he)
+    he.label = str(LO['lo_name'])
+    he.LOId = str(LO['lo_id'])
+    if cso_concepts != None:
+        for subpage in cso_concepts:
+            curr_cso_concepts =  cso_concepts[subpage]['semantic']
+            curr_subpage_id =  cso_concepts[subpage]['subpage_id']
+
+            subpage_concept_string = ""
+            if len(curr_cso_concepts) != 0 :
+                # Add subpage number as prefix
+                # Note this id is according to database NOT page number
+                subpage_concept_string += str(curr_subpage_id)
+                subpage_concept_string += ','
+
+            for i in curr_cso_concepts:
+                subpage_concept_string += str(i)
+                subpage_concept_string += ','
+
+            # remove last comma
+            subpage_concept_string = subpage_concept_string[:-1]
+            print("before", subpage_concept_string)
+
+            he.csoConcept.append(subpage_concept_string)
+
     onto.save(file=ontology_file, format="rdfxml")
 
-def get_concept_with_this_lo(ontology_file, lo):
-    result = []
+def get_concept_with_this_lo(ontology_file, los):
+    print(los)
+    result = set()
+
     onto = get_ontology(ontology_file).load()
-    lo_class = None
-    for i in onto.individuals():
-        if i.documentId.first() == int(lo):
-            lo_class = i
-    print(lo_class)
-    for i in list(onto.classes()):
-        for j in i.instances():
-            if(j == lo_class):
-                print("yep")
-                # Add concept class into result list
-                i = str(i)
-                i = i.split('.')[1]
-                i = i.replace("Concept", "")  # Remove PreFix
-                if i != '':  # ignore top level Concept Class
-                    result.append(i)
+    for lo in los:
+        lo_class = None
+        for i in onto.individuals():
+            if i.LOId.first() == lo:
+                lo_class = i
+                break
+        for idx in list(onto.classes()):
+            for j in idx.instances():
+                if(j == lo_class):
+                    # Add concept class into result list
+                    i = str(idx)
+                    i = i.split('.')[1]
+                    if i.startswith("Concept"):
+                        # Remove Prefix
+                        i = i[len("Concept"):]
+                    if i != '':  # ignore top level Concept Class
+                        result.add(i)
 
+    print(result)
+    return list(result)
 
-    return result
+def get_cso_concepts_with_this_lo(ontology_file, lo_id):
+    try:
+        result = []
+        onto = get_ontology(ontology_file).load()
+        lo_class = None
+        # Get individual class object
+        for i in onto.individuals():
+            if i.LOId.first() == lo_id:
+                print("yers")
+                lo_class = i
+                break
+
+        for i in lo_class.csoConcept:
+            i = str(i)
+            i = i.split(',')
+            key = i[0]
+            concepts = i[1:]
+            temp = {}
+            temp['subpage_id'] = key
+            temp['concepts'] = concepts
+            result.append(temp)
+        return result
+    except (AttributeError):
+        return []
