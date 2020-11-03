@@ -1,0 +1,129 @@
+{% extends "templates/tut.html" %}
+{% block questions %}
+<li>
+    Introduce yourselves, get to know your classmates - Why do they want to study computing? What do they want to learn from this course?
+
+<p></p>
+<li>
+    Get to know your tutor - How long have they been at UNSW? What are they studying? How can you get in contact with them?
+
+<p></p>
+<li>
+    Do you have any questions about the course so far? <i>eg course website, structure, assessments</i>
+<p></p>
+<li>
+Is it OK to ask a really really basic question on the <a href="{{course_forum_url}}">course forum</a>?
+
+<p></p>
+<li>
+I have a brain the size of a planet and been writing C programs since pre-school - do I need to read the <a href="{{course_forum_url}}">course forum</a>?
+
+<p></p>
+<li>
+<p>
+    How do you make a peanut-butter sandwich?
+    <p>
+    How could you break that process into steps?
+    <p>
+    How could you break it down clearly enough that a computer could understand it?
+    <p>
+<i>Maybe your tutor could do a live demonstration of following your exact instructions...</i>
+<p></p>
+<li>
+<p>
+    What is an operating system?
+    <p>
+    What operating systems do your classmates run? The tute room? The CSE lab computers?
+    <p>
+    What are the differences between each of the various operating systems? What differences are there in their interfaces, and how do you interact with them?
+    <p>
+    What are some different ways in which you can interact with a computer?
+    <p>
+    What are the differences between graphical user interfaces and the command line? When might one be better than the other?
+
+
+<li>
+<div class="highlighted_note">
+Normally we have the first COMP1511 lecture of the week before  before the first tutorial of the week.
+<p>
+This year because of the number students wanting to do COMP1511, we've been unable to do this.
+<p>
+This means if you have a Monday or Tuesday morning tut-lab,
+you haven't had the lecture the following questions talk about.
+<p>
+We thought about cancelling the week 1 tutorials, but decided they were still worth having
+because you get to meet and know your tutor, your fellow students and see the lab environment.
+<p>
+For tutorials before the first lecture - tutors will try to explain what they can as part of the tutorial
+but don't worry if you don't understand lots of things.
+<p>
+Of course there are no marks for the week 1 tut-lab.
+<p>
+If you have a chance watch beforehand either:
+<ul>
+<li> <a href="https://youtu.be/fAeV52_HPNE?t=1023">this video of the 2017 session 2 COMP1511 lecture</a> (starting at 17:03)
+or
+<li> <a href="https://youtu.be/FvoffPpRBNQ?t=1859">this video of a 2017 session 1 COMP1511 lecture</a> starting at 30:59
+</li></li></ul>
+But if you can't watch the videos don't worry.
+</p></p></p></p></p></p></div>
+
+      Discuss the following features of the sample program from lectures:
+<p>
+<pre class="program">
+// Author: Andrew Taylor (andrewt@unsw.edu.au)
+// Date created: January 2018
+// A very simple C program
+
+#include &lt;stdio.h&gt;
+
+int main(void) {
+    printf("I love {{course_code}}!\n");
+
+    return 0;
+}
+</pre>
+<ul>
+<li>
+the <code>\n</code>
+<p></p>
+<li>
+            Comments: What should go in a comment? What makes a good comment? How do comments improve program style?
+
+<p></p>
+<li>
+            Indenting and whitespace: What is indented in the sample program? Suggest why.
+
+<p></p>
+</li></li></li></ul>
+<li>
+Write a C program, <code>face0.c</code>, that behaves as follows:
+
+<pre class="command_line">
+<kbd class="shell">./face0</kbd><samp>
+~ ~
+0 0
+ o
+ -
+</samp>
+</pre>
+<p></p>
+
+How would you compile this program?
+
+<p></p>
+
+How could we modify it to make a program, <code>face1.c</code>,  look like this instead?
+
+<pre class="command_line">
+<kbd class="shell">./face1</kbd><samp>
+~ ~
+0 0
+ o
+\_/
+</samp>
+</pre>
+<p></p>
+
+{% endblock %}
+</li></p></li></p></p></p></p></p></li></p></p></p></p></li></li></li></li></li></li>

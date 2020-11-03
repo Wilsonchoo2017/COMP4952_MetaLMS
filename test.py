@@ -1,9 +1,10 @@
+from metaLMS.ssm import ssm_query
 from metaLMS.utility.database import *
 from metaLMS.utility.scorm_utils import *
 from metaLMS.Concept import *
 
 # filepath = "file://./owl/1511_skos_knowledge.owl"
-filepath = "owl/1511_skos_knowledge.owl"
+# filepath = "owl/1511_skos_knowledge.owl"
 # filepath = "file://./testskos.owl"
 
 
@@ -62,7 +63,7 @@ filepath = "owl/1511_skos_knowledge.owl"
 
 # print(get_sub_id("Lecture", 4))
 
-# print(get_dependency(filepath, "ConceptSomething_Test"))
+# print(get_dependency(filepath, "ConceptArithmetic_Operator"))
 
 # print(get_all_relationships(filepath))
 # pprint.pprint(get_course_and_associated_details_from_db("2"))
@@ -71,4 +72,19 @@ filepath = "owl/1511_skos_knowledge.owl"
 # pprint.pprint(get_scorm_course_detail("1"))
 # append_concept_lo(filepath, "ConceptC_Program", {"lo_id": 1, "lo_name": "Test_LO"})
 
-print(get_concept_with_this_lo(filepath, "1"))
+# print(get_concept_with_this_lo(filepath, ["90"]))
+# print(get_cso_concepts_with_this_lo(filepath, "92"))
+# print(ssm_query("ambulance", "motorcycle"))
+from collections import Counter
+from heapq import nlargest
+data = {
+    'a' : 3,
+    'e': 1,
+}
+
+k = Counter(data)
+
+high = k.most_common(3)
+
+for i in high:
+    print(i[0], i[1])

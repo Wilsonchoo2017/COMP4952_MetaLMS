@@ -1,0 +1,50 @@
+{% extends "templates/weekly_tutors_notes.html" %}
+
+{% block this_weeks_notes %}
+
+<h3>Supporting the Lab</h3>
+
+The primary goal of the tut is support of the 4 standard lab exercises.
+<p>
+Don't spend too long on the initial questions about representation and types
+leave plenty of time for a detailed discussion of <b>pass_fail.c</b>
+
+<h3>Code Review</h3>
+
+tutor will do an example code review's in week 3 to show how it will be done.
+and leave it to week 4 to ask students to do it (and pick confident pair in the first weeks).
+But open to suggestions, and you can start with your own mini-code review this week if you think you can fit it in.
+
+<h3>Home Computing</h3>
+
+Please in lab or tut ask students (individually if you can) how they are going with getting set up to work
+on their laptop/home computer.
+<p>I don't mind what workflow they use - but its important
+they are ASAP set up  to program outside their scheduled labs.
+
+<h3>Pairs</h3>
+
+You hopefully organised the student into lab pairs last week,
+deal with new/missing students as best you can.
+You track the pairs and record their marks so its all under your control.
+
+<h3>Style</h3>
+
+
+I'm avoid covering <code>scanf</code>'s return value for now.
+They can assume scanf succeeds.
+<p>
+I'm avoiding  mention of any other numeric types than <b>int</b> and <b>double</b>.
+I'm hoping the only other numeric type COMP1511 will need is <b>char</b> (in arrays only)
+<p>
+And this week's tut and lab is int only - next week we'll bring in doubles.
+<p>
+Don't use <b>"%f</b>" to printf doubles use "%lf" for consistency with scanf.
+<p>
+BTW<b>"%f"</b> works with printf because <b>float</b> arguments are automatically
+to <b>double</b>.  It doesn't work with scanf because <b>float *</b> isn't (can't be) promoted to <b>double *</b>.
+None of which I want to explain to student at this point.
+<p>
+Putting up a style guide is on my TODO list
+
+{% endblock %}

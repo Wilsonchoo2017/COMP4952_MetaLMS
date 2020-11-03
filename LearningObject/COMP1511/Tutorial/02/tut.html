@@ -1,0 +1,102 @@
+{% extends "templates/tut.html" %}
+{% block questions %}
+
+<li>
+What is a bit?
+
+<p></p>
+<li>
+
+What is a byte?
+
+<p></p>
+<li>
+
+How many distinct values can be represented with a single byte?
+
+<p></p>
+<li>
+Give a representation scheme that could be used to encode
+a subset of integers in 4 bits.
+
+<p></p>
+<li>
+
+What is a file?
+
+<p></p>
+<li>
+
+Give a few examples of information that is commonly stored
+inside the bytes of a file, and specify an encoding that might be used for the byte values.
+<p></p>
+<li>
+
+What is a directory?
+
+<p></p>
+<li>
+
+What is the syntax of C <code>if</code> statements? What is the role of <code>if</code>
+statements in programs?
+
+<p></p>
+<li>
+
+Write a program <code>pass_fail.c</code> that reads in an integer and prints out "PASS" if the integer is between 50 and 100 inclusive and fail if it is between 49 and 0, inclusive. It should print out ERROR if the number is less than 0, more than 100, or if the user does not enter a number. For example:
+
+<pre class="command_line">
+<kbd class="shell">./pass_fail</kbd>
+<samp>Please enter your mark: </samp><kbd>42</kbd>
+<samp>FAIL</samp>
+<kbd class="shell">./pass_fail</kbd>
+<samp>Please enter your mark: </samp><kbd>50</kbd>
+<samp>PASS</samp>
+<kbd class="shell">./pass_fail</kbd>
+<samp>Please enter your mark: </samp><kbd>256</kbd>
+<samp>ERROR</samp>
+</pre>
+<p></p>
+<li>
+
+Write a program <code>rectangle_area.c</code> that reads in 2 integers
+which are the side-length of a rectangle, and then prints the area of the rectangle.
+<p>
+For example:
+
+<pre class="command_line">
+<kbd class="shell">./rectangle_area</kbd>
+Please enter rectangle length: <kbd>3</kbd>
+Please enter rectangle width: <kbd>5</kbd>
+Area = 15
+<kbd class="shell">./rectangle_area</kbd>
+Please enter rectangle length: <kbd>42</kbd>
+Please enter rectangle width: <kbd>42</kbd>
+Area = 1764
+</pre>
+<p></p>
+
+{% endblock %}
+
+{% block revision_questions %}
+
+<li>
+
+Write a program that reads in an integer and determines if it is even or not.
+If the number is negative, print "NEGATIVE" instead. For example:
+
+<pre class="command_line">
+<kbd class="shell">./even_or_odd</kbd>
+<samp>Please enter a number: </samp><kbd>42</kbd>
+<samp>EVEN</samp>
+<kbd class="shell">./even_or_odd</kbd>
+<samp>Please enter a number: </samp><kbd>111</kbd>
+<samp>ODD</samp>
+<kbd class="shell">./even_or_odd</kbd>
+<samp>Please enter a number: </samp><kbd>-2</kbd>
+<samp>NEGATIVE</samp>
+</pre>
+<p></p>
+
+{% endblock %}
+</li></p></li></li></li></li></li></li></li></li></li></li>

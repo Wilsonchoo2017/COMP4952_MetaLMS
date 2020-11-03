@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="LOdatabase" uuid="d7955167-b2e3-42f6-b0e2-9521b2d5abbd">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/utility/LOdatabase.db</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="LOdatabase [2]" uuid="c8032c0d-ee7d-4adf-ac43-4c116d52a301">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/metaLMS/utility/LOdatabase.db</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="wordnet" uuid="3775545f-6188-430c-9f4d-377ab36998a0">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/metaLMS/wordnet.db</jdbc-url>
+    </data-source>
+  </component>
+</project>

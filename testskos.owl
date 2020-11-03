@@ -1,0 +1,1121 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://www.skosknowledge.com/ontologies/skos_knowledge.owl"
+         xmlns="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#"
+         xmlns:term="http://purl.org/dc/terms/">
+
+<owl:Ontology rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl">
+  <rdfs:seeAlso rdf:resource="http://www.w3.org/TR/skos-reference"/>
+  <term:description xml:lang="en">An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies.</term:description>
+  <term:title xml:lang="en">SKOS Vocabulary</term:title>
+</owl:Ontology>
+
+<owl:ObjectProperty rdf:about="#broadMatch">
+  <rdfs:subPropertyOf rdf:resource="#broader"/>
+  <rdfs:subPropertyOf rdf:resource="#mappingRelation"/>
+  <owl:inverseOf rdf:resource="#narrowMatch"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">has broader match</rdfs:label>
+  <definition xml:lang="en">skos:broadMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.</definition>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#broader">
+  <rdfs:subPropertyOf rdf:resource="#broaderTransitive"/>
+  <owl:inverseOf rdf:resource="#narrower"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:comment xml:lang="en">Broader concepts are typically rendered as parents in a concept hierarchy (tree).</rdfs:comment>
+  <rdfs:label xml:lang="en">has broader</rdfs:label>
+  <definition xml:lang="en">Relates a concept to a concept that is more general in meaning.</definition>
+  <scopeNote xml:lang="en">By convention, skos:broader is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources.</scopeNote>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#mappingRelation">
+  <rdfs:subPropertyOf rdf:resource="#semanticRelation"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:comment xml:lang="en">These concept mapping relations mirror semantic relations, and the data model defined below is similar (with the exception of skos:exactMatch) to the data model defined for semantic relations. A distinct vocabulary is provided for concept mapping relations, to provide a convenient way to differentiate links within a concept scheme from links between concept schemes. However, this pattern of usage is not a formal requirement of the SKOS data model, and relies on informal definitions of best practice.</rdfs:comment>
+  <rdfs:label xml:lang="en">is in mapping relation with</rdfs:label>
+  <definition xml:lang="en">Relates two concepts coming, by convention, from different schemes, and that have comparable meanings</definition>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#narrowMatch">
+  <rdfs:subPropertyOf rdf:resource="#mappingRelation"/>
+  <rdfs:subPropertyOf rdf:resource="#narrower"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">has narrower match</rdfs:label>
+  <definition xml:lang="en">skos:narrowMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.</definition>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#broaderTransitive">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  <rdfs:subPropertyOf rdf:resource="#semanticRelation"/>
+  <owl:inverseOf rdf:resource="#narrowerTransitive"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">has broader transitive</rdfs:label>
+  <definition>skos:broaderTransitive is a transitive superproperty of skos:broader.</definition>
+  <scopeNote xml:lang="en">By convention, skos:broaderTransitive is not used to make assertions. Rather, the properties can be used to draw inferences about the transitive closure of the hierarchical relation, which is useful e.g. when implementing a simple query expansion algorithm in a search application.</scopeNote>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#narrower">
+  <rdfs:subPropertyOf rdf:resource="#narrowerTransitive"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:comment xml:lang="en">Narrower concepts are typically rendered as children in a concept hierarchy (tree).</rdfs:comment>
+  <rdfs:label xml:lang="en">has narrower</rdfs:label>
+  <definition xml:lang="en">Relates a concept to a concept that is more specific in meaning.</definition>
+  <scopeNote xml:lang="en">By convention, skos:broader is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources.</scopeNote>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#semanticRelation">
+  <rdfs:domain rdf:resource="#Concept"/>
+  <rdfs:range rdf:resource="#Concept"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">is in semantic relation with</rdfs:label>
+  <definition xml:lang="en">Links a concept to a concept related by meaning.</definition>
+  <scopeNote xml:lang="en">This property should not be used directly, but as a super-property for all properties denoting a relationship of meaning between concepts.</scopeNote>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#narrowerTransitive">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  <rdfs:subPropertyOf rdf:resource="#semanticRelation"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">has narrower transitive</rdfs:label>
+  <definition>skos:narrowerTransitive is a transitive superproperty of skos:narrower.</definition>
+  <scopeNote xml:lang="en">By convention, skos:narrowerTransitive is not used to make assertions. Rather, the properties can be used to draw inferences about the transitive closure of the hierarchical relation, which is useful e.g. when implementing a simple query expansion algorithm in a search application.</scopeNote>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#closeMatch">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  <rdfs:subPropertyOf rdf:resource="#mappingRelation"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">has close match</rdfs:label>
+  <definition xml:lang="en">skos:closeMatch is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of "compound errors" when combining mappings across more than two concept schemes, skos:closeMatch is not declared to be a transitive property.</definition>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#exactMatch">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  <rdfs:subPropertyOf rdf:resource="#closeMatch"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:comment xml:lang="en">skos:exactMatch is disjoint with each of the properties skos:broadMatch and skos:relatedMatch.</rdfs:comment>
+  <rdfs:label xml:lang="en">has exact match</rdfs:label>
+  <definition xml:lang="en">skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications. skos:exactMatch is a transitive property, and is a sub-property of skos:closeMatch.</definition>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasTopConcept">
+  <rdfs:domain rdf:resource="#Schemes"/>
+  <rdfs:range rdf:resource="#Concept"/>
+  <owl:inverseOf rdf:resource="#topConceptOf"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">has top concept</rdfs:label>
+  <definition xml:lang="en">Relates, by convention, a concept scheme to a concept which is topmost in the broader/narrower concept hierarchies for that scheme, providing an entry point to these hierarchies.</definition>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#topConceptOf">
+  <rdfs:domain rdf:resource="#Concept"/>
+  <rdfs:range rdf:resource="#Schemes"/>
+  <rdfs:subPropertyOf rdf:resource="#inScheme"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">is top concept in scheme</rdfs:label>
+  <definition xml:lang="en">Relates a concept to the concept scheme that it is a top level concept of.</definition>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#inScheme">
+  <rdfs:range rdf:resource="#Schemes"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">is in scheme</rdfs:label>
+  <definition xml:lang="en">Relates a resource (for example a concept) to a concept scheme in which it is included.</definition>
+  <scopeNote xml:lang="en">A concept may be a member of more than one concept scheme.</scopeNote>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#member">
+  <rdfs:domain rdf:resource="#Collection"/>
+  <rdfs:range>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Collection"/>
+        <rdf:Description rdf:about="#Concept"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:range>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">has member</rdfs:label>
+  <definition xml:lang="en">Relates a collection to one of its members.</definition>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#memberList">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#OrderedCollection"/>
+  <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:comment xml:lang="en">For any resource, every item in the list given as the value of the
+      skos:memberList property is also a value of the skos:member property.</rdfs:comment>
+  <rdfs:label xml:lang="en">has member list</rdfs:label>
+  <definition xml:lang="en">Relates an ordered collection to the RDF list containing its members.</definition>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#related">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  <rdfs:subPropertyOf rdf:resource="#semanticRelation"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:comment xml:lang="en">skos:related is disjoint with skos:broaderTransitive</rdfs:comment>
+  <rdfs:label xml:lang="en">has related</rdfs:label>
+  <definition xml:lang="en">Relates a concept to a concept with which there is an associative semantic relationship.</definition>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#relatedMatch">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  <rdfs:subPropertyOf rdf:resource="#mappingRelation"/>
+  <rdfs:subPropertyOf rdf:resource="#related"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">has related match</rdfs:label>
+  <definition xml:lang="en">skos:relatedMatch is used to state an associative mapping link between two conceptual resources in different concept schemes.</definition>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#testRelation"/>
+
+<owl:DatatypeProperty rdf:about="#notation">
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">notation</rdfs:label>
+  <definition xml:lang="en">A notation, also known as classification code, is a string of characters such as "T58.5" or "303.4833" used to uniquely identify a concept within the scope of a given concept scheme.</definition>
+  <scopeNote xml:lang="en">By convention, skos:notation is used with a typed literal in the object position of the triple.</scopeNote>
+</owl:DatatypeProperty>
+
+<owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+
+<owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+
+<owl:AnnotationProperty rdf:about="#altLabel">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:comment xml:lang="en">The range of skos:altLabel is the class of RDF plain literals.</rdfs:comment>
+  <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties.</rdfs:comment>
+  <rdfs:label xml:lang="en">alternative label</rdfs:label>
+  <definition xml:lang="en">An alternative lexical label for a resource.</definition>
+  <example xml:lang="en">Acronyms, abbreviations, spelling variants, and irregular plural/singular forms may be included among the alternative labels for a concept. Mis-spelled terms are normally included as hidden labels (see skos:hiddenLabel).</example>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="#definition">
+  <rdfs:subPropertyOf rdf:resource="#note"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">definition</rdfs:label>
+  <definition xml:lang="en">A statement or formal explanation of the meaning of a concept.</definition>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="#example">
+  <rdfs:subPropertyOf rdf:resource="#note"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">example</rdfs:label>
+  <definition xml:lang="en">An example of the use of a concept.</definition>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="#changeNote">
+  <rdfs:subPropertyOf rdf:resource="#note"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">change note</rdfs:label>
+  <definition xml:lang="en">A note about a modification to a concept.</definition>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="#note">
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">note</rdfs:label>
+  <definition xml:lang="en">A general note, for any purpose.</definition>
+  <scopeNote xml:lang="en">This property may be used directly, or as a super-property for more specific note types.</scopeNote>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="#documentId">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="#editorialNote">
+  <rdfs:subPropertyOf rdf:resource="#note"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">editorial note</rdfs:label>
+  <definition xml:lang="en">A note for an editor, translator or maintainer of the vocabulary.</definition>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="#hiddenLabel">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:comment xml:lang="en">The range of skos:hiddenLabel is the class of RDF plain literals.</rdfs:comment>
+  <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties.</rdfs:comment>
+  <rdfs:label xml:lang="en">hidden label</rdfs:label>
+  <definition xml:lang="en">A lexical label for a resource that should be hidden when generating visual displays of the resource, but should still be accessible to free text search operations.</definition>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="#historyNote">
+  <rdfs:subPropertyOf rdf:resource="#note"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">history note</rdfs:label>
+  <definition xml:lang="en">A note about the past state/use/meaning of a concept.</definition>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="#scopeNote">
+  <rdfs:subPropertyOf rdf:resource="#note"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">scope note</rdfs:label>
+  <definition xml:lang="en">A note that helps to clarify the meaning and/or the use of a concept.</definition>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="#prefLabel">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:comment xml:lang="en">A resource has no more than one value of skos:prefLabel per language tag, and no more than one value of skos:prefLabel without language tag.</rdfs:comment>
+  <rdfs:comment xml:lang="en">The range of skos:prefLabel is the class of RDF plain literals.</rdfs:comment>
+  <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise
+      disjoint properties.</rdfs:comment>
+  <rdfs:label xml:lang="en">preferred label</rdfs:label>
+  <definition xml:lang="en">The preferred lexical label for a resource, in a given language.</definition>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="#requires"/>
+
+<owl:Class rdf:about="#Schemes">
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">Concept Scheme</rdfs:label>
+  <definition xml:lang="en">A set of concepts, optionally including statements about semantic relationships between those concepts.</definition>
+  <example xml:lang="en">Thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', and other types of controlled vocabulary are all examples of concept schemes. Concept schemes are also embedded in glossaries and terminologies.</example>
+  <scopeNote xml:lang="en">A concept scheme may be defined to include concepts from different sources.</scopeNote>
+</owl:Class>
+
+<owl:Class rdf:about="#Concept">
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">Concept</rdfs:label>
+  <definition xml:lang="en">An idea or notion; a unit of thought.</definition>
+</owl:Class>
+
+<owl:Class rdf:about="#Collection">
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">Collection</rdfs:label>
+  <definition xml:lang="en">A meaningful collection of concepts.</definition>
+  <scopeNote xml:lang="en">Labelled collections can be used where you would like a set of concepts to be displayed under a 'node label' in the hierarchy.</scopeNote>
+</owl:Class>
+
+<owl:Class rdf:about="#OrderedCollection">
+  <rdfs:subClassOf rdf:resource="#Collection"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">Ordered Collection</rdfs:label>
+  <definition xml:lang="en">An ordered collection of concepts, where both the grouping and the ordering are meaningful.</definition>
+  <scopeNote xml:lang="en">Ordered collections can be used where you would like a set of concepts to be displayed in a specific order, and optionally under a 'node label'.</scopeNote>
+</owl:Class>
+
+<owl:Class rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+
+<owl:Class rdf:about="#ArithmeticOperator">
+  <rdfs:subClassOf rdf:resource="#Operator"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptArithmetic_Operator"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Operator">
+  <rdfs:subClassOf rdf:resource="#Program"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptOperator"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptArithmetic_Operator">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptOperator"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <requires>MathArithmetic</requires>
+</owl:Class>
+
+<owl:Class rdf:about="#CProgram">
+  <rdfs:subClassOf rdf:resource="#ProgrammingLanguage"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptC_Program"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ProgrammingLanguage">
+  <rdfs:subClassOf rdf:resource="#Programming"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptC_Program">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#related"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment xml:lang="en">I LOVE COMMENTS IN MY PROGRAMS!</rdfs:comment>
+  <rdfs:comment xml:lang="en">Test 2</rdfs:comment>
+  <altLabel xml:lang="en">C</altLabel>
+  <note xml:lang="en"></note>
+  <hiddenLabel xml:lang="en">test hidden</hiddenLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#Comment">
+  <rdfs:subClassOf rdf:resource="#Program"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComment"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Program">
+  <rdfs:subClassOf rdf:resource="#Computer"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptComment">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Computer">
+  <rdfs:subClassOf rdf:resource="#1511"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComputer"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#1511">
+  <rdfs:subClassOf rdf:resource="#Collection"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptComputer">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#narrower"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptAlgorithm">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptOperator">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <altLabel>operations</altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptAssignment">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptProgram">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broaderTransitive"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComputer"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#narrower"/>
+      <owl:someValuesFrom rdf:resource="#ConceptAlgorithm"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#narrower"/>
+      <owl:someValuesFrom rdf:resource="#ConceptInstruction"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptC_Programming_Language">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptC_Program"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#closeMatch"/>
+      <owl:someValuesFrom rdf:resource="#ConceptSomething_Test"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptCode">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptCompilation">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#narrower"/>
+      <owl:someValuesFrom rdf:resource="#ConceptMachine_Code"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptMachine_Code">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#related"/>
+      <owl:someValuesFrom rdf:resource="#ConceptInstruction"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptConstant">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptDeclaration">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptVariable"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptVariable">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptDirective">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptDouble">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptType"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptType">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptVariable"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <altLabel>Datatype</altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptExpression">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptFloat">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptType"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptFunction">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptFunction_Call">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptFunction"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <requires>Function</requires>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptFunction_Heading">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptFunction"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <requires>Function</requires>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptIdentifier">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptVariable"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptInitialisation">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptVariable"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptInput_Output">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptInstruction">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#related"/>
+      <owl:someValuesFrom rdf:resource="#ConceptMachine_Code"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptInteger">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptType"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptLifetime">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptFunction"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptMacro">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptMemory">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptParameter">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptFunction"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptProcedure">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptProgramming">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptProgramming_Language">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgramming"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptProgramming_Strategy">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgramming"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptRelational_Operator">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptOperator"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptReturn_value">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptFunction"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptScope">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptFunction"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptSelection_Statement">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <altLabel>Conditioned Statements</altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptStatement">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#broader"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Constant">
+  <rdfs:subClassOf rdf:resource="#Program"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptConstant"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Directive">
+  <rdfs:subClassOf rdf:resource="#Program"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptDirective"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Function">
+  <rdfs:subClassOf rdf:resource="#Program"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptFunction"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#FunctionLifetime">
+  <rdfs:subClassOf rdf:resource="#Function"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptLifetime"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#FunctionParameter">
+  <rdfs:subClassOf rdf:resource="#Function"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptParameter"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#FunctionScope">
+  <rdfs:subClassOf rdf:resource="#Function"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptScope"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#FunctionType">
+  <rdfs:subClassOf rdf:resource="#Function"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptType"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <owl:equivalentClass rdf:resource="#SchemesType"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SchemesType">
+  <rdfs:subClassOf rdf:resource="#Schemes"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasTopConcept"/>
+      <owl:someValuesFrom rdf:resource="#ConceptType"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptFloat"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <owl:equivalentClass rdf:resource="#VariableType"/>
+</owl:Class>
+
+<owl:Class rdf:about="#IO">
+  <rdfs:subClassOf rdf:resource="#Program"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptInput_Output"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Programming">
+  <rdfs:subClassOf rdf:resource="#Program"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgramming"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#ProgrammingStrategy">
+  <rdfs:subClassOf rdf:resource="#Programming"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgramming_Strategy"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#RelationalOperator">
+  <rdfs:subClassOf rdf:resource="#Operator"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptRelational_Operator"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#SchemeDouble">
+  <rdfs:subClassOf rdf:resource="#SchemesType"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptDouble"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#SchemeFloat">
+  <rdfs:subClassOf rdf:resource="#SchemesType"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SchemeInteger">
+  <rdfs:subClassOf rdf:resource="#SchemesType"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptInteger"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#VariableType">
+  <rdfs:subClassOf rdf:resource="#Variable"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptType"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#SelectionStatement">
+  <rdfs:subClassOf rdf:resource="#Statement"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptSelection_Statement"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Statement">
+  <rdfs:subClassOf rdf:resource="#Program"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptStatement"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Variable">
+  <rdfs:subClassOf rdf:resource="#Program"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptVariable"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#VariableAssignment">
+  <rdfs:subClassOf rdf:resource="#Variable"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptAssignment"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#VariableDeclaration">
+  <rdfs:subClassOf rdf:resource="#Variable"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptDeclaration"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#VariableInitialisation">
+  <rdfs:subClassOf rdf:resource="#Variable"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptInitialisation"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#VariableMemory">
+  <rdfs:subClassOf rdf:resource="#Variable"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#member"/>
+      <owl:someValuesFrom rdf:resource="#ConceptMemory"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#VariableValue">
+  <rdfs:subClassOf rdf:resource="#Variable"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptSomething_Test">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+  <altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></altLabel>
+  <hiddenLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></hiddenLabel>
+  <prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></prefLabel>
+  <requires rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C_Program,Machine_Code</requires>
+</owl:Class>
+
+<ConceptC_Program rdf:about="#C_Programming_Language">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <definition>C is an important programming language
+• relatively simple
+• widely used
+• venerable (developed in late 60’s by Thompson &amp; Ritchie) 
+• forms the basis for many other languages</definition>
+  <documentId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</documentId>
+</ConceptC_Program>
+
+<rdf:Description rdf:about="#Programs">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <definition>A program is
+• a set of instructions
+• that gives a procedure 
+• to accomplish a goal</definition>
+</rdf:Description>
+
+<rdf:Description rdf:about="#Programs1">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <definition>A program needs to be
+• sufficiently detailed
+• unambiguous
+• eventually leading to goal
+So we don’t use English for programming</definition>
+</rdf:Description>
+
+<rdf:Description rdf:about="#Programs2">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <definition>A program is a text document, containing
+• a description of an algorithm
+• expressed in a programming language
+It cannot be directly executed on a computer
+• need to translate to executable machine code</definition>
+</rdf:Description>
+
+<rdf:Description rdf:about="#Programs3">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <definition>Typical program structure
+• get input values
+• process input to compute result 
+• display result</definition>
+</rdf:Description>
+
+<ConceptC_Program rdf:about="#C_(the_language)">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <definition>A C program
+• consists of a collection of functions
+• one of which must be called main()
+• may have functions in multiple files
+By convention, C programs are
+• text files with a .c suffix (e.g. myProgram.c)</definition>
+  <documentId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2</documentId>
+</ConceptC_Program>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#SchemeDouble"/>
+    <rdf:Description rdf:about="#SchemeFloat"/>
+    <rdf:Description rdf:about="#SchemeInteger"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+
+</rdf:RDF>
