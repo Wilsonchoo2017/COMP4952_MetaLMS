@@ -4,8 +4,8 @@ CREATE TABLE IF NOT EXISTS "HasLO" (
 	"LOId"	INTEGER,
 	"SubComponentId"	INTEGER,
 	"Week"	INTEGER,
-	FOREIGN KEY("LOId") REFERENCES "LearningObject"("LOId"),
-	PRIMARY KEY("LOId","SubComponentId","Week")
+	PRIMARY KEY("LOId","SubComponentId","Week"),
+	FOREIGN KEY("LOId") REFERENCES "LearningObject"("LOId")
 );
 DROP TABLE IF EXISTS "Course";
 CREATE TABLE IF NOT EXISTS "Course" (
@@ -27,8 +27,8 @@ CREATE TABLE IF NOT EXISTS "SubComponent" (
 	"SubComponentName"	INTEGER NOT NULL,
 	"ComponentId"	INTEGER,
 	"Score"	INTEGER,
-	FOREIGN KEY("ComponentId") REFERENCES "LearningObject"("LOId"),
-	PRIMARY KEY("SubComponentId" AUTOINCREMENT)
+	PRIMARY KEY("SubComponentId" AUTOINCREMENT),
+	FOREIGN KEY("ComponentId") REFERENCES "LearningObject"("LOId")
 );
 DROP TABLE IF EXISTS "Component";
 CREATE TABLE IF NOT EXISTS "Component" (
@@ -43,9 +43,9 @@ CREATE TABLE IF NOT EXISTS "Prerequisite" (
 	"prereq_id"	INTEGER,
 	"course_id"	INTEGER,
 	"course_req_id"	INTEGER,
-	FOREIGN KEY("course_req_id") REFERENCES "Course"("CourseId"),
+	PRIMARY KEY("prereq_id" AUTOINCREMENT),
 	FOREIGN KEY("course_id") REFERENCES "Course"("CourseId"),
-	PRIMARY KEY("prereq_id" AUTOINCREMENT)
+	FOREIGN KEY("course_req_id") REFERENCES "Course"("CourseId")
 );
 DROP TABLE IF EXISTS "LearningObject";
 CREATE TABLE IF NOT EXISTS "LearningObject" (
@@ -62,8 +62,14 @@ CREATE TABLE IF NOT EXISTS "Subpage" (
 	"SubpageId"	INTEGER,
 	"LOId"	INTEGER NOT NULL,
 	"PageNumber"	INTEGER,
-	FOREIGN KEY("LOId") REFERENCES "LearningObject"("LOId"),
-	PRIMARY KEY("SubpageId" AUTOINCREMENT)
+	PRIMARY KEY("SubpageId" AUTOINCREMENT),
+	FOREIGN KEY("LOId") REFERENCES "LearningObject"("LOId")
+);
+DROP TABLE IF EXISTS "Top3SimilarLO";
+CREATE TABLE IF NOT EXISTS "Top3SimilarLO" (
+	"SmId"	INTEGER,
+	"LoId"	INTEGER,
+	"SimilarLO"	INTEGER
 );
 DROP INDEX IF EXISTS "Course_Id_uindex";
 CREATE UNIQUE INDEX IF NOT EXISTS "Course_Id_uindex" ON "Course" (

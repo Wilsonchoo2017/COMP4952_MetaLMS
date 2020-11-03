@@ -1,4 +1,0 @@
-bad_pun_0 command="./bad_pun" files="bad_pun.c"
-bird_0 command="./bird" files="bird.c"
-
-
