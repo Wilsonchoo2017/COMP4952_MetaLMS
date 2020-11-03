@@ -1,5 +1,4 @@
 attrs
-blis
 certifi
 chardet
 click
