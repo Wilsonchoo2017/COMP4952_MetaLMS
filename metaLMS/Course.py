@@ -3,6 +3,7 @@ from .utility.database import insert_course_into_database, max_course_id, get_co
 from .utility.scorm_utils import *
 from base64 import b64decode
 import time, threading
+from .LearningObject import *
 
 job_queue = [{"job_id": "QKZXU3B8GG1", "course_id": "1"}]
 
@@ -90,4 +91,87 @@ def ping_job_status():
 
     # do this again in 10 seconds
     threading.Timer(10, ping_job_status).start()
+
+def get_ssm_of_two_courses(course_a, course_b):
+    response_a = get_course_detail(course_a)['LearningObject']
+    response_b = get_course_detail(course_b)['LearningObject']
+
+    # Set of LO ids
+    lo_a = set()
+    lo_b = set()
+
+    for i in response_a:
+        lo_a.add(i['LOId'])
+
+    for i in response_b:
+        lo_b.add(i['LOId'])
+
+    # Convert set to list
+    lo_a = list(lo_a)
+    lo_b = list(lo_b)
+
+
+
+    print("set", lo_a)
+    print("setb", lo_b)
+
+    total_score_a = 0
+    # Get Score board
+    scoreboard_a = {}
+    scoreboard_b = {}
+    for a in lo_a:
+        for b in lo_b:
+            if a == b:
+                # Skip same lo id
+                scoreboard_a[b] = -1
+                continue
+
+            # Score between a and b
+            score = compute_two_lo_ssm(a, b)
+            if a in scoreboard_a:
+                # append list of dict
+                scoreboard_a[a].append({'from': a, 'to': b, 'score': score})
+            else:
+                # append dict to list
+                scoreboard_a[a] = [{'from': a, 'to': b, 'score': score}]
+
+            total_score_a = total_score_a + score
+
+            print('score', score)
+            print('scoreboard', scoreboard_a)
+
+    total_score_b = 0
+    for b in lo_b:
+        for a in lo_a:
+            if a == b:
+                # Skip same lo id
+                scoreboard_b[a] = -1
+                continue
+
+            # Score between a and b
+            score = compute_two_lo_ssm(a, b)
+
+            if b in scoreboard_b:
+                # append list of dict
+                scoreboard_b[b].append({'from': b, 'to': a, 'score': score})
+            else:
+                # append dict to list
+                scoreboard_b[b] = [{'from': b, 'to': a, 'score': score}]
+
+            total_score_b = total_score_b + score
+
+            print('score', score)
+            print('scoreboard', scoreboard_b)
+
+    print(total_score_a, total_score_b)
+
+    course_ssm_score = total_score_a + total_score_b
+    # course a score = how similar is the lo to the other course
+    return course_ssm_score, scoreboard_a, scoreboard_b
+
+
+class Scoreboard():
+    def __init__(self, to, score):
+        self.to = to
+        self.score = score
 

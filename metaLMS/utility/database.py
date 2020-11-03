@@ -49,6 +49,16 @@ def get_learning_object_and_associated_details_from_db(lo_id):
     row_headers = [x[0] for x in c.description]
     response['LearningObject'] = dict(zip(row_headers, result))
 
+    # Get SubPages
+    result = c.execute("SELECT * from Subpage "
+                       "where SubPage.LOId=?", (lo_id))
+
+    result = result.fetchall()
+    row_headers = [x[0] for x in c.description]
+    response['Subpages'] = []
+    for x in result:
+        response['Subpages'].append(dict(zip(row_headers, x)))
+
     # Get SubComponent
     result = c.execute("select DISTINCT SubComponent.SubComponentId, SubComponent.SubComponentName, SubComponent.ComponentId from LearningObject "
                        "join HasLO on LearningObject.LOId=HasLO.LOId  "
@@ -88,8 +98,6 @@ def get_learning_object_and_associated_details_from_db(lo_id):
     response['Course'] = []
     for x in result:
         response['Course'].append(dict(zip(row_headers, x)))
-
-    print("response: ",response)
 
     c.close()
     return response
@@ -252,12 +260,12 @@ def max_component_id():
         return 0
     return result[0]
 
-def insert_lo_into_database(lo_name, file_type, save_filepath, upload_time):
+def insert_lo_into_database(lo_name, file_type, save_filepath, upload_time, contact_details):
     try:
-        print(lo_name, file_type, save_filepath)
+        # print(lo_name, file_type, save_filepath)
         conn, c = db_init()
-        c.execute("insert into LearningObject (title, documentType, uploadDate, FilePath) VALUES (?, ?, ?, ?)",
-                       (lo_name, file_type, upload_time, save_filepath))
+        c.execute("insert into LearningObject (title, documentType, uploadDate, FilePath, ContactUser) VALUES (?, ?, ?, ?, ?)",
+                       (lo_name, file_type, upload_time, save_filepath, contact_details))
         conn.commit()
 
         c.close()
@@ -301,6 +309,22 @@ def insert_course_into_database(course_code, course_name, course_term, course_ye
     except sqlite3.Error as error:
         print("Failed to insert Python variable into sqlite table", error)
 
+def insert_sub_pages_into_database(lo_id, page_no):
+    """ return inserted id from database
+    """
+
+    try:
+        conn, c = db_init()
+
+        c.execute("insert into Subpage (LOId, PageNumber) VALUES (?, ?) ", (lo_id, page_no))
+        conn.commit()
+        row_id = c.lastrowid
+        c.close()
+
+        return row_id
+    except sqlite3.Error as error:
+        print("Failed to insert Python variable into sqlite table", error)
+
 
 def insert_imported_course_into_database(course_code, course_name, course_term, course_year, course_duration, course_type, is_imported):
     course_id = max_course_id() + 1
@@ -312,9 +336,23 @@ def insert_imported_course_into_database(course_code, course_name, course_term, 
             "insert into Course (CourseId, CourseCode, CourseName, Term, Year, Duration, Type, isImported) VALUES (?, ?,?,?,?,?,?,?)",
             (course_id, course_code, course_name, course_term, course_year, course_duration, course_type, is_imported))
         conn.commit()
+        c.close()
     except sqlite3.Error as error:
         print("Failed to insert Python variable into sqlite table", error)
-    pass
+
+def insert_sm_lo_into_database(lo_id, other_lo_id, score):
+    try:
+        conn, c = db_init()
+        c.execute(
+            "insert into SimilarLO (LoId, SimilarLO, Score) VALUES (?,?,?)",
+            (lo_id, other_lo_id, score)
+        )
+
+        conn.commit()
+        c.close()
+    except sqlite3.Error as error:
+        print("Failed to insert Python variable into sqlite table", error)
+
 
 def get_comp_id(component_name, course_id):
     """ Gets Component id"""

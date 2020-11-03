@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, redirect, Response
 from flask_cors import CORS
 
 from metaLMS.Concept import *
@@ -49,10 +49,17 @@ def create_app(test_config=None):
         return jsonify(get_concept_detail_for_frontend(filepath, concept))
 
 
-    @app.route('/dependency/<concept>')
-    def concept_dependency(concept):
-        concept = "Concept" + concept
-        return jsonify(get_dependency(filepath, concept))
+    @app.route('/dependency/')
+    def concept_dependency():
+        concepts = request.args.getlist("concepts")
+        result = []
+        print("sendData", concepts)
+        for concept in concepts:
+            concept = "Concept" + concept
+            print("inputconcept:", concept)
+            result = result + get_dependency(filepath, concept)
+        print("result dep", result)
+        return jsonify(result)
 
     @app.route('/concept-annotation/<concept>')
     def concept_annotation(concept):
@@ -90,6 +97,7 @@ def create_app(test_config=None):
 
     @app.route('/new-course', methods=['POST'])
     def new_course():
+        print(request.json)
         handle_post_course(filepath, request.json)
         return "1"
 
@@ -100,29 +108,43 @@ def create_app(test_config=None):
 
     @app.route('/course-detail/<course>')
     def course_detail(course):
+        if course == "":
+            return jsonify(None)
         return jsonify(get_course_detail(course))
 
     @app.route('/check-is-imported-course-detail/<course>')
     def check_is_imported_course(course):
         return jsonify(get_is_imported(course))
 
+
+    @app.route('/compare-two-course-similarity/', methods=['GET'])
+    def compare_two_course():
+        print(request.args)
+        course_a = request.args.getlist("courseA")[0]
+        course_b = request.args.getlist("courseB")[0]
+        print(course_a)
+        print(course_b)
+
+        course_score, course_a_score, course_b_score = get_ssm_of_two_courses(course_a, course_b)
+        return jsonify({'courseScore': course_score, 'courseAScore': course_a_score, 'courseBScore': course_b_score})
+
     #### Learning Object Methods ####
     @app.route('/lo')
     def lo():
         return jsonify(get_all_lo())
 
-    @app.route('/lo-concept-detail/<lo>')
-    def lo_concept_detail(lo):
-        pass
-        # return jsonify((lo))
+    @app.route('/lo-concept-detail/', methods=['GET'])
+    def lo_concept_detail():
+        return jsonify(get_concept_with_this_lo(filepath, request.args.getlist("loId")))
 
     @app.route('/lo-detail/<lo>')
     def lo_detail(lo):
-        return jsonify(get_lo_detail_for_frontend(lo))
+        return jsonify(get_lo_detail_for_frontend(filepath, lo))
 
     @app.route('/new-lo', methods=['POST'])
     def new_lo():
+        # print('data', request.json)
         handle_post_lo(filepath, request.json)
-        return "1"
+        return Response("{'a':'b'}", status=200, mimetype='application/json')
 
     return app

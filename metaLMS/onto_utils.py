@@ -304,8 +304,8 @@ def insert_concept_relationship(ontology_file, concept_A, list_of_conceptB):
     insert concept into list of concepts B
 
     :param ontology_file:
-    :param concept_A:
-    :param list_of_conceptB:
+    :param concept_A: string
+    :param list_of_conceptB: array of {'semanticRelation : string, 'concept': [string]}
     :return:
     """
 
@@ -339,12 +339,31 @@ def insert_concept_relationship(ontology_file, concept_A, list_of_conceptB):
             pass
 
     concept_A_class = getattr(onto, "Concept" + concept_A)
+    print(concept_A_class)
 
     for concept_B in list_of_conceptB:
         concept_relation = concept_B['semanticRelation']
         for concept_name in concept_B['concepts']:
             concept_B_class = getattr(onto, "Concept" + concept_name)
             setattr(concept_B_class, concept_relation, concept_A_class)
+
+            # Add as Annotation as well
+            if concept_relation == 'closeMatch':
+                concept_A_class.closematch = concept_B_class
+
+            if concept_relation == 'exactMatch':
+                concept_A_class.exactmatch.append(concept_B_class)
+
+            if concept_relation == 'broadMatch':
+                concept_A_class.broadmatch = concept_B_class
+
+            if concept_relation == 'narrowMatch':
+                concept_A_class.narrowmatch = concept_B_class
+
+
+
+
+    # concept_A_class.narrowmatch = altLabel
 
     onto.save(file=ontology_file, format="rdfxml")
 
@@ -408,14 +427,13 @@ def append_concept_lo(ontology_file, concept, LO, cso_concepts):
     onto.save(file=ontology_file, format="rdfxml")
 
 def get_concept_with_this_lo(ontology_file, los):
-    print(los)
     result = set()
 
     onto = get_ontology(ontology_file).load()
     for lo in los:
         lo_class = None
         for i in onto.individuals():
-            if i.LOId.first() == lo:
+            if int(i.LOId.first()) == int(lo):
                 lo_class = i
                 break
         for idx in list(onto.classes()):
@@ -430,7 +448,6 @@ def get_concept_with_this_lo(ontology_file, los):
                     if i != '':  # ignore top level Concept Class
                         result.add(i)
 
-    print(result)
     return list(result)
 
 def get_cso_concepts_with_this_lo(ontology_file, lo_id):
@@ -440,8 +457,7 @@ def get_cso_concepts_with_this_lo(ontology_file, lo_id):
         lo_class = None
         # Get individual class object
         for i in onto.individuals():
-            if i.LOId.first() == lo_id:
-                print("yers")
+            if int(i.LOId.first()) == int(lo_id):
                 lo_class = i
                 break
 
