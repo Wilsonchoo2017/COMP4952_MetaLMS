@@ -7,7 +7,6 @@ cso-classifier
 cycler
 cymem
 decorator
-en-core-web-sm
 falcon
 Flask
 Flask-Cors
