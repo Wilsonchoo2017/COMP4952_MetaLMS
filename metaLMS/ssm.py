@@ -1,35 +1,35 @@
 import ssmpy
 
-file_path_exact = "/Users/wilson/PycharmProjects/COMP4952/metaLMS/skosExact.db"
-file_path_narrow = "/Users/wilson/PycharmProjects/COMP4952/metaLMS/skosNarrow.db"
-file_path_broad = "/Users/wilson/PycharmProjects/COMP4952/metaLMS/skosBroad.db"
-file_path_close = "/Users/wilson/PycharmProjects/COMP4952/metaLMS/skosClose.db"
+file_path_exact = "/metaLMS/db/skosExact.db"
+file_path_narrow = "/metaLMS/db/skosNarrow.db"
+file_path_broad = "/metaLMS/db/skosBroad.db"
+file_path_close = "/metaLMS/db/skosClose.db"
 file_path_cso = "/Users/wilson/PycharmProjects/COMP4952/metaLMS/csSTO.db"
 
 
 def pre_compute_semantic_similarity():
     ssmpy.create_semantic_base("../owl/1511_skos_knowledge.owl",
-                               "skosExact.db",
+                               "db/skosExact.db",
                                "http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept",
                                "http://www.skosknowledge.com/ontologies/skos_knowledge.owl#exactmatch",
                                '')
 
 
     ssmpy.create_semantic_base("../owl/1511_skos_knowledge.owl",
-                               "skosClose.db",
+                               "db/skosClose.db",
                                "http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept",
                                "http://www.skosknowledge.com/ontologies/skos_knowledge.owl#closematch",
                                '')
 
 
     ssmpy.create_semantic_base("../owl/1511_skos_knowledge.owl",
-                               "skosBroad.db",
+                               "db/skosBroad.db",
                                "http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept",
                                "http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broadmatch",
                                '')
 
     ssmpy.create_semantic_base("../owl/1511_skos_knowledge.owl",
-                               "skosNarrow.db",
+                               "db/skosNarrow.db",
                                "http://www.skosknowledge.com/ontologies/skos_knowledge.owl#Concept",
                                "http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrowmatch",
                                '')

@@ -1,6 +1,6 @@
 import sqlite3
 
-db_path = '/Users/wilson/PycharmProjects/COMP4952/metaLMS/utility/LOdatabase.db'
+db_path = '/metaLMS/db/LOdatabase.db'
 
 
 
