@@ -314,25 +314,20 @@ def insert_concept_relationship(ontology_file, concept_A, list_of_conceptB):
         class Concept(Thing):
             pass
 
-        class semanticRelation(ObjectProperty):
+        class broadMatch(ObjectProperty):
             pass
 
-        class mappingRelation(semanticRelation):
+
+        class closeMatch(ObjectProperty):
             pass
 
-        class broadMatch(mappingRelation):
+        class narrowMatch(ObjectProperty):
             pass
 
-        class closeMatch(mappingRelation):
+        class exactMatch(ObjectProperty):
             pass
 
-        class narrowMatch(mappingRelation):
-            pass
-
-        class exactMatch(mappingRelation):
-            pass
-
-        class subClassOf(mappingRelation):
+        class subClassOf(ObjectProperty):
             pass
 
 
