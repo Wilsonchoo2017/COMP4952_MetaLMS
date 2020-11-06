@@ -1,2 +1,2 @@
-cat ./metaLMS/utility/schema.sql | sqlite3 ./metaLMS/utility/LOdatabase.db
+cat ./metaLMS/db/schema.sql | sqlite3 ./metaLMS/db/LOdatabase.db
 
