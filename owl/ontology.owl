@@ -8,8 +8,6 @@
          xmlns:term="http://purl.org/dc/terms/"
          xmlns:skos="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#">
 
-<owl:Ontology rdf:about="owl/ontology.owl"/>
-
 <owl:Ontology rdf:about="http://www.skosknowledge.com/ontologies/owl/ontology.owl">
   <rdfs:seeAlso rdf:resource="http://www.w3.org/TR/skos-reference"/>
   <term:description xml:lang="en">An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies.</term:description>
@@ -192,32 +190,6 @@
 
 <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#testRelation"/>
 
-<owl:ObjectProperty rdf:about="owl/ontology.owl#semanticRelation"/>
-
-<owl:ObjectProperty rdf:about="owl/ontology.owl#mappingRelation">
-  <rdfs:subPropertyOf rdf:resource="owl/ontology.owl#semanticRelation"/>
-</owl:ObjectProperty>
-
-<owl:ObjectProperty rdf:about="owl/ontology.owl#broadMatch">
-  <rdfs:subPropertyOf rdf:resource="owl/ontology.owl#mappingRelation"/>
-</owl:ObjectProperty>
-
-<owl:ObjectProperty rdf:about="owl/ontology.owl#closeMatch">
-  <rdfs:subPropertyOf rdf:resource="owl/ontology.owl#mappingRelation"/>
-</owl:ObjectProperty>
-
-<owl:ObjectProperty rdf:about="owl/ontology.owl#narrowMatch">
-  <rdfs:subPropertyOf rdf:resource="owl/ontology.owl#mappingRelation"/>
-</owl:ObjectProperty>
-
-<owl:ObjectProperty rdf:about="owl/ontology.owl#exactMatch">
-  <rdfs:subPropertyOf rdf:resource="owl/ontology.owl#mappingRelation"/>
-</owl:ObjectProperty>
-
-<owl:ObjectProperty rdf:about="owl/ontology.owl#subClassOf">
-  <rdfs:subPropertyOf rdf:resource="owl/ontology.owl#mappingRelation"/>
-</owl:ObjectProperty>
-
 <owl:DatatypeProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#notation">
   <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
   <rdfs:label xml:lang="en">notation</rdfs:label>
@@ -338,17 +310,9 @@
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
-<owl:Class rdf:about="#ConceptComment">
+<owl:Class rdf:about="#ConceptComputer">
   <rdfs:subClassOf rdf:resource="#Concept"/>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#subClassOf"/>
-      <owl:someValuesFrom rdf:resource="#ConceptComputer_Program"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <subclassof rdf:resource="#ConceptComputer_Program"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer programming, a comment is a programmer-readable explanation or annotation in the source code of a computer program.  [Source Wikipedia]</rdfs:comment>
-  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Comment (computer programming)</skos:altLabel>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A computer is a machine that can be instructed to carry out sequences of arithmetic or logical operations automatically via computer programming. [Source Wikipedia]</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="#ConceptComputer_Program">
@@ -363,9 +327,17 @@
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A computer program is a collection of instructions that can be executed by a computer to perform a specific task.  [Source Wikipedia]</rdfs:comment>
 </owl:Class>
 
-<owl:Class rdf:about="#ConceptComputer">
+<owl:Class rdf:about="#ConceptComment">
   <rdfs:subClassOf rdf:resource="#Concept"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A computer is a machine that can be instructed to carry out sequences of arithmetic or logical operations automatically via computer programming. [Source Wikipedia]</rdfs:comment>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComputer_Program"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptComputer_Program"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer programming, a comment is a programmer-readable explanation or annotation in the source code of a computer program.  [Source Wikipedia]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Comment (computer programming)</skos:altLabel>
 </owl:Class>
 
 <owl:Class rdf:about="#ConceptConstant">
@@ -456,21 +428,6 @@
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer programming, a statement is a syntactic unit of an imperative programming language that expresses some action to be carried out.[1] A program written in such a language is formed by a sequence of one or more statements. A statement may have internal components (e.g., expressions). </rdfs:comment>
   <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Statement (computer science)</skos:altLabel>
 </owl:Class>
-
-<owl:Class rdf:about="owl/ontology.owl#Concept">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="owl/ontology.owl#Conceptx">
-  <rdfs:subClassOf rdf:resource="owl/ontology.owl#Concept"/>
-</owl:Class>
-
-<ConceptComputer_Program rdf:about="#3">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ede</rdfs:label>
-  <skos:LOId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3</skos:LOId>
-  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></skos:csoConcept>
-</ConceptComputer_Program>
 
 
 </rdf:RDF>
