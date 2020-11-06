@@ -271,20 +271,7 @@ class ConceptDetail extends React.Component {
                     </Grid>
                   </div>
                   <div className="mt-5 py-5 border-top text-center">
-                    <Grid columns='equal'>
-                      <Grid.Row >
-                        <Grid.Column>
-                          <Segment> Date Created: </Segment>
-                        </Grid.Column>
-                        <Grid.Column>
-                          <Segment> Last Modified: </Segment>
-                        </Grid.Column>
-                        <Grid.Column>
-                          <Segment> Other Stuff</Segment>
-                        </Grid.Column>
-                      </Grid.Row>
 
-                    </Grid>
                   </div>
                 </div>
               </Card>

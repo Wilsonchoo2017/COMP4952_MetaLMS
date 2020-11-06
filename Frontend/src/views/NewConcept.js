@@ -54,6 +54,25 @@ class NewConcept extends React.Component {
     })
   }
 
+  goToStart = () => {
+    const {step} = this.state
+    this.setState({
+        step: 1,
+        conceptName: '',
+        comment: '',
+        dependency: [],
+        prefLabel: '',
+        hiddenLabel: '',
+        altLabel: '',
+        schemeName: '',
+        schemeConcepts: [],
+        schemeMode: '', // 1 for None, 2 for create, 3 for use existing
+        relationship: [{semanticRelation: "", concepts: []}],
+        data: [],
+    })
+    this.componentDidMount()
+  }
+
   prevStep = () => {
     const {step} = this.state
     this.setState({
@@ -143,7 +162,7 @@ class NewConcept extends React.Component {
       case -1:
         return (
           <div>
-            <ConceptFormSuccess/>
+            <ConceptFormSuccess goToStart={this.goToStart}/>
           </div>
         )
     }

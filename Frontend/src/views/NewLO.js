@@ -55,6 +55,21 @@ class NewLO extends React.Component {
 
   }
 
+  goToStart = () => {
+    this.setState(
+      {
+        step: 1,
+        concepts: '',
+        loName: '',
+        file: '',
+        fileName: '',
+        type: '',
+        contact: '',
+      }
+    )
+    this.componentDidMount()
+  }
+
   handleChange = input => event => {
     this.setState({[input]: event.target.value})
   }
@@ -91,7 +106,7 @@ class NewLO extends React.Component {
         );
       case -1:
         return (
-          <LOFormSuccess/>
+          <LOFormSuccess goToStart={this.goToStart}/>
         )
 
     }

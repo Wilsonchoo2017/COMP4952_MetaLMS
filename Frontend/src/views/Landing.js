@@ -72,7 +72,7 @@ class Landing extends React.Component {
                           <i className="ni ni-check-bold" />
                         </div>
                         <h6 className="text-primary text-uppercase">
-                          <a href={"/concept-page"}> Browse Concepts</a>
+                          <Link to={"/concept-page"}> Browse Concepts</Link>
                         </h6>
                         <p className="description mt-3">
                           Find out all the concepts exist from us. These concepts are hand crafted by our beloved developers!
@@ -88,7 +88,7 @@ class Landing extends React.Component {
                         </div>
                         <h6 className="text-success text-uppercase">
 
-                          <a href={"/course-page"}>Browse Courses</a>
+                          <Link to={"/course-page"}>Browse Courses</Link>
                         </h6>
                         <p className="description mt-3">
                           Explore all the courses exist in our system. Get the chance to design your courses in an efficient way!
@@ -105,7 +105,7 @@ class Landing extends React.Component {
                           <i className="ni ni-planet" />
                         </div>
                         <h6 className="text-warning text-uppercase">
-                          <a href={"/LO-page"}>Browse Learning Objects</a>
+                          <Link to={"/LO-page"}>Browse Learning Objects</Link>
                         </h6>
                         <p className="description mt-3">
                           The finest grained of Learning Objects are available here. Get all of the learning objects posted by other academic staffs.

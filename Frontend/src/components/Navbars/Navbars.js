@@ -3,17 +3,12 @@ import { Link } from "react-router-dom";
 // reactstrap components
 import {
   UncontrolledCollapse,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
   NavbarBrand,
   Navbar,
   NavItem,
   NavLink,
   Nav,
   Container,
-  Row,
-  Col
 } from "reactstrap";
 
 class Navbars extends React.Component {
@@ -25,9 +20,11 @@ class Navbars extends React.Component {
           expand="lg"
         >
           <Container>
-            <NavbarBrand href="/">
+            <Link to="/">
+              <NavbarBrand>
               Meta LMS
             </NavbarBrand>
+            </Link>
             <button
               aria-controls="navbar-default"
               aria-expanded={false}
@@ -43,35 +40,38 @@ class Navbars extends React.Component {
             <UncontrolledCollapse navbar toggler="#navbar-default">
               <Nav className="navbar-nav" navbar>
                 <NavItem>
-                  <NavLink
+                  <Link to="/concept-page">
+                    <NavLink
                     className="nav-link-icon"
-                    href="/concept-page"
                   >
                     <span className="nav-link-inner--text ">
                       Concepts
                     </span>
                   </NavLink>
+                  </Link>
                 </NavItem>
                 <NavItem>
+                  <Link to="/LO-page">
                 <NavLink
                   className="nav-link-icon"
-                  href="/LO-page"
                 >
                     <span className="nav-link-inner--text ">
                       Learning Objects
                     </span>
                 </NavLink>
+                  </Link>
               </NavItem>
-                <NavItem>
+                <Link to="/course-page">
+                  <NavItem>
                   <NavLink
                     className="nav-link-icon"
-                    href="/course-page"
                   >
                     <span className="nav-link-inner--text ">
                       Courses
                     </span>
                   </NavLink>
                 </NavItem>
+                </Link>
 
 
               </Nav>

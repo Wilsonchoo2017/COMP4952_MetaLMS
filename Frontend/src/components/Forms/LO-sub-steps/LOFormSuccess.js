@@ -11,6 +11,7 @@ import {Confirm, Form, Message} from 'semantic-ui-react';
 
 import API from "../../../api";
 import SimpleFooter from "../../Footers/SimpleFooter";
+import {Link} from "react-router-dom";
 
 class LOFormSuccess extends React.Component {
   state = {open: false, errorForm: false}
@@ -58,13 +59,15 @@ class LOFormSuccess extends React.Component {
             <Container className="pt-lg-7">
               <Card>
                 Addition of new LO succeeded
-                <Button
+                <Link to={"/new-LO-page"}>
+                  <Button
                   className="mt-4"
                   color="primary"
-                  href="/new-LO-page"
+                  onClick={this.props.goToStart}
                 >
                   Add Another Learning Object
                 </Button>
+                </Link>
               </Card>
             </Container>
           </section>

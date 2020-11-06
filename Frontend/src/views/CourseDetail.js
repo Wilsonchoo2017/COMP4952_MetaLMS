@@ -26,7 +26,7 @@
 
 */
 import React from "react";
-import {useParams, withRouter} from "react-router-dom";
+import {Link, useParams, withRouter} from "react-router-dom";
 import API from "../api";
 
 // reactstrap components
@@ -97,7 +97,7 @@ class CourseDetail extends React.Component {
     console.log(data)
     if (!set.has(data.LOId)) {
       set.add(data.LOId)
-      return <div key={data.LOId}><p> <a href={"/lo-detail/" + data.LOId}>{data.title} </a></p></div>
+      return <div key={data.LOId}><p> <Link to={"/lo-detail/" + data.LOId}>{data.title} </Link></p></div>
     }
   }
 

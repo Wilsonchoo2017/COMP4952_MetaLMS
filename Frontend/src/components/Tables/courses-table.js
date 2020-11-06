@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {useTable, useSortBy, usePagination, useGlobalFilter, useAsyncDebounce} from 'react-table'
-import { useHistory } from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 // Note useAsyncDebounce is used to prevent side effects of rapid table state changes
 // Link: https://react-table.tanstack.com/docs/faq#how-can-i-debounce-rapid-table-state-changes
 
@@ -214,12 +214,12 @@ function CourseTable(data) {
       {
         Header: 'CourseCode',
         accessor: 'courseCode',
-        Cell: e =><a href={"/course-detail/" + e.row.original.courseId}> {e.value} </a>
+        Cell: e =><Link to={"/course-detail/" + e.row.original.courseId}> {e.value} </Link>
       },
       {
         Header: 'CourseName',
         accessor: 'courseName',
-        Cell: e =><a href={"/course-detail/" + e.row.original.courseId}> {e.value} </a>
+        Cell: e =><Link to={"/course-detail/" + e.row.original.courseId}> {e.value} </Link>
       },
       {
         Header: 'Term',

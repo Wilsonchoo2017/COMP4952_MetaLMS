@@ -28,6 +28,7 @@ import Navbar from "../components/Navbars/Navbars.js";
 import getData from "../components/Tables/TableData/courseData";
 import CourseTable from "../components/Tables/courses-table";
 import SimpleFooter from "../components/Footers/SimpleFooter";
+import {Link} from "react-router-dom";
 
 class Course extends React.Component {
   state = {
@@ -48,21 +49,22 @@ class Course extends React.Component {
 
           <section className={"section section-lg"}>
             <Container>
-              <Button
+              <Link to="/new-course-page">
+                <Button
                 className="mt-4"
                 color="primary"
-                href="/new-course-page"
               >
-                New Course
+                  New Course
               </Button>
-
+              </Link>
+              <Link to={"/compare-course"}>
               <Button
                 className="mt-4"
                 color="primary"
-                href="/compare-course"
               >
                 Compare Two Courses
               </Button>
+              </Link>
               <CourseTable data={this.state.data} />
             </Container>
           </section>

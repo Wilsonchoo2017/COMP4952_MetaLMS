@@ -29,6 +29,7 @@ import LoTable from "../components/Tables/lo-table";
 // utilities
 import getData from "../components/Tables/TableData/LoData";
 import SimpleFooter from "../components/Footers/SimpleFooter";
+import {Link} from "react-router-dom";
 
 class LO extends React.Component {
   state = {
@@ -48,14 +49,16 @@ class LO extends React.Component {
 
           <section className={"section section-lg"}>
             <Container>
-              <Button
+              <Link to="/new-LO-page">
+                <Button
                 className="mt-4"
                 color="primary"
-                href="/new-LO-page"
+
               >
-                New Learning Object
+                  New Learning Object
               </Button>
-            <LoTable data={this.state.data} />
+              </Link>
+              <LoTable data={this.state.data} />
             </Container>
           </section>
         <SimpleFooter />

@@ -34,6 +34,7 @@ const mapOptions = [
   {key: 'c', text: 'CloseMatch', value: 'closeMatch'},
   {key: 'b', text: 'BroadMatch', value: 'broadMatch'},
   {key: 'n', text: 'NarrowMatch', value: 'narrowMatch'},
+  {key: 's', text: 'SubClassOf', value: 'subClassOf'},
 ]
 
 

@@ -1,6 +1,8 @@
 import Navbar from "../../Navbars/Navbars";
 import React  from "react";
 
+import { Link }  from "react-router-dom";
+
 // reactstrap components
 import {
   Card,
@@ -36,13 +38,14 @@ class ConceptFormSuccess extends React.Component {
               <Card>
                 <div className="px-4">
                   Addition of new LO Succeeded!
-                  <Button
+                  <Link to={'/new-concept-page'}>
+                    <Button
                     className="mt-4"
                     color="primary"
-                    href="/new-concept-page"
-                  >
-                    Add Another Concept
+                    onClick={this.props.goToStart}>
+                      Add Another Concept
                   </Button>
+                  </Link>
                 </div>
               </Card>
             </Container>

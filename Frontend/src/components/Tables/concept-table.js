@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import {useTable, useSortBy, usePagination, useGlobalFilter, useAsyncDebounce} from 'react-table'
 import { Icon } from 'semantic-ui-react'
+import {Link} from "react-router-dom";
 // Note useAsyncDebounce is used to prevent side effects of rapid table state changes
 // Link: https://react-table.tanstack.com/docs/faq#how-can-i-debounce-rapid-table-state-changes
 
@@ -205,7 +206,7 @@ function ConceptTable(data) {
       {
         Header:  <Icon name='idea' /> ,
         accessor: 'conceptName',
-        Cell: e =><a href={"/concept-detail/" + e.value}> {e.value} </a>
+        Cell: e =><Link to={"/concept-detail/" + e.value}> {e.value} </Link>
       },
     ],
     []

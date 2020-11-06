@@ -8,6 +8,7 @@ import {
   Button,
 } from "reactstrap";
 import SimpleFooter from "../../Footers/SimpleFooter";
+import {Link} from "react-router-dom";
 
 class CourseFormSuccess extends React.Component {
   constructor(props) {
@@ -36,13 +37,15 @@ class CourseFormSuccess extends React.Component {
               <Card>
                 <div className="px-4">
                   Addition of new LO Succeeded!
-                  <Button
+                  <Link to="/new-course-page">
+                    <Button
                     className="mt-4"
                     color="primary"
-                    href="/new-course-page"
+                    onClick={this.props.goToStart}
                   >
-                    Add Another Course
+                      Add Another Course
                   </Button>
+                  </Link>
                 </div>
               </Card>
             </Container>

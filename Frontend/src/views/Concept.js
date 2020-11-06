@@ -34,6 +34,7 @@ import ConceptTable from "../components/Tables/concept-table";
 import getData from "../components/Tables/TableData/conceptData";
 import API from "../api"
 import SimpleFooter from "../components/Footers/SimpleFooter";
+import {Link} from "react-router-dom";
 
 /**
  * Diagram initialization method, which is passed to the ReactDiagram component.
@@ -194,13 +195,14 @@ class Concept extends React.Component {
 
           <section className={"section section-lg"}>
             <Container>
-              <Button
+              <Link to="/new-concept-page">
+                <Button
                 className="mt-4"
                 color="primary"
-                href="/new-concept-page"
               >
                 New Concept
               </Button>
+              </Link>
               <ConceptTable data={this.state.data}/>
             </Container>
           </section>

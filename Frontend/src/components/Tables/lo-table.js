@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {useTable, useSortBy, usePagination, useGlobalFilter, useAsyncDebounce} from 'react-table'
+import {Link} from "react-router-dom";
 
 // Note useAsyncDebounce is used to prevent side effects of rapid table state changes
 // Link: https://react-table.tanstack.com/docs/faq#how-can-i-debounce-rapid-table-state-changes
@@ -205,7 +206,7 @@ function ConceptTable(data) {
       {
         Header: 'Title',
         accessor: 'title',
-        Cell: e =><a href={"/lo-detail/" + e.row.original.LoId}> {e.value} </a>
+        Cell: e =><Link to={"/lo-detail/" + e.row.original.LoId}> {e.value} </Link>
       },
       {
         Header: 'Document Type',

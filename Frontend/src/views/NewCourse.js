@@ -72,6 +72,24 @@ class NewCourse extends React.Component {
     })
   }
 
+  goToStart = () => {
+    this.setState(
+      {
+        step: 1,
+        courseCode: '',
+        courseName: '',
+        courseTerm: '',
+        courseYear: '',
+        courseType: '',
+        courseComponent: [{name: '', subComponent: [], assess: false}],
+        courseDuration:  '1',
+        courseLOs: {},
+        isImported: false,
+      }
+    )
+    this.componentDidMount()
+  }
+
   async handleFormSubmit() {
     let courseData = this.state;
     console.log(this.state)
@@ -258,7 +276,7 @@ class NewCourse extends React.Component {
         );
       case -1:
         return (
-          <CourseFormSuccess/>
+          <CourseFormSuccess goToStart={this.goToStart}/>
         )
     }
 

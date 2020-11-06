@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch, Redirect, useHistory, useParams } from "react-router-dom";
+import { HashRouter as Router, Route, Switch, Redirect, useHistory, useParams } from "react-router-dom";
 
 // Import third party css
 import 'semantic-ui-css/semantic.min.css'
@@ -29,7 +29,7 @@ import LoDetail from "./views/LoDetail";
 
 
   ReactDOM.render(
-  <Router>
+  <Router basename={"/meta"}>
     <Switch>
       <Route path={"/concept-page"}>
         <Concept />
