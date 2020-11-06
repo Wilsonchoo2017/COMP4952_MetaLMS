@@ -108,16 +108,16 @@ def compute_two_lo_ssm(lo_id_a, lo_id_b):
     print("cso concept b", cso_concepts_b)
 
 
-    exact_weight = 0.3
-    narrow_weight = 0.3
+    exact_weight = 0.8
+    close_weight = 0.5
     broad_weight = 0.3
-    exact_weight = 0.3
+    narrow_weight = 0.1
 
     # use ssm multiple from ssm to compute
     exact_score = ssm_list_query(base_concepts_a, base_concepts_b, "exactMatch") * exact_weight
     narrow_score = ssm_list_query(base_concepts_a, base_concepts_b, "narrowMatch") * narrow_weight
     broad_score = ssm_list_query(base_concepts_a, base_concepts_b, "broadMatch") * broad_weight
-    close_score = ssm_list_query(base_concepts_a, base_concepts_b, "closeMatch") * exact_weight
+    close_score = ssm_list_query(base_concepts_a, base_concepts_b, "closeMatch") * close_weight
     cso_score = ssm_list_query(cso_concepts_a, cso_concepts_b, "cso")
 
 
