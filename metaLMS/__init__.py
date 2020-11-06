@@ -8,8 +8,7 @@ from metaLMS.onto_utils import *
 
 
 
-filepath = "owl/ontology.owl"
-directory_path = "/Users/wilson/PycharmProjects/COMP4952/"
+filepath = "/Users/wilson/PycharmProjects/COMP4952/owl/ontology.owl"
 
 def create_app(test_config=None):
     # create and configure the app

@@ -347,7 +347,7 @@ def insert_concept_relationship(ontology_file, concept_A, list_of_conceptB):
             print("concept B", concept_name)
             print("concept B", concept_B_class)
 
-            setattr(concept_B_class, concept_relation, concept_A_class)
+            # setattr(concept_B_class, concept_relation, concept_A_class)
 
 
             # Add as Annotation as well
