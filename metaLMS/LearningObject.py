@@ -22,7 +22,7 @@ def handle_post_lo(filepath, data):
 
     # Get current maximum LO Id
     curr_id = max_lo_id() + 1
-    save_filepath = '/Users/wilson/PycharmProjects/COMP4952/LearningObject/' + str(curr_id)
+    save_filepath = 'LearningObject/' + str(curr_id)
 
 
     # Insert data base of LO
@@ -83,8 +83,7 @@ def get_lo_detail_for_frontend(filepath, lo_id):
 
 def compute_two_lo_ssm(lo_id_a, lo_id_b):
     filepath = "owl/ontology.owl"
-    directory_path = "/Users/wilson/PycharmProjects/COMP4952/"
-    ontology_file = directory_path + filepath
+    ontology_file = filepath
 
     # Get concepts for lo id a
     base_concepts_a = get_concept_with_this_lo(ontology_file, [lo_id_a])
@@ -131,8 +130,9 @@ def compute_two_lo_ssm(lo_id_a, lo_id_b):
     return score
 
 def get_3_similar_lo(lo_id):
+    """ Not Implemented in the front end"""
     # Get Concepts for lo_id
-    ontology_file = "/Users/wilson/PycharmProjects/COMP4952/owl"
+    ontology_file = "owl/"
 
     # get all lo
     lo = get_all_lo()
