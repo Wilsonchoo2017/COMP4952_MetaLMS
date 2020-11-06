@@ -14,22 +14,25 @@ def handle_post_course(ontology_file, course_json):
                                 course_json['courseComponent'], course_json['isImported'])
     else:
         # import into scorm
-        handle_import_course(ontology_file, course_json)
+        # handle_import_course(ontology_file, course_json)
+
+        pass
 
 def handle_upload_complete_course(course_id):
-    response = get_scorm_course_detail(course_id)
+    # response = get_scorm_course_detail(course_id)
     # insert some information into database
     pass
 
 def get_scorm_course_detail(course_id):
-    response_json = get_course_detail_from_scorm(course_id)
+    # response_json = get_course_detail_from_scorm(course_id)
     # Unpack response body
     # title = response_json.title
     # created = response_json.created
     # tags = response_json.tags
     # metadata = response_json.metadata
 
-    return response_json
+    # return response_json
+    pass
 
 
 def get_course_detail(course_id):

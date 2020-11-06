@@ -7,7 +7,9 @@ from metaLMS.LearningObject import *
 from metaLMS.onto_utils import *
 
 
-# TODO Edit function to have Proper Http Response
+
+filepath = "owl/ontology.owl"
+directory_path = "/Users/wilson/PycharmProjects/COMP4952/"
 
 def create_app(test_config=None):
     # create and configure the app
@@ -32,7 +34,6 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    filepath = "owl/1511_skos_knowledge.owl"
 
     #### Concept Methods ####
 

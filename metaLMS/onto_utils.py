@@ -4,8 +4,6 @@ It mostly provides ways to intereact with owl/rdf file
 """
 from owlready2 import *
 
-from metaLMS.onto_utils import *
-
 database = "LOdatabase.db"
 possible_annotations = [
     'altLabel',
@@ -15,7 +13,6 @@ possible_annotations = [
 ]
 
 
-# TODO ALL functions Need to handle error properly Like empty cases!
 
 
 def insert_new_concept(ontology_file, name, altLabel, hiddenLabel, prefLabel, comment, dependency):
@@ -41,7 +38,7 @@ def insert_new_concept(ontology_file, name, altLabel, hiddenLabel, prefLabel, co
     dependency_string = dependency_string[:-1]
 
     # add prefix
-    name = "Concept" + name
+    name = "Concept" + name.replace(' ', '_')
     onto = get_ontology(ontology_file).load()
     with onto:
         class Concept(Thing):
@@ -56,7 +53,6 @@ def insert_new_concept(ontology_file, name, altLabel, hiddenLabel, prefLabel, co
             my_new_class.prefLabel = prefLabel
         if len(comment) > 0:
             my_new_class.comment = comment
-        # Adding dependency in
         if len(dependency) > 0:
             my_new_class.requires = dependency_string
 
@@ -208,7 +204,9 @@ def get_relationships(ontology_file, concept):
     try:
 
         onto = get_ontology(ontology_file).load()
+        print(concept)
         relationships = onto[concept].is_a
+        print(relationships)
         result = []
         for i in relationships:
             i = str(i).split('.')
@@ -231,6 +229,7 @@ def get_all_relationships(ontology_file):
     :return:
     """
     concept_list = get_all_concepts(ontology_file)
+    print(concept_list)
     relationship_list = []
     for i in concept_list:
         concept = "Concept" + i
@@ -310,6 +309,7 @@ def insert_concept_relationship(ontology_file, concept_A, list_of_conceptB):
     """
 
     onto = get_ontology(ontology_file).load()
+    print(onto.classes)
     with onto:
         class Concept(Thing):
             pass
@@ -329,41 +329,48 @@ def insert_concept_relationship(ontology_file, concept_A, list_of_conceptB):
         class narrowMatch(mappingRelation):
             pass
 
-        class relatedMatch(mappingRelation):
+        class exactMatch(mappingRelation):
             pass
 
-        class exactMatch(closeMatch):
+        class subClassOf(mappingRelation):
             pass
 
-        class testRelation(ObjectProperty):
-            pass
 
     concept_A_class = getattr(onto, "Concept" + concept_A)
     print(concept_A_class)
+    print(list_of_conceptB)
 
     for concept_B in list_of_conceptB:
         concept_relation = concept_B['semanticRelation']
         for concept_name in concept_B['concepts']:
             concept_B_class = getattr(onto, "Concept" + concept_name)
+            print("concept B", concept_name)
+            print("concept B", concept_B_class)
+
             setattr(concept_B_class, concept_relation, concept_A_class)
 
+
             # Add as Annotation as well
+            # One is for object property, thes second one is comments
             if concept_relation == 'closeMatch':
                 concept_A_class.closematch = concept_B_class
+                concept_A_class.closeMatch.append(concept_B_class)
 
             if concept_relation == 'exactMatch':
+                concept_A_class.exactMatch = concept_B_class
                 concept_A_class.exactmatch.append(concept_B_class)
 
             if concept_relation == 'broadMatch':
-                concept_A_class.broadmatch = concept_B_class
+                concept_A_class.broadMatch = concept_B_class
+                concept_A_class.broadmatch.append(concept_B_class)
 
             if concept_relation == 'narrowMatch':
                 concept_A_class.narrowmatch = concept_B_class
+                concept_A_class.narrowMatch.append(concept_B_class)
 
-
-
-
-    # concept_A_class.narrowmatch = altLabel
+            if concept_relation == 'subClassOf':
+                concept_A_class.subClassOf = concept_B_class
+                concept_A_class.subclassof.append(concept_B_class)
 
     onto.save(file=ontology_file, format="rdfxml")
 

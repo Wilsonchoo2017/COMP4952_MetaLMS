@@ -82,7 +82,10 @@ def get_lo_detail_for_frontend(filepath, lo_id):
     return result
 
 def compute_two_lo_ssm(lo_id_a, lo_id_b):
-    ontology_file = "/Users/wilson/PycharmProjects/COMP4952/owl/1511_skos_knowledge.owl"
+    filepath = "owl/ontology.owl"
+    directory_path = "/Users/wilson/PycharmProjects/COMP4952/"
+    ontology_file = directory_path + filepath
+
     # Get concepts for lo id a
     base_concepts_a = get_concept_with_this_lo(ontology_file, [lo_id_a])
     cso_concepts_a = set()
