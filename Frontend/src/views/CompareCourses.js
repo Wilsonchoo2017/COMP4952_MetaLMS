@@ -409,7 +409,7 @@ class CompareCourses extends React.Component {
     )
 
   }
-  togglePrereq = () => this.setState((prevState) => ({ isIncludePrereqCourse: !prevState.isIncludePrereqCourse }))
+  // togglePrereq = () => this.setState((prevState) => ({ isIncludePrereqCourse: !prevState.isIncludePrereqCourse }))
   toggleCourseConcepts = () => this.setState((prevState) => ({ isShowCourseConceptsOnly: !prevState.isShowCourseConceptsOnly }))
 
 
@@ -437,7 +437,7 @@ class CompareCourses extends React.Component {
             <Container>
               <Segment>
                 <h1>Course Comparison</h1>
-                <Checkbox label='Include Prerequisite Courses' onChange={this.togglePrereq} checked={this.state.isIncludePrereqCourse}/>
+                {/*<Checkbox label='Include Prerequisite Courses' onChange={this.togglePrereq} checked={this.state.isIncludePrereqCourse}/>*/}
                 <Checkbox label='Show Course Concepts Only' onChange={this.toggleCourseConcepts} checked={this.state.isShowCourseConceptsOnly} />
 
               </Segment>
