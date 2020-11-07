@@ -132,7 +132,7 @@ class LoDetail extends React.Component {
       return 'None'
     }
 
-    if (this.state.data.LearningObject.ContactUser === undefined) {
+    if (this.state.data.LearningObject.ContactUser === undefined || this.state.data.LearningObject.ContactUser.length === 0) {
       return 'None'
     }
     return this.state.data.LearningObject.ContactUser
