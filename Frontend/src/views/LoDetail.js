@@ -74,7 +74,9 @@ function mapSubpageConcept(data) {
   for(let i = 0; i < data.Subpages.length; i++) {
     let temp = {}
     temp['pageNo'] = data.Subpages[i].PageNumber
-    temp['concepts'] = data.csoConcepts[i].concepts.toString()
+    if (temp['concepts'] !== undefined) {
+      temp['concepts'] = data.csoConcepts[i].concepts.toString()
+    }
     list.push(temp)
   }
   return list
@@ -119,8 +121,24 @@ class LoDetail extends React.Component {
       return <div></div>
     }
     return <SubpageTable data={mapSubpageConcept(data)}/>
-}
+  }
+
+  renderContactDetails = () => {
+    if (this.state.data === undefined) {
+      return 'None'
+    }
+
+    if (this.state.data.LearningObject === undefined) {
+      return 'None'
+    }
+
+    if (this.state.data.LearningObject.ContactUser === undefined) {
+      return 'None'
+    }
+    return this.state.data.LearningObject.ContactUser
+  }
   render() {
+    console.log(this.state.data)
     return (
       <>
         <Navbar/>
@@ -128,8 +146,8 @@ class LoDetail extends React.Component {
           <section className="section">
             <Container>
               <h1>LO Details</h1>
-              <p> Contact Details: TODO </p>
-              <p> Download Link: TODO </p>
+              <p> Contact Details: {this.renderContactDetails()} </p>
+              {/*<p> Download Link: TODO </p>*/}
 
               <h1>Courses</h1>
               {this.course(this.state.data)}
@@ -138,12 +156,12 @@ class LoDetail extends React.Component {
               <h1>Subpage Concepts</h1>
               {this.subpage(this.state.data)}
 
-              <Button
-                className="mt-4"
-                color="primary"
-              >
-                Edit Learning Object
-              </Button>
+              {/*<Button*/}
+              {/*  className="mt-4"*/}
+              {/*  color="primary"*/}
+              {/*>*/}
+              {/*  Edit Learning Object*/}
+              {/*</Button>*/}
             </Container>
           </section>
           <SimpleFooter/>

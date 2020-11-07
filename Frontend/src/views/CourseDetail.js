@@ -318,7 +318,6 @@ class CourseDetail extends React.Component {
                             <p> Term: {this.state.data.Term} </p>
                             <p> Type: {this.state.data.Type} </p>
                             <p> Year: {this.state.data.Year} </p>
-                            <p> Prerequisite: TODO </p>
                           </div>
 
                         </Grid.Row>
