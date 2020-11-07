@@ -7,7 +7,7 @@ import {
   Container,
   Button,
 } from "reactstrap";
-import { Form } from 'semantic-ui-react';
+import { Form, Popup } from 'semantic-ui-react';
 import SimpleFooter from "../../Footers/SimpleFooter";
 
 
@@ -48,7 +48,11 @@ class CourseNewOptions extends React.Component {
                 <div className="px-4">
                   <h1> New Course </h1>
                   <Form>
-                    <Button type='submit' onClick={this.importAndContinue} color={"primary"}>Import Course</Button>
+                    <Popup content={'Due to Some Problem, Import is not Available At The Moment'}
+                           trigger={<Button type='submit'
+                                            // onClick={this.importAndContinue}
+                                            color={"secondary"}>Import Course (N/A)</Button>} />
+
                     <Button type='submit' onClick={this.saveAndContinue} color={"info"}>Manually Add Course</Button>
                   </Form>
                 </div>

@@ -200,7 +200,7 @@ function Table({columns, data}) {
   )
 }
 
-function ConceptTable(data) {
+function LoTable(data) {
   const columns = React.useMemo(
     () => [
       {
@@ -211,10 +211,6 @@ function ConceptTable(data) {
       {
         Header: 'Document Type',
         accessor: 'type',
-      },
-      {
-        Header: 'Owner',
-        accessor: 'owner',
       },
     ],
     []
@@ -228,4 +224,4 @@ function ConceptTable(data) {
   )
 }
 
-export default ConceptTable
+export default LoTable

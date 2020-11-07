@@ -1,7 +1,7 @@
 import conceptData from "./components/Tables/TableData/conceptData";
 const qs = require('qs');
 // const API_URL = 'http://3.26.26.205:7777';
-const API_URL = 'http://127.0.0.1:7777';
+const API_URL = 'http://124.168.94.45:7777';
 const axios = require('axios').default;
 
 class API {

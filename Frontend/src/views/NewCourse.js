@@ -190,7 +190,6 @@ class NewCourse extends React.Component {
       }
     ]
     this.setState({courseComponent})
-
   }
 
 

@@ -122,13 +122,13 @@ class CourseStructureDetails extends React.Component {
                             />
                             <Button value='remove' onClick={this.removeCourseComponent.bind(this, i)}><Icon name='delete' /> </Button>
                           </Form.Group>
-                            <Checkbox label='Include As Assessment Component' onChange={this.toggleAssess.bind(this, i) } />
+                            {/*<Checkbox label='Include As Assessment Component' onChange={this.toggleAssess.bind(this, i) } />*/}
                           </Form>
                         </div>
                       ))
                     }
                     <Button onClick={this.addCourseComponent}>Add Another Component</Button>
-                  <Button onClick={this.props.test}>Test</Button>
+                  {/*<Button onClick={this.props.test}>Test</Button>*/}
                   <span/>
                   <div>
                     {this.state.errorForm ? errorMessage : ''}
