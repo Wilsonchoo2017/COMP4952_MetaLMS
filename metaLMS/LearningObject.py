@@ -109,6 +109,7 @@ def compute_two_lo_ssm(lo_id_a, lo_id_b):
 
 
     exact_weight = 0.8
+    subclass_weight = 0.7
     close_weight = 0.5
     broad_weight = 0.3
     narrow_weight = 0.1
@@ -118,10 +119,11 @@ def compute_two_lo_ssm(lo_id_a, lo_id_b):
     narrow_score = ssm_list_query(base_concepts_a, base_concepts_b, "narrowMatch") * narrow_weight
     broad_score = ssm_list_query(base_concepts_a, base_concepts_b, "broadMatch") * broad_weight
     close_score = ssm_list_query(base_concepts_a, base_concepts_b, "closeMatch") * close_weight
+    subclass_score = ssm_list_query(base_concepts_a, base_concepts_b, "subClassOf") * subclass_weight
     cso_score = ssm_list_query(cso_concepts_a, cso_concepts_b, "cso")
 
 
-    base_score = exact_score + narrow_score + broad_score + close_score
+    base_score = exact_score + narrow_score + broad_score + close_score + subclass_score
     cso_weight = 0.5
     base_weight = 0.5
     penalty = 0

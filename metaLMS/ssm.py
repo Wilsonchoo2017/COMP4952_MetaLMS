@@ -4,11 +4,12 @@ import ssmpy
 
 filepath = "owl/ontology.owl"
 
-file_path_exact =  "/metaLMS/db/skosExact.db"
-file_path_narrow =  "/metaLMS/db/skosNarrow.db"
-file_path_broad =  "/metaLMS/db/skosBroad.db"
-file_path_close =  "/metaLMS/db/skosClose.db"
-file_path_cso =  "/metaLMS/db/csoSTO.db"
+file_path_exact = "metaLMS/db/skosExact.db"
+file_path_narrow = "metaLMS/db/skosNarrow.db"
+file_path_broad = "metaLMS/db/skosBroad.db"
+file_path_close = "metaLMS/db/skosClose.db"
+file_path_cso = "metaLMS/db/csoSTO.db"
+file_path_sco = "metaLMS/db/subClassOf.db"
 
 
 def pre_compute_semantic_similarity():
@@ -62,6 +63,8 @@ def get_ssm_file(type):
         semantic_db = file_path_broad
     elif type == 'closeMatch':
         semantic_db = file_path_close
+    elif type == 'subClassOf':
+        semantic_db = file_path_sco
     else:
         semantic_db = file_path_cso
 

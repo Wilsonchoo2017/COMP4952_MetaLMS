@@ -1091,5 +1091,12 @@
   <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">109,mobile users,web page,most significant bit,multi-bits,parity bits</skos:csoConcept>
 </ConceptComputer_Program>
 
+<ConceptC_Program rdf:about="#7">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#ConceptIO"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">19T2 COMP1521 - Week 01 Labs</rdfs:label>
+  <skos:LOId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7</skos:LOId>
+</ConceptC_Program>
+
 
 </rdf:RDF>

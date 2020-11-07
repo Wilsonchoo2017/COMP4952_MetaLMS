@@ -418,6 +418,7 @@ class CompareCourses extends React.Component {
   }
 
   render() {
+    console.log(this.state)
 
     return (
       <>
@@ -439,6 +440,7 @@ class CompareCourses extends React.Component {
                 <h1>Course Comparison</h1>
                 {/*<Checkbox label='Include Prerequisite Courses' onChange={this.togglePrereq} checked={this.state.isIncludePrereqCourse}/>*/}
                 <Checkbox label='Show Course Concepts Only' onChange={this.toggleCourseConcepts} checked={this.state.isShowCourseConceptsOnly} />
+                <h2>Course Benchmark: {this.state.ssm === undefined ? 'None' : this.state.ssm.courseScore}</h2>
 
               </Segment>
               <Grid columns={'equal'}>
