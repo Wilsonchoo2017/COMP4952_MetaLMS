@@ -1046,5 +1046,50 @@
   <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">88,reference image,color images,digital image,computer vision,document images</skos:csoConcept>
 </ConceptComputer>
 
+<ConceptComputer_Program rdf:about="#6">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#ConceptComputer_System"/>
+  <rdf:type rdf:resource="#ConceptMemory"/>
+  <rdf:type rdf:resource="#ConceptDisk"/>
+  <rdf:type rdf:resource="#ConceptComputer"/>
+  <rdf:type rdf:resource="#ConceptIO"/>
+  <rdf:type rdf:resource="#ConceptSystem_Bus"/>
+  <rdf:type rdf:resource="#ConceptProcessor"/>
+  <rdf:type rdf:resource="#ConceptNetwork"/>
+  <rdf:type rdf:resource="#ConceptI/O"/>
+  <rdf:type rdf:resource="#ConceptStack"/>
+  <rdf:type rdf:resource="#ConceptPop"/>
+  <rdf:type rdf:resource="#ConceptQueue"/>
+  <rdf:type rdf:resource="#ConceptPush"/>
+  <rdf:type rdf:resource="#ConceptPriority_Queue"/>
+  <rdf:type rdf:resource="#ConceptEnqueue"/>
+  <rdf:type rdf:resource="#ConceptDequeue"/>
+  <rdf:type rdf:resource="#ConceptSigned_Integer"/>
+  <rdf:type rdf:resource="#ConceptUnsigned_Integer"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">19T2 COMP1521 - Week 01 Lectures</rdfs:label>
+  <skos:LOId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6</skos:LOId>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">89,computer systems,data stream,itil,web page,virtual lab</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">90,email,internet,cyber physical systems (cpss),blockchain,learning,machine learning</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">91,software developer,c programs,mobile users,web page,feedback systems</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">92,software,component,computer systems,computing systems,operating systems,c programs,linux,concurrent programming</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">93,web page,computer systems,linux,compiler,virtual lab</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">94,virtual lab,data stream,programming languages,stream data,mobile users</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">95,online learning,blogs,learning,virtual lab,mobile users</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">96,programming languages,student learning,computer systems,mobile users,web page</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">97,computer systems,central processing unit,cycle,component,multi core,cpu,access time,hard disks,processing core,memory locations,random access memory,multiprocessors,computing systems,computer network,processor cores,storage systems,storage devices,storage management,nonvolatile storage</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">98,access time,ssd,random access memory,compiler,computer systems,software,cycle,source codes</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">99,compiler,mobile users,web page,optimizing compilers,partial evaluation</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">100,assignment problems,semantics,mobile users,web page,binary codes</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">101,control loop,priority queues,programming languages,switching control,control systems,queue</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">102,insert,queue,integrated data,mobile users,web page</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">103,queue,insert,mobile users,web page</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">104,mobile users,web page,integrated data,queue,communication protocols,transport protocols,insert,user-computer interface,user interfaces,application servers,content providers,boundary values</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">105,matching algorithm,matching methods,adaptive algorithms,hybrid algorithms,mobile users</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">106,queue,insert,priority queues,hardware implementations,integrated data</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">107,most significant bit,parity bits,computer hardware,least significant bits,multi-bits</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">108,most significant bit,parity bits,multi-bits,least significant bits,boundary values</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">109,mobile users,web page,most significant bit,multi-bits,parity bits</skos:csoConcept>
+</ConceptComputer_Program>
+
 
 </rdf:RDF>

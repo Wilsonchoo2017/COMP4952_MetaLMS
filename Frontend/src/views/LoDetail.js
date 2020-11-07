@@ -74,11 +74,15 @@ function mapSubpageConcept(data) {
   for(let i = 0; i < data.Subpages.length; i++) {
     let temp = {}
     temp['pageNo'] = data.Subpages[i].PageNumber
-    if (temp['concepts'] !== undefined) {
+    if (data.csoConcepts[i] !== undefined) {
       temp['concepts'] = data.csoConcepts[i].concepts.toString()
+    } else {
+      temp['concepts'] =  'None'
     }
+
     list.push(temp)
   }
+  console.log(list)
   return list
 }
 
@@ -120,6 +124,7 @@ class LoDetail extends React.Component {
     if (data === undefined || data.csoConcepts === undefined || data.Subpages === undefined) {
       return <div></div>
     }
+    console.log(data)
     return <SubpageTable data={mapSubpageConcept(data)}/>
   }
 
