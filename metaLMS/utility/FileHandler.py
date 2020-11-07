@@ -14,8 +14,6 @@ def construct_paper(title='', text=''):
 # https://stackoverflow.com/questions/490195/split-a-multi-page-pdf-file-into-multiple-pdf-files-with-python#490203
 # Function to split pdf fileso
 # And then extract text
-
-
 def process_pdf_file(title, input_pdf):
     """
     returns a dict of dict of semantics

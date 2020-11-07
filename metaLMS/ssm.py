@@ -12,31 +12,37 @@ file_path_cso =  "/metaLMS/db/csoSTO.db"
 
 
 def pre_compute_semantic_similarity():
-    ssmpy.create_semantic_base("../" + filepath,
+    ssmpy.create_semantic_base(filepath,
                                "metaLMS/db/skosExact.db",
-                               "http://www.skosknowledge.com/ontologies/owl/owl/ontology.owl#Concept",
-                               "http://www.skosknowledge.com/ontologies/owl/owl/ontology.owl#exactmatch",
+                               "http://www.skosknowledge.com/ontologies/owl/ontology.owl#Concept",
+                               "http://www.skosknowledge.com/ontologies/skos_knowledge.owl#exactmatchh",
                                '')
 
 
-    ssmpy.create_semantic_base("../" + filepath,
+    ssmpy.create_semantic_base(filepath,
                                 "metaLMS/db/skosClose.db",
-                               "http://www.skosknowledge.com/ontologies/owl/owl/ontology.owl#Concept",
-                               "http://www.skosknowledge.com/ontologies/owl/owl/ontology.owl#closematch",
+                               "http://www.skosknowledge.com/ontologies/owl/ontology.owl#Concept",
+                               "http://www.skosknowledge.com/ontologies/skos_knowledge.owl#closematch",
                                '')
 
 
-    ssmpy.create_semantic_base("../" + filepath,
-                               "db/skosBroad.db",
+    ssmpy.create_semantic_base(filepath,
                                 "metaLMS/db/skosBroad.db",
-                               "http://www.skosknowledge.com/ontologies/owl/owl/ontology.owl#Concept",
-                               "http://www.skosknowledge.com/ontologies/owl/owl/ontology.owl#broadmatch",
+                               "http://www.skosknowledge.com/ontologies/owl/ontology.owl#Concept",
+                               "http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broadmatch",
                                '')
 
-    ssmpy.create_semantic_base("../" + filepath,
+    ssmpy.create_semantic_base(filepath,
                                "metaLMS/db/skosNarrow.db",
-                               "http://www.skosknowledge.com/ontologies/owl/owl/ontology.owl#Concept",
-                               "http://www.skosknowledge.com/ontologies/owl/owl/ontology.owl#narrowmatch",
+                               "http://www.skosknowledge.com/ontologies/owl/ontology.owl#Concept",
+                               "http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrowmatch",
+                               '')
+
+
+    ssmpy.create_semantic_base(filepath,
+                               "metaLMS/db/subClassOf.db",
+                               "http://www.skosknowledge.com/ontologies/owl/ontology.owl#Concept",
+                               "http://www.skosknowledge.com/ontologies/owl/ontology.owl#subclassof",
                                '')
 
 

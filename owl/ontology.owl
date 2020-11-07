@@ -1,227 +1,1050 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.skosknowledge.com/ontologies/owl/ontology.owl#"
-     xml:base="http://www.skosknowledge.com/ontologies/owl/ontology.owl"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:skos="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#"
-     xmlns:term="http://purl.org/dc/terms/">
-    <owl:Ontology rdf:about="http://www.skosknowledge.com/ontologies/owl/owl/ontology.owl">
-        <rdfs:seeAlso rdf:resource="http://www.w3.org/TR/skos-reference"/>
-    </owl:Ontology>
-    
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://www.skosknowledge.com/ontologies/owl/ontology.owl"
+         xmlns="http://www.skosknowledge.com/ontologies/owl/ontology.owl#"
+         xmlns:term="http://purl.org/dc/terms/"
+         xmlns:skos="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#">
 
+<owl:Ontology rdf:about="http://www.skosknowledge.com/ontologies/owl/ontology.owl">
+  <rdfs:seeAlso rdf:resource="http://www.w3.org/TR/skos-reference"/>
+  <term:description xml:lang="en">An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies.</term:description>
+  <term:title xml:lang="en">SKOS Vocabulary</term:title>
+</owl:Ontology>
 
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Annotation properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
+<owl:ObjectProperty rdf:about="#broadMatch">
+  <rdfs:subPropertyOf rdf:resource="#mappingRelation"/>
+</owl:ObjectProperty>
 
-    
+<owl:ObjectProperty rdf:about="#mappingRelation">
+  <rdfs:subPropertyOf rdf:resource="#semanticRelation"/>
+</owl:ObjectProperty>
 
+<owl:ObjectProperty rdf:about="#semanticRelation"/>
 
-    <!-- http://www.skosknowledge.com/ontologies/owl/ontology.owl#subclassof -->
+<owl:ObjectProperty rdf:about="#closeMatch">
+  <rdfs:subPropertyOf rdf:resource="#mappingRelation"/>
+</owl:ObjectProperty>
 
-    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/owl/ontology.owl#subclassof"/>
-    
+<owl:ObjectProperty rdf:about="#exactMatch">
+  <rdfs:subPropertyOf rdf:resource="#mappingRelation"/>
+</owl:ObjectProperty>
 
+<owl:ObjectProperty rdf:about="#narrowMatch">
+  <rdfs:subPropertyOf rdf:resource="#mappingRelation"/>
+</owl:ObjectProperty>
 
-    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#LOId -->
+<owl:ObjectProperty rdf:about="#subClassOf">
+  <rdfs:subPropertyOf rdf:resource="#mappingRelation"/>
+</owl:ObjectProperty>
 
-    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#LOId">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
-    </owl:AnnotationProperty>
-    
+<owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broadMatch">
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader"/>
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#mappingRelation"/>
+  <owl:inverseOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrowMatch"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">has broader match</rdfs:label>
+  <skos:definition xml:lang="en">skos:broadMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.</skos:definition>
+</owl:ObjectProperty>
 
+<owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broader">
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broaderTransitive"/>
+  <owl:inverseOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrower"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:comment xml:lang="en">Broader concepts are typically rendered as parents in a concept hierarchy (tree).</rdfs:comment>
+  <rdfs:label xml:lang="en">has broader</rdfs:label>
+  <skos:definition xml:lang="en">Relates a concept to a concept that is more general in meaning.</skos:definition>
+  <skos:scopeNote xml:lang="en">By convention, skos:broader is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources.</skos:scopeNote>
+</owl:ObjectProperty>
 
-    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#altLabel -->
+<owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#mappingRelation">
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#semanticRelation"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:comment xml:lang="en">These concept mapping relations mirror semantic relations, and the data model defined below is similar (with the exception of skos:exactMatch) to the data model defined for semantic relations. A distinct vocabulary is provided for concept mapping relations, to provide a convenient way to differentiate links within a concept scheme from links between concept schemes. However, this pattern of usage is not a formal requirement of the SKOS data model, and relies on informal definitions of best practice.</rdfs:comment>
+  <rdfs:label xml:lang="en">is in mapping relation with</rdfs:label>
+  <skos:definition xml:lang="en">Relates two concepts coming, by convention, from different schemes, and that have comparable meanings</skos:definition>
+</owl:ObjectProperty>
 
-    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#altLabel">
-        <rdfs:comment xml:lang="en">The range of skos:altLabel is the class of RDF plain literals.</rdfs:comment>
-        <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
-        <rdfs:label xml:lang="en">alternative label</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
-    </owl:AnnotationProperty>
-    
+<owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrowMatch">
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#mappingRelation"/>
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrower"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">has narrower match</rdfs:label>
+  <skos:definition xml:lang="en">skos:narrowMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.</skos:definition>
+</owl:ObjectProperty>
 
+<owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broaderTransitive">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#semanticRelation"/>
+  <owl:inverseOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrowerTransitive"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">has broader transitive</rdfs:label>
+  <skos:definition>skos:broaderTransitive is a transitive superproperty of skos:broader.</skos:definition>
+  <skos:scopeNote xml:lang="en">By convention, skos:broaderTransitive is not used to make assertions. Rather, the properties can be used to draw inferences about the transitive closure of the hierarchical relation, which is useful e.g. when implementing a simple query expansion algorithm in a search application.</skos:scopeNote>
+</owl:ObjectProperty>
 
-    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broadmatch -->
+<owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrower">
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrowerTransitive"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:comment xml:lang="en">Narrower concepts are typically rendered as children in a concept hierarchy (tree).</rdfs:comment>
+  <rdfs:label xml:lang="en">has narrower</rdfs:label>
+  <skos:definition xml:lang="en">Relates a concept to a concept that is more specific in meaning.</skos:definition>
+  <skos:scopeNote xml:lang="en">By convention, skos:broader is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources.</skos:scopeNote>
+</owl:ObjectProperty>
 
-    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broadmatch"/>
-    
+<owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#semanticRelation">
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">is in semantic relation with</rdfs:label>
+  <skos:definition xml:lang="en">Links a concept to a concept related by meaning.</skos:definition>
+  <skos:scopeNote xml:lang="en">This property should not be used directly, but as a super-property for all properties denoting a relationship of meaning between concepts.</skos:scopeNote>
+</owl:ObjectProperty>
 
+<owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrowerTransitive">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#semanticRelation"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">has narrower transitive</rdfs:label>
+  <skos:definition>skos:narrowerTransitive is a transitive superproperty of skos:narrower.</skos:definition>
+  <skos:scopeNote xml:lang="en">By convention, skos:narrowerTransitive is not used to make assertions. Rather, the properties can be used to draw inferences about the transitive closure of the hierarchical relation, which is useful e.g. when implementing a simple query expansion algorithm in a search application.</skos:scopeNote>
+</owl:ObjectProperty>
 
-    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#closematch -->
+<owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#closeMatch">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#mappingRelation"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">has close match</rdfs:label>
+  <skos:definition xml:lang="en">skos:closeMatch is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of "compound errors" when combining mappings across more than two concept schemes, skos:closeMatch is not declared to be a transitive property.</skos:definition>
+</owl:ObjectProperty>
 
-    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#closematch"/>
-    
+<owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#exactMatch">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#closeMatch"/>
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#mappingRelation"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:comment xml:lang="en">skos:exactMatch is disjoint with each of the properties skos:broadMatch and skos:relatedMatch.</rdfs:comment>
+  <rdfs:label xml:lang="en">has exact match</rdfs:label>
+  <skos:definition xml:lang="en">skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications. skos:exactMatch is a transitive property, and is a sub-property of skos:closeMatch.</skos:definition>
+</owl:ObjectProperty>
 
+<owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#hasTopConcept">
+  <owl:inverseOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#topConceptOf"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">has top concept</rdfs:label>
+  <skos:definition xml:lang="en">Relates, by convention, a concept scheme to a concept which is topmost in the broader/narrower concept hierarchies for that scheme, providing an entry point to these hierarchies.</skos:definition>
+</owl:ObjectProperty>
 
-    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#csoConcept -->
+<owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#topConceptOf">
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#inScheme"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">is top concept in scheme</rdfs:label>
+  <skos:definition xml:lang="en">Relates a concept to the concept scheme that it is a top level concept of.</skos:definition>
+</owl:ObjectProperty>
 
-    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#csoConcept">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
-    </owl:AnnotationProperty>
-    
+<owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#inScheme">
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">is in scheme</rdfs:label>
+  <skos:definition xml:lang="en">Relates a resource (for example a concept) to a concept scheme in which it is included.</skos:definition>
+  <skos:scopeNote xml:lang="en">A concept may be a member of more than one concept scheme.</skos:scopeNote>
+</owl:ObjectProperty>
 
+<owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#member">
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">has member</rdfs:label>
+  <skos:definition xml:lang="en">Relates a collection to one of its members.</skos:definition>
+</owl:ObjectProperty>
 
-    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#documentId -->
+<owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#memberList">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:comment xml:lang="en">For any resource, every item in the list given as the value of the
+      skos:memberList property is also a value of the skos:member property.</rdfs:comment>
+  <rdfs:label xml:lang="en">has member list</rdfs:label>
+  <skos:definition xml:lang="en">Relates an ordered collection to the RDF list containing its members.</skos:definition>
+</owl:ObjectProperty>
 
-    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#documentId">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
-    </owl:AnnotationProperty>
-    
+<owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#related">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#semanticRelation"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:comment xml:lang="en">skos:related is disjoint with skos:broaderTransitive</rdfs:comment>
+  <rdfs:label xml:lang="en">has related</rdfs:label>
+  <skos:definition xml:lang="en">Relates a concept to a concept with which there is an associative semantic relationship.</skos:definition>
+</owl:ObjectProperty>
 
+<owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#relatedMatch">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#mappingRelation"/>
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#related"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">has related match</rdfs:label>
+  <skos:definition xml:lang="en">skos:relatedMatch is used to state an associative mapping link between two conceptual resources in different concept schemes.</skos:definition>
+</owl:ObjectProperty>
 
-    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#exactmatch -->
+<owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#subClassOf">
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#mappingRelation"/>
+</owl:ObjectProperty>
 
-    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#exactmatch"/>
-    
+<owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#testRelation"/>
 
+<owl:DatatypeProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#notation">
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">notation</rdfs:label>
+  <skos:definition xml:lang="en">A notation, also known as classification code, is a string of characters such as "T58.5" or "303.4833" used to uniquely identify a concept within the scope of a given concept scheme.</skos:definition>
+  <skos:scopeNote xml:lang="en">By convention, skos:notation is used with a typed literal in the object position of the triple.</skos:scopeNote>
+</owl:DatatypeProperty>
 
-    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#hiddenLabel -->
+<owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
 
-    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#hiddenLabel">
-        <rdfs:comment xml:lang="en">The range of skos:hiddenLabel is the class of RDF plain literals.</rdfs:comment>
-        <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
-        <rdfs:label xml:lang="en">hidden label</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
-    </owl:AnnotationProperty>
-    
+<owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
 
+<owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#definition">
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#note"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">definition</rdfs:label>
+  <skos:definition xml:lang="en">A statement or formal explanation of the meaning of a concept.</skos:definition>
+</owl:AnnotationProperty>
 
-    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrowmatch -->
+<owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#scopeNote">
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#note"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">scope note</rdfs:label>
+  <skos:definition xml:lang="en">A note that helps to clarify the meaning and/or the use of a concept.</skos:definition>
+</owl:AnnotationProperty>
 
-    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrowmatch"/>
-    
+<owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#note">
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">note</rdfs:label>
+  <skos:definition xml:lang="en">A general note, for any purpose.</skos:definition>
+  <skos:scopeNote xml:lang="en">This property may be used directly, or as a super-property for more specific note types.</skos:scopeNote>
+</owl:AnnotationProperty>
 
+<owl:AnnotationProperty rdf:about="#subclassof"/>
 
-    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#prefLabel -->
+<owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#LOId">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
+</owl:AnnotationProperty>
 
-    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#prefLabel">
-        <rdfs:comment xml:lang="en">A resource has no more than one value of skos:prefLabel per language tag, and no more than one value of skos:prefLabel without language tag.</rdfs:comment>
-        <rdfs:comment xml:lang="en">The range of skos:prefLabel is the class of RDF plain literals.</rdfs:comment>
-        <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise
+<owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#altLabel">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:comment xml:lang="en">The range of skos:altLabel is the class of RDF plain literals.</rdfs:comment>
+  <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties.</rdfs:comment>
+  <rdfs:label xml:lang="en">alternative label</rdfs:label>
+  <skos:definition xml:lang="en">An alternative lexical label for a resource.</skos:definition>
+  <skos:example xml:lang="en">Acronyms, abbreviations, spelling variants, and irregular plural/singular forms may be included among the alternative labels for a concept. Mis-spelled terms are normally included as hidden labels (see skos:hiddenLabel).</skos:example>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#example">
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#note"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">example</rdfs:label>
+  <skos:definition xml:lang="en">An example of the use of a concept.</skos:definition>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#broadmatch"/>
+
+<owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#changeNote">
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#note"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">change note</rdfs:label>
+  <skos:definition xml:lang="en">A note about a modification to a concept.</skos:definition>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#closematch"/>
+
+<owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#csoConcept">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#documentId">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#editorialNote">
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#note"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">editorial note</rdfs:label>
+  <skos:definition xml:lang="en">A note for an editor, translator or maintainer of the vocabulary.</skos:definition>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#exactmatch"/>
+
+<owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#hiddenLabel">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:comment xml:lang="en">The range of skos:hiddenLabel is the class of RDF plain literals.</rdfs:comment>
+  <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties.</rdfs:comment>
+  <rdfs:label xml:lang="en">hidden label</rdfs:label>
+  <skos:definition xml:lang="en">A lexical label for a resource that should be hidden when generating visual displays of the resource, but should still be accessible to free text search operations.</skos:definition>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#historyNote">
+  <rdfs:subPropertyOf rdf:resource="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#note"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:label xml:lang="en">history note</rdfs:label>
+  <skos:definition xml:lang="en">A note about the past state/use/meaning of a concept.</skos:definition>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#narrowmatch"/>
+
+<owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#prefLabel">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+  <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  <rdfs:comment xml:lang="en">A resource has no more than one value of skos:prefLabel per language tag, and no more than one value of skos:prefLabel without language tag.</rdfs:comment>
+  <rdfs:comment xml:lang="en">The range of skos:prefLabel is the class of RDF plain literals.</rdfs:comment>
+  <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise
       disjoint properties.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
-        <rdfs:label xml:lang="en">preferred label</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
-    </owl:AnnotationProperty>
-    
+  <rdfs:label xml:lang="en">preferred label</rdfs:label>
+  <skos:definition xml:lang="en">The preferred lexical label for a resource, in a given language.</skos:definition>
+</owl:AnnotationProperty>
+
+<owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#requires"/>
+
+<owl:Class rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+
+<owl:Class rdf:about="#Concept">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptComment">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComputer_Program"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptComputer_Program"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer programming, a comment is a programmer-readable explanation or annotation in the source code of a computer program.  [Source Wikipedia]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Comment (computer programming)</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptComputer_Program">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComputer"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptComputer"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A computer program is a collection of instructions that can be executed by a computer to perform a specific task.  [Source Wikipedia]</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptComputer">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A computer is a machine that can be instructed to carry out sequences of arithmetic or logical operations automatically via computer programming. [Source Wikipedia]</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptConstant">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptComputer_Program"/>
+  <subclassof rdf:resource="#ConceptProgram"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer programming, a constant is a value that cannot be altered by the program during normal execution, i.e., the value is constant. [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Constant (computer programming)</skos:altLabel>
+  <skos:requires rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Computer_Program</skos:requires>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptProgram">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComputer"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptComputer"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A computer program is a collection of instructions[1] that can be executed by a computer to perform a specific task. [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Computer program</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptDirective">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptComputer_Program"/>
+  <subclassof rdf:resource="#ConceptProgram"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer programming, a directive or pragma (from "pragmatic") is a language construct that specifies how a compiler (or other translator) should process its input. Directives are not part of the grammar of a programming language, and may vary from compiler to compiler. They can be processed by a preprocessor to specify compiler behavior, or function as a form of in-band parameterization. [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Directive (programming)</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptFunction">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComputer_Program"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptComputer_Program"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer programming, a subroutine is a sequence of program instructions that performs a specific task, packaged as a unit. This unit can then be used in programs wherever that particular task should be performed. </rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Routine, subprogram, subroutine, method, procedure</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptIO">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComputer_Program"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptComputer_Program"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computing, input/output or I/O (or, informally, io or IO) is the communication between an information processing system, such as a computer, and the outside world, possibly a human or another information processing system. Inputs are the signals or data received by the system and outputs are the signals or data sent from it. The term can also be used as part of an action; to "perform I/O" is to perform an input or output operation. </rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Input/output</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptOperator">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComputer_Program"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptComputer_Program"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer programming, operators are constructs defined within programming languages which behave generally like functions, but which differ syntactically or semantically. </rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptProgramming">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComputer_Program"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptComputer_Program"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Computer programming is the process of designing and building an executable computer program to accomplish a specific computing result or to perform a specific task. [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Computer programming</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptStatement">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComputer_Program"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptComputer_Program"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer programming, a statement is a syntactic unit of an imperative programming language that expresses some action to be carried out.[1] A program written in such a language is formed by a sequence of one or more statements. A statement may have internal components (e.g., expressions). </rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Statement (computer science)</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptComputer_System">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComputer"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptComputer"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptSystem_Bus">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComputer_System"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptComputer_System"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A system bus is a single computer bus that connects the major components of a computer system, combining the functions of a data bus to carry information, an address bus to determine where it should be sent, and a control bus to determine its operation. [Source Wiki]</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptProcessor">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptSystem_Bus"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptSystem_Bus"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computing, a processor or processing unit is a digital circuit which performs operations on some external data source, usually memory or some other data stream.[1] It typically takes the form of a microprocessor, which can be implemented on a single metal–oxide–semiconductor integrated circuit chip. [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Processor (computing)</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptNetwork">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptSystem_Bus"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptSystem_Bus"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A computer network is a group of computers that use a set of common communication protocols over digital interconnections for the purpose of sharing resources located on or provided by the network nodes.  [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Computer network</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptArithmetic_Operator">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptOperator"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptOperator"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Arithmetic (from the Greek ἀριθμός arithmos, 'number' and τική [τέχνη], tiké [téchne], 'art') is a branch of mathematics that consists of the study of numbers, especially the properties of the traditional operations on them—addition, subtraction, multiplication, division, exponentiation and extraction of roots. [Source Wiki]</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptVariables">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptSystem_Bus"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptSystem_Bus"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer programming, a variable or scalar is a storage location (identified by a memory address) paired with an associated symbolic name, which contains some known or unknown quantity of information referred to as a value.  [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Variable (computer science)</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptRelational_Operator">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptOperator"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptOperator"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer science, a relational operator is a programming language construct or operator that tests or defines some kind of relation between two entities. These include numerical equality (e.g., 5 = 5) and inequalities (e.g., 4 ≥ 3). [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Conditional Expressions</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptPointers">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptSystem_Bus"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptSystem_Bus"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer science, a pointer is an object in many programming languages that stores a memory address. This can be that of another value located in computer memory, or in some cases, that of memory-mapped computer hardware. [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pointer (computer programming)</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptI/O">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptSystem_Bus"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptSystem_Bus"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computing, input/output or I/O (or, informally, io or IO) is the communication between an information processing system, such as a computer, and the outside world, possibly a human or another information processing system. Inputs are the signals or data received by the system and outputs are the signals or data sent from it. The term can also be used as part of an action; to "perform I/O" is to perform an input or output operation. [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Input/output</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptDisk">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptSystem_Bus"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptSystem_Bus"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Disk storage (also sometimes called drive storage) is a general category of storage mechanisms where data is recorded by various electronic, magnetic, optical, or mechanical changes to a surface layer of one or more rotating disks. [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Disk storage</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptStack">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComputer_System"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptComputer_System"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptPush">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptStack"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptStack"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptPop">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptStack"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptStack"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptQueue">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComputer_System"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptComputer_System"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptPriority_Queue">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptQueue"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptQueue"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer science, a priority queue is an abstract data type similar to a regular queue or stack data structure in which each element additionally has a "priority" associated with it. In a priority queue, an element with high priority is served before an element with low priority. [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Priority queue</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptEnqueue">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptQueue"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptQueue"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptDequeue">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptQueue"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptQueue"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptProgramming_Language">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgramming"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptProgramming"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A programming language is a formal language comprising a set of instructions that produce various kinds of output. </rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptComment_">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptProgram"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer programming, a comment is a programmer-readable explanation or annotation in the source code of a computer program.  [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Comment (computer programming)</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptData_Representation">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComputer"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptComputer"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Data (treated as singular, plural, or as a mass noun) is any sequence of one or more symbols. Datum is a single symbol of data. Data requires interpretation to become information. [Search Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Data (computing)</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptC_Program">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgramming_Language"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptProgramming_Language"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C (/siː/, as in the letter c) is a general-purpose, procedural computer programming language supporting structured programming, lexical variable scope, and recursion, with a static type system.</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C (programming language)</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptProgramming_Strategy">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgramming"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptProgramming"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptASCII">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptData_Representation"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptData_Representation"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ASCII,[3]:6 abbreviated from American Standard Code for Information Interchange, is a character encoding standard for electronic communication. </rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptVariable_Assignment">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptVariables"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptVariables"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer programming, an assignment statement sets and/or re-sets the value stored in the storage location(s) denoted by a variable name; in other words, it copies a value into the variable. In most imperative programming languages, the assignment statement (or expression) is a fundamental construct. [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Assignment (computer science)</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptFunction_Lifetime">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptFunction"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptFunction"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In object-oriented programming (OOP), the object lifetime (or life cycle) of an object is the time between an object's creation and its destruction. [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Object lifetime</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptVariable_Declaration">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptVariables"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptVariables"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer programming, a declaration is a language construct that specifies properties of an identifier: it declares what a word (identifier) "means".  [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Declaration (computer programming)</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptFunction_Parameter_">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptFunction"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptFunction"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer programming, a parameter or a formal argument, is a special kind of variable, used in a subroutine to refer to one of the pieces of data provided as input to the subroutine. [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Parameter (computer programming)</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptCharacterData">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptData_Representation"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptData_Representation"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer and machine-based telecommunications terminology, a character is a unit of information that roughly corresponds to a grapheme, grapheme-like unit, or symbol, such as in an alphabet or syllabary in the written form of a natural language. [Search Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Character (computing)</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptVariable_Initialisation">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptVariables"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptVariables"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptFunction_Scope_">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptFunction"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptFunction"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer programming, the scope of a name binding—an association of a name to an entity, such as a variable—is the part of a program where the name binding is valid, that is where the name can be used to refer to the entity. [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Scope (computer science)</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptFunction_Type_">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptFunction"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptFunction"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer science and mathematical logic, a function type (or arrow type or exponential) is the type of a variable or parameter to which a function has or can be assigned, or an argument or result type of a higher-order function taking or returning a function. [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Function type</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptMemory">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComputer_System"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptComputer_System"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computing, memory refers to a device that is used to store information for immediate use in a computer or related computer hardware device. [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Computer memory</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptVariable_Memory">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptVariables"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#exactMatch"/>
+      <owl:someValuesFrom rdf:resource="#ConceptVariables"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptVariables"/>
+  <skos:exactmatch rdf:resource="#ConceptMemory"/>
+  <skos:exactmatch rdf:resource="#ConceptVariables"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptNumericData">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptData_Representation"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptData_Representation"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In statistics, groups of individual data points may be classified as belonging to any of various statistical data types, e.g. categorical ("red", "blue", "green"), real number (1.68, -5, 1.7e+6), odd number(1,3,5) etc. [Search Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Statistical data type</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptSchemes">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptFunction_Type_"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptFunction_Type_"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Scheme is a minimalist dialect of the Lisp family of programming languages. Scheme consists of a small standard core with powerful tools for language extension. [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Scheme (programming language)</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptFloatingPointNumbers">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptNumericData"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptNumericData"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computing, floating-point arithmetic (FP) is arithmetic using formulaic representation of real numbers as an approximation to support a trade-off between range and precision. [Search Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Floating-point arithmetic</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptSigned_Integer">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptNumericData"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptNumericData"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In the C99 version of the C programming language and the C++11 version of C++, a long long type is supported that has double the minimum capacity of the standard long. [Source Wiki]</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptUnicode">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComputer"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptComputer"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unicode is an information technology (IT) standard for the consistent encoding, representation, and handling of text expressed in most of the world's writing systems. [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unicode</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptUnsigned_Integer">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptData_Representation"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptData_Representation"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The unsigned integer is represented by an unsigned binary number whose most significant byte is 0; the least significant is 3.  [Source IBM]</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptUTF-8">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComputer"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptComputer"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UTF-8 is a variable-width character encoding used for electronic communication. Defined by the Unicode Standard, the name is derived from Unicode (or Universal Coded Character Set) Transformation Format – 8-bit. [Source Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UTF-8</skos:altLabel>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptIntegerConstant">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptNumericData"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptNumericData"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In computer programming, a constant is a value that cannot be altered by the program during normal execution, i.e., the value is constant. [Search Wiki]</rdfs:comment>
+  <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Constant (computer programming)</skos:altLabel>
+</owl:Class>
+
+<ConceptC_Program rdf:about="#1">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#ConceptProgramming_Strategy"/>
+  <rdf:type rdf:resource="#ConceptProgramming"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Code - Hello World Demo</rdfs:label>
+  <skos:LOId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</skos:LOId>
+</ConceptC_Program>
+
+<ConceptComputer rdf:about="#2">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#ConceptComputer_Program"/>
+  <rdf:type rdf:resource="#ConceptProgram"/>
+  <rdf:type rdf:resource="#ConceptFunction"/>
+  <rdf:type rdf:resource="#ConceptProgramming"/>
+  <rdf:type rdf:resource="#ConceptC_Program"/>
+  <rdf:type rdf:resource="#ConceptComment"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Slide - Introduction and First C Program</rdfs:label>
+  <skos:LOId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2</skos:LOId>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></skos:csoConcept>
+</ConceptComputer>
+
+<ConceptProgramming_Strategy rdf:about="#3">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">COMP1511 20T2 - Week 01 Laboratory Exercises</rdfs:label>
+  <skos:LOId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3</skos:LOId>
+</ConceptProgramming_Strategy>
+
+<ConceptC_Program rdf:about="#4">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#ConceptComputer_Program"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">COMP1511 20T2 - Week 01 Tutorial Questions</rdfs:label>
+  <skos:LOId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4</skos:LOId>
+</ConceptC_Program>
+
+<ConceptComputer rdf:about="#5">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">COMP9517 2020 T3:  Computer Vision Image Formation</rdfs:label>
+  <skos:LOId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5</skos:LOId>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">44,computer vision,vision systems,reference image,color images,digital image</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">45,reference image,color images,digital image,document images,image features,computer vision,sensors</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">46,computer vision,geometry,epipolar geometry,reference image,color images</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">47,reference image,color images,digital image,document images,image features,computer vision</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">48,reference image,color images,digital image,document images,image features,computer vision</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">49,reference image,color images,digital image,document images,image features,computer vision</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">50,reference image,color images,digital image,document images,image features,computer vision</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">51,reference image,color images,digital image,document images,image features,computer vision</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">52,computer vision,vision systems,reference image,color images,digital image</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">53,reference image,color images,digital image,document images,image features,computer vision,dimensionality reduction,dimensionality reduction method</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">54,computer vision,vision systems,reference image,color images,digital image</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">55,computer vision,vision systems,reference image,color images,digital image</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">56,computer vision,epipolar geometry,geometry,vision systems,reference image</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">57,computer vision,epipolar geometry,geometry,vision systems,reference image</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">58,computer vision,epipolar geometry,geometry,vision systems,reference image</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">59,reference image,color images,digital image,document images,image features,computer vision</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">60,computer vision,lane markings,line detection,hough transforms,vision systems</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">61,computer vision,vision systems,reference image,color images,digital image</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">62,computer vision,vision systems,reference image,color images,digital image</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">63,computer vision,vision systems,reference image,color images,digital image</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">64,computer vision,vision systems,reference image,color images,digital image</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">65,reference image,color images,digital image,document images,image features,computer vision</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">66,reference image,color images,digital image,document images,image features,computer vision</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">67,reference image,color images,digital image,document images,image features,computer vision</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">68,reference image,color images,digital image,document images,image features,computer vision</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">69,computer vision,vision systems,reference image,color images,digital image</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">70,computer vision,projection method,affine projections,foreground objects,vision systems</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">71,computer vision,projection method,affine projections,vision systems,reference image</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">72,computer vision,signal distortion,geometric distortion,reference image,color images</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">73,vision systems,computer vision,reference image,color images,digital image</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">74,computer vision,electromagnetic,frequency bands,responsivity,dynamic spectrum</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">75,color images,computer vision,reference image,digital image,vision systems</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">76,color images,computer vision,wiki,rgb color space,vision systems</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">77,color images,computer vision,rgb color space,color features,vision systems</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">78,color images,computer vision,rgb color space,cognitive radio,vision systems</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">79,color images,computer vision,vision systems,reference image,digital image</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">80,digital image,computer vision,color images,reference image,document images</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">81,digital image,computer vision,color images,reference image,document images</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">82,digital image,computer vision,color images,reference image,document images,image features</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">83,color images,computer vision,reference image,digital image,vision systems</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">84,computer vision,image resolution,human faces,reference image,color images</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">85,computer vision,quantizers,quantization,scalar quantization,quantization schemes</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">86,computer vision,least significant bits,most significant bit,parity bits,color component</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">87,computer vision,vision systems,reference image,color images,digital image</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">88,reference image,color images,digital image,computer vision,document images</skos:csoConcept>
+</ConceptComputer>
 
 
-    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#requires -->
-
-    <owl:AnnotationProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#requires"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Object Properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.skosknowledge.com/ontologies/owl/owl/ontology.owl#broadMatch -->
-
-    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/owl/owl/ontology.owl#broadMatch"/>
-    
-
-
-    <!-- http://www.skosknowledge.com/ontologies/owl/owl/ontology.owl#closeMatch -->
-
-    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/owl/owl/ontology.owl#closeMatch"/>
-    
-
-
-    <!-- http://www.skosknowledge.com/ontologies/owl/owl/ontology.owl#exactMatch -->
-
-    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/owl/owl/ontology.owl#exactMatch"/>
-    
-
-
-    <!-- http://www.skosknowledge.com/ontologies/owl/owl/ontology.owl#narrowMatch -->
-
-    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/owl/owl/ontology.owl#narrowMatch"/>
-    
-
-
-    <!-- http://www.skosknowledge.com/ontologies/owl/owl/ontology.owl#subClassOf -->
-
-    <owl:ObjectProperty rdf:about="http://www.skosknowledge.com/ontologies/owl/owl/ontology.owl#subClassOf"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Data properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.skosknowledge.com/ontologies/skos_knowledge.owl#notation -->
-
-    <owl:DatatypeProperty rdf:about="http://www.skosknowledge.com/ontologies/skos_knowledge.owl#notation">
-        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
-        <rdfs:label xml:lang="en">notation</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#List -->
-
-    <owl:Class rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Individuals
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.skosknowledge.com/ontologies/owl/ontology.owl#3 -->
-
-    <owl:NamedIndividual rdf:about="http://www.skosknowledge.com/ontologies/owl/ontology.owl#3">
-        <skos:LOId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3</skos:LOId>
-        <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></skos:csoConcept>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ede</rdfs:label>
-    </owl:NamedIndividual>
 </rdf:RDF>
-
-
-
-<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
-
