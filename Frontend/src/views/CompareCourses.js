@@ -68,11 +68,9 @@ function mapSmmNotes(data, table) {
 
 }
 async function loToconceptLookupTable(fullTable, LOs) {
-  console.log("Enetered Lotoconcept")
   // Full Table Is A Dictionary Of Array
   for(let i = 0; i < LOs.length; ++i) {
     let currLO = LOs[i]
-    console.log(fullTable[currLO] === undefined)
     if (fullTable[currLO] === undefined) {
       // New Entry
       // get concepts for this LOs
@@ -91,16 +89,15 @@ async function conceptToDependencyLookupTable(concepts) {
   let dependency_set = [...new Set(dependencies)]
   return dependency_set
 }
+
 function addLOsToLookup(table, data) {
   if(data === undefined) {
     return table
   }
-  console.log(data['LearningObject'])
   const LOs = data['LearningObject']
   for (let i = 0; i < LOs.length; ++i) {
     table[LOs[i]['LOId']] = LOs[i]['title']
   }
-  console.log(table)
   return table
 
 }
@@ -418,8 +415,6 @@ class CompareCourses extends React.Component {
   }
 
   render() {
-    console.log(this.state)
-
     return (
       <>
         <Navbar/>
@@ -440,7 +435,7 @@ class CompareCourses extends React.Component {
                 <h1>Course Comparison</h1>
                 {/*<Checkbox label='Include Prerequisite Courses' onChange={this.togglePrereq} checked={this.state.isIncludePrereqCourse}/>*/}
                 <Checkbox label='Show Course Concepts Only' onChange={this.toggleCourseConcepts} checked={this.state.isShowCourseConceptsOnly} />
-                <h2>Course Benchmark: {this.state.ssm === undefined ? 'None' : this.state.ssm.courseScore}</h2>
+                <h2>Course Benchmark: {this.state.ssm === undefined ? 'None' : (this.state.ssm.courseScore/20) * 100 + '%'}</h2>
 
               </Segment>
               <Grid columns={'equal'}>
@@ -474,7 +469,7 @@ class CompareCourses extends React.Component {
             </Container>
             <Container>
               <Segment>
-                <h2> List Of Dependencies Not Found </h2>
+                <h2> List of Dependencies Not Found </h2>
               {/*  List of dependencies not found right here */}
                 {this.render_dependency()}
               </Segment>

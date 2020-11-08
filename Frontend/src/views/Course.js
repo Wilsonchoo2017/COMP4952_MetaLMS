@@ -10,17 +10,7 @@ import { useTable } from 'react-table'
 import {
   Badge,
   Button,
-  Card,
-  CardBody,
-  CardImg,
-  FormGroup,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
   Container,
-  Row,
-  Col
 } from "reactstrap";
 
 // core components

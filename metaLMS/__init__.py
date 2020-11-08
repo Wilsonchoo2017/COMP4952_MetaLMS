@@ -111,7 +111,7 @@ def create_app(test_config=None):
     @app.route('/new-course', methods=['POST'])
     def new_course():
         print(request.json)
-        handle_post_course(filepath, request.json)
+        handle_post_course(request.json)
         return "1"
 
     @app.route('/import-course', methods=['POST'])

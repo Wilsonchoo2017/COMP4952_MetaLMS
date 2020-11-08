@@ -1139,5 +1139,51 @@
   <skos:LOId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7</skos:LOId>
 </ConceptC_Program>
 
+<ConceptComputer_System rdf:about="#8">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#ConceptComputer"/>
+  <rdf:type rdf:resource="#ConceptProgramming_Language"/>
+  <rdf:type rdf:resource="#ConceptProgramming"/>
+  <rdf:type rdf:resource="#ConceptC_Program"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">COMP1511 18s1 - Introduction to C</rdfs:label>
+  <skos:LOId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8</skos:LOId>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">114,micro-mechanical</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">120,cpu,random access memory,hard disks,software,central processing unit</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">121,linux,windows xp</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">122,linux,password,one-time passwords,windows xp,mobile terminal</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">123,programming languages</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">130,compiler,partial evaluation,compile time,optimizing compilers</skos:csoConcept>
+</ConceptComputer_System>
+
+<ConceptVariables rdf:about="#9">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#ConceptData_Representation"/>
+  <rdf:type rdf:resource="#ConceptUnsigned_Integer"/>
+  <rdf:type rdf:resource="#ConceptSigned_Integer"/>
+  <rdf:type rdf:resource="#ConceptVariable_Assignment"/>
+  <rdf:type rdf:resource="#ConceptVariable_Declaration"/>
+  <rdf:type rdf:resource="#ConceptIO"/>
+  <rdf:type rdf:resource="#ConceptVariable_Types"/>
+  <rdf:type rdf:resource="#ConceptConstant"/>
+  <rdf:type rdf:resource="#ConceptIntegerConstant"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">COMP1511 18s1 - C Basics</rdfs:label>
+  <skos:LOId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9</skos:LOId>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">136,binary codes,code generation,source codes</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">138,real number,presburger arithmetic,wiki,wikis,mediawiki,collaborative writing,semantic wiki</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">142,pi controller</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">146,education</skos:csoConcept>
+  <skos:csoConcept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">147,real number</skos:csoConcept>
+</ConceptVariables>
+
+<ConceptC_Program rdf:about="#10">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#ConceptProgramming_Strategy"/>
+  <rdf:type rdf:resource="#ConceptProgramming"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">COMP1511 18s1 - TLB 01</rdfs:label>
+  <skos:LOId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10</skos:LOId>
+</ConceptC_Program>
+
 
 </rdf:RDF>
