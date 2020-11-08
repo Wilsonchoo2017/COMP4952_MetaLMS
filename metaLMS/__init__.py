@@ -5,8 +5,10 @@ from metaLMS.Concept import *
 from metaLMS.Course import *
 from metaLMS.LearningObject import *
 from metaLMS.onto_utils import *
+from metaLMS.ssm import *
 
-
+import schedule
+import time
 
 filepath = "owl/ontology.owl"
 
@@ -32,6 +34,12 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
+
+    # Setup Threading to run continous functions
+    # schedule.every().hour.do(pre_compute_semantic_similarity) Uncomment this if you want to make it run
+
+    # while True:
+    #     schedule.run_pending()
 
 
     #### Concept Methods ####
@@ -88,6 +96,11 @@ def create_app(test_config=None):
             print(request.json)
             handle_post_concept(filepath, request.json)
             return "1"
+
+    @app.route('/refresh-semantic')
+    def refresh_semantic():
+        pre_compute_semantic_similarity()
+        return "1"
 
     #### Course Methods ####
 

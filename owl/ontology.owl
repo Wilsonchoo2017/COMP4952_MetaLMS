@@ -961,6 +961,47 @@
   <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Constant (computer programming)</skos:altLabel>
 </owl:Class>
 
+<owl:Class rdf:about="#ConceptVariable_Types">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptVariables"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptVariables"/>
+  <skos:requires rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Variables</skos:requires>
+</owl:Class>
+
+<owl:Class rdf:about="#ConceptMore_Types">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#subClassOf"/>
+      <owl:someValuesFrom rdf:resource="#ConceptProgram"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <subclassof rdf:resource="#ConceptProgram"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Schemes">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SchemesTypes">
+  <rdfs:subClassOf rdf:resource="#Schemes"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SchemeFunction_Type_">
+  <rdfs:subClassOf rdf:resource="#SchemesTypes"/>
+  <owl:equivalentClass rdf:resource="#ConceptFunction_Type_"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SchemeVariable_Types">
+  <rdfs:subClassOf rdf:resource="#SchemesTypes"/>
+  <owl:equivalentClass rdf:resource="#ConceptVariable_Types"/>
+</owl:Class>
+
 <ConceptC_Program rdf:about="#1">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <rdf:type rdf:resource="#ConceptProgramming_Strategy"/>

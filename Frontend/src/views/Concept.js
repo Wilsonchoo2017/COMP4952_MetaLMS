@@ -203,6 +203,14 @@ class Concept extends React.Component {
                 New Concept
               </Button>
               </Link>
+
+              <Button
+                className="mt-4"
+                color="primary"
+                onClick={API.refreshSemantic}
+              >
+                Refresh Concept
+              </Button>
               <ConceptTable data={this.state.data}/>
             </Container>
           </section>

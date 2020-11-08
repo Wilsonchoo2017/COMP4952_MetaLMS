@@ -1,5 +1,8 @@
 import ssmpy
 
+import schedule
+import time
+
 
 
 filepath = "owl/ontology.owl"
@@ -124,3 +127,5 @@ def get_id(term, type):
         return el
     else:
         return ''
+
+

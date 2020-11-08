@@ -15,6 +15,14 @@ class API {
       })
   }
 
+  static refreshSemantic() {
+    return axios.get(API_URL + '/refresh-semantic')
+      .then(function (response) {
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+  }
   static getAllRelationship() {
     return axios.get(API_URL + '/concept-all-relationship')
       .then(function (response) {

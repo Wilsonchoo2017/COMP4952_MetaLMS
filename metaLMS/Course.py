@@ -75,11 +75,12 @@ def get_ssm_of_two_courses(course_a, course_b):
         for b in lo_b:
             if a == b:
                 # Skip same lo id
-                scoreboard_a[b] = -1
+                # scoreboard_a[b] = -1
                 continue
 
             # Score between a and b
             score = compute_two_lo_ssm(a, b)
+            print(scoreboard_a)
             if a in scoreboard_a:
                 # append list of dict
                 scoreboard_a[a].append({'from': a, 'to': b, 'score': score})
@@ -97,7 +98,7 @@ def get_ssm_of_two_courses(course_a, course_b):
         for a in lo_a:
             if a == b:
                 # Skip same lo id
-                scoreboard_b[a] = -1
+                # scoreboard_b[a] = -1
                 continue
 
             # Score between a and b
