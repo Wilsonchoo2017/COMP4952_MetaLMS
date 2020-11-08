@@ -474,7 +474,7 @@ class CompareCourses extends React.Component {
             </Container>
             <Container>
               <Segment>
-                <h2> Dependencies Not Found </h2>
+                <h2> List Of Dependencies Not Found </h2>
               {/*  List of dependencies not found right here */}
                 {this.render_dependency()}
               </Segment>
