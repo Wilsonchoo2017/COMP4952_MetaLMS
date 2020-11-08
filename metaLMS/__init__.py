@@ -116,7 +116,7 @@ def create_app(test_config=None):
 
     @app.route('/import-course', methods=['POST'])
     def import_course():
-        # handle_import_course(filepath, request.json)
+        handle_import_course(request.json)
         return "1"
 
     @app.route('/course-detail/<course>')

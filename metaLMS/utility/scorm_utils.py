@@ -5,7 +5,6 @@ import rustici_software_cloud_v2 as scorm_cloud
 from datetime import datetime, timedelta
 
 
-# todo change into class
 # Configure HTTP basic authorization: APP_NORMAL
 scorm_cloud.configuration.username = 'QKZXU3B8GG'
 scorm_cloud.configuration.password = 'ro5L12Dq1bw8oDi5Z7P9yK5nbIJLCzOduu0mAJBM'

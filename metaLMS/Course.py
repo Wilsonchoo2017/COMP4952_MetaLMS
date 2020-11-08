@@ -1,11 +1,9 @@
-from .utility.database import insert_course_into_database, max_course_id, get_course_and_associated_details_from_db, \
-    get_is_imported
-from base64 import b64decode
-import time, threading
 from .LearningObject import *
+from .utility.scorm_utils import *
+import threading
 
 
-def handle_post_course(ontology_file, course_json):
+def handle_post_course(course_json):
     print(course_json)
     is_imported = course_json['isImported']
     if is_imported == False:
@@ -14,25 +12,59 @@ def handle_post_course(ontology_file, course_json):
                                 course_json['courseComponent'], course_json['isImported'])
     else:
         # import into scorm
-        # handle_import_course(ontology_file, course_json)
+        handle_import_course(course_json)
 
-        pass
+def handle_import_course(course_json):
+    print(course_json)
 
-def handle_upload_complete_course(course_id):
-    # response = get_scorm_course_detail(course_id)
-    # insert some information into database
-    pass
+    # Save File
+    file = course_json['file']
+    file = file.split(",")[1]
+    bytes = b64decode(file, validate=True)
 
-def get_scorm_course_detail(course_id):
-    # response_json = get_course_detail_from_scorm(course_id)
+    curr_id = max_course_id() + 1
+    save_filepath = '/Users/wilson/PycharmProjects/COMP4952/LearningObject/' + "Course" + str(curr_id)
+    print(save_filepath)
+    f = open(save_filepath, 'wb')
+    f.write(bytes)
+    f.close()
+
+    # Save into Database
+    job_id = upload_course(save_filepath)
+
+    while True:
+        if(check_import_job_status(job_id)) == 0:
+            break
+
+
+    return handle_upload_complete_course(curr_id, course_json)
+
+def check_import_job_status(job_id):
+    response_json = check_job_status(job_id)
+    status = response_json.status
+    if status == "COMPLETE":
+        return 0
+
+    if status == "RUNNING":
+        return 1
+
+    # Error
+    return 2
+
+def handle_upload_complete_course(course_id, course_json):
+    response_json = get_course_detail_from_scorm(course_id)
     # Unpack response body
-    # title = response_json.title
+    courseName = response_json.title
+    # insert_course_into_database(course_code, course_name, course_term, course_year,
+    #                             course_type, course_duration, course_los, course_component, "1")
     # created = response_json.created
     # tags = response_json.tags
     # metadata = response_json.metadata
+    print(response_json)
 
-    # return response_json
-    pass
+    return response_json
+
+
 
 
 def get_course_detail(course_id):
@@ -41,7 +73,8 @@ def get_course_detail(course_id):
         # else extract everything from database and
         return get_course_and_associated_details_from_db(course_id)
     else:
-        return get_scorm_course_detail(course_id)
+        # return (course_id) TODO
+        pass
 
 
 def get_ssm_of_two_courses(course_a, course_b):
@@ -122,9 +155,4 @@ def get_ssm_of_two_courses(course_a, course_b):
     # course a score = how similar is the lo to the other course
     return course_ssm_score, scoreboard_a, scoreboard_b
 
-
-class Scoreboard():
-    def __init__(self, to, score):
-        self.to = to
-        self.score = score
 

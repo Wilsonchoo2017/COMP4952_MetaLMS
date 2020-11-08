@@ -45,7 +45,6 @@ class Course extends React.Component {
       <>
         <Navbar />
         <main ref="main">
-          {/* Circle BG */}
 
           <section className={"section section-lg"}>
             <Container>
