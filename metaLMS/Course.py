@@ -69,12 +69,15 @@ def handle_upload_complete_course(course_id, course_json):
 
 def get_course_detail(course_id):
     # if course type is scorm. Procede to extract using get_scrom_course_detail
-    if(get_is_imported(course_id) == 0):
+    # if(get_is_imported(course_id) == 0):
         # else extract everything from database and
-        return get_course_and_associated_details_from_db(course_id)
-    else:
+    if course_id == None:
+        return []
+
+    return get_course_and_associated_details_from_db(course_id)
+    # else:
         # return (course_id) TODO
-        pass
+        # pass
 
 
 def get_ssm_of_two_courses(course_a, course_b):

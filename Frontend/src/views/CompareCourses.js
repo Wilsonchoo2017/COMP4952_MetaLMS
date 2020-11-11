@@ -159,7 +159,7 @@ class CompareCourses extends React.Component {
     }
 
     let ssm = {courseAScore:{}, courseBScore:{}, courseScore: ''}
-    if (this.state.CourseA !== "" && this.state.CourseA !== "" ) {
+    if (this.state.CourseA !== "" && this.state.CourseB !== "" ) {
       const result = await API.computeTwoCoursesSimilarity(this.state.CourseA, this.state.CourseB)
       ssm = result
     }
@@ -448,8 +448,7 @@ class CompareCourses extends React.Component {
                               onChange={this.handleDropdownChange}
                               options={this.state.courseOptions}
                     />
-                    {console.log(this.state)}
-                    {this.qCourse(this.state.concepts,this.state.CourseA, this.state.courseAResponse, this.state.ssm === undefined ? undefined : this.state.ssm.courseAScore, this.state.courseBResponse)}
+                    {this.qCourse(this.state.conceptsA,this.state.CourseA, this.state.courseAResponse, this.state.ssm === undefined ? undefined : this.state.ssm.courseAScore, this.state.courseBResponse)}
 
                   </Segment>
                 </Grid.Column>

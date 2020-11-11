@@ -1002,6 +1002,18 @@
   <owl:equivalentClass rdf:resource="#ConceptVariable_Types"/>
 </owl:Class>
 
+<owl:Class rdf:about="#ConceptABC">
+  <rdfs:subClassOf rdf:resource="#Concept"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#exactMatch"/>
+      <owl:someValuesFrom rdf:resource="#ConceptComputer_Program"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <skos:exactmatch rdf:resource="#ConceptComputer_Program"/>
+  <skos:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">123</skos:prefLabel>
+</owl:Class>
+
 <ConceptC_Program rdf:about="#1">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <rdf:type rdf:resource="#ConceptProgramming_Strategy"/>

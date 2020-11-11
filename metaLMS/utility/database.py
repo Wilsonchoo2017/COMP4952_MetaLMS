@@ -116,7 +116,7 @@ def get_course_and_associated_details_from_db(course_id):
 
     # Get Course
     result = c.execute("select * from Course "
-                       "where Course.CourseId=?", (course_id))
+                       "where Course.CourseId=?", (course_id, ))
 
     result = result.fetchone()
     row_headers = [x[0] for x in c.description]
