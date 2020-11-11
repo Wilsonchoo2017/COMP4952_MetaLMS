@@ -59,8 +59,6 @@ function mapSmmNotes(data, table) {
   let res = data
   for(let i = 0; i < data.length; ++i) {
     let curr = data[i]
-    console.log(curr['from'])
-    console.log(table[curr['from']])
     res[i]['from'] = table[data[i]['from']]
     res[i]['to'] = table[data[i]['to']]
   }
@@ -79,7 +77,6 @@ async function loToconceptLookupTable(fullTable, LOs) {
       fullTable[currLO] = concepts
     }
   }
-  console.log(fullTable)
   return fullTable
 }
 
@@ -125,7 +122,6 @@ class CompareCourses extends React.Component {
     const courseAResponse = await API.getCourseDetail(this.state.CourseA);
     const courseBResponse = await API.getCourseDetail(this.state.CourseB);
     let table = this.state.allLOs
-    table = addLOsToLookup(this.state.allLOs, courseAResponse)
     table = addLOsToLookup(this.state.allLOs, courseBResponse)
     let conceptsA = undefined
     let conceptsB = undefined
@@ -251,7 +247,7 @@ class CompareCourses extends React.Component {
 
 
         return (<Table.Row key={idx} style={{backgroundColor: bgcolor}}>
-          <Table.Cell as={ Link } to={'concept-detail/' + el.LOId}>
+          <Table.Cell as={ Link } to={'lo-detail/' + el.LOId}>
             {el.title}
           </Table.Cell>
           <Table.Cell>
