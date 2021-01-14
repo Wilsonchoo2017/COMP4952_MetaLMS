@@ -28,7 +28,7 @@ matplotlib==3.3.2
 more-itertools==8.4.0
 murmurhash==1.0.2
 networkx==2.3
-nltk==3.4.1
+nltk==3.4.5
 numpy==1.16.4
 Owlready2==0.24
 owlrl==5.2.1
