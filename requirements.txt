@@ -39,7 +39,7 @@ Pillow==8.0.1
 plac==0.9.6
 pluggy==0.13.1
 preshed==2.0.1
-py==1.8.2
+py==1.10.0
 pyLODE==2.5
 pyparsing==2.4.7
 PyPDF2==1.26.0
