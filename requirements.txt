@@ -10,7 +10,7 @@ decorator==4.4.2
 en-core-web-sm==2.1.0
 falcon==2.0.0
 Flask==1.1.2
-Flask-Cors==3.0.8
+Flask-Cors==3.0.9
 gunicorn==20.0.4
 hurry.filesize==0.9
 idna==2.8
