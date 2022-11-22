@@ -35,7 +35,7 @@ owlrl==5.2.1
 packaging==20.4
 pandas==0.24.2
 pdftotext==2.1.5
-Pillow==8.0.1
+Pillow==9.3.0
 plac==0.9.6
 pluggy==0.13.1
 preshed==2.0.1
